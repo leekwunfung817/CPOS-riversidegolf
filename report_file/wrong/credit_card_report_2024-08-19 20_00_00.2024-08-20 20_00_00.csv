@@ -1,0 +1,9 @@
+"Reserv. No","Reserv. Date","Begin Hour","End Hour","Payment Method","Total Amount","Payment Time","Credit Card Number"
+460,'2024-08-24,11:00,13:00,Visa,400.00,"'2024-08-20 14:00:41",xxxxxxxxxxxx5010
+458,'2024-08-26,19:00,21:00,Visa,100.00,"'2024-08-20 09:06:50",xxxxxxxxxxxx4993
+457,'2024-08-24,16:00,17:00,Visa,100.00,"'2024-08-20 09:06:38",xxxxxxxxxxxx2923
+456,'2024-08-25,19:00,20:00,Mastercard,50.00,"'2024-08-20 08:57:40",xxxxxxxxxxxx9919
+428,'2024-08-27,8:00,9:00,Visa,50.00,"'2024-08-20 06:07:35",xxxxxxxxxxxx1506
+,
+"Total Payment:","HKD $ 700"
+Transactions:,5,record(s)

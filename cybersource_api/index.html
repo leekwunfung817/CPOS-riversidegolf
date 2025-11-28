@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<TITLE>Payment</TITLE>
+</head>
+
+<body>
+
+	<form method="post" id="formData"> 
+
+      <table  align="center">
+	  
+	  		<tr><td>
+			Date From:<input type="text" name="date_from" id="date_from" value="">
+			</td></tr>
+			<tr><td >
+			To :<input type="text" name="date_to" id="date_to" value="">
+			</td></tr>
+			<tr><td>
+			Query:<input type="text" name="sel_query" id="sel_query" value="">
+			</td></tr>
+			<tr><td >
+			Offset<input type="text" name="sel_offset" id="sel_offset" value="">
+			</td></tr>
+			<tr><td >
+			Limit<input type="text" name="sel_limit" id="sel_limit" value="">
+			</td></tr>			
+			<tr><td >
+			Sort<input type="text" name="sel_sort" id="sel_sort" value="">
+			</td></tr>		
+			<tr> <td align="center">
+			
+			<input value = "Search Transactions" type="button" onClick="search(0)">
+
+			</td></tr>
+			
+			<tr><td >
+			Transactions ID<input type="text" name="trans_id" id="trans_id" value="">
+			</td></tr>		
+			<tr> <td align="center">
+			<input value = "Transaction Detail" type="button" onClick="search(1)">
+
+			</td></tr>		
+      </table>
+</form>
+
+
+<div id="search_result"> <div>
+
+
+<script>
+
+	/*
+	var d = new Date();
+	var n = d.getTime();
+	var currentTime = new Date();
+
+	// 格式化时间
+	var year = currentTime.getFullYear();
+	var month = currentTime.getMonth() + 1;
+	var day = currentTime.getDate();
+	var hour = currentTime.getHours();
+	var minute = currentTime.getMinutes();
+	var second = currentTime.getSeconds();
+	
+	*/
+	
+
+async function formPost(url, formData, callback) {
+
+    try 
+	{
+		// console.log('Point 1');
+		const response = await fetch(url, {
+		method: "POST",
+		headers: {
+			//如果formData数据为已组合好的用&分隔的字符串,需要设置Content-Type
+			//如果formData是new FormData对象,不能设置Content-Type
+			//'Content-Type':'application/x-www-form-urlencoded;charset=utf-8',
+		},
+		  body: formData
+		});
+		
+		// console.log('Point 2');
+		if (response.ok) 
+		{
+			// console.log(response);
+			const res_text = await response.text();//原样文本
+			// console.log(res_text);
+
+			const res = JSON.parse(res_text);	//格式化成json对象
+			// console.log(res);
+		// console.log('Point 2.1');
+			callback(res);
+		}
+		// console.log('Point 3');
+    }
+	catch (error) 
+	{
+        console.error('Error fetching HTML:', error);
+        return null; // Or handle the error differently
+    }
+	
+}
+
+
+function search(type) 
+{
+	const formData = new FormData();
+	if(type == 0)
+	{
+		formData.append("query", document.getElementById("sel_query").value);
+		
+		// formData.append("date_from", document.getElementById("date_from").value);
+		// formData.append("date_to", document.getElementById("date_to").value);
+		// formData.append("offset", document.getElementById("sel_offset").value);
+		// formData.append("limit", document.getElementById("sel_limit").value);
+		// formData.append("sort", document.getElementById("sel_sort").value);
+	}
+	else if(type == 1)
+	{
+		if(document.getElementById("trans_id").value.length > 0)
+		{
+			formData.append("trans_id", document.getElementById("trans_id").value);
+		}
+		else
+		{
+			return;
+			
+		}
+	
+	}
+	else
+	{
+		return;
+	}
+
+	var url = 'search.php';
+	formPost(url, formData, function (res_data)
+	{
+		var search_res = document.getElementById("search_result");
+		//search_res.innerHTML = res_data;//原样显示
+		var json_str = JSON.stringify(res_data._embedded);//json对象转成文本显示
+
+		for (var i = 0; i < res_data._embedded.transactionSummaries.length; i++) {
+			console.log(res_data._embedded.transactionSummaries[i]);
+
+			// applicationInformation
+		}
+		// console.log(res_data._embedded.transactionSummaries);
+
+		search_res.innerHTML = json_str
+	
+	});
+
+}
+
+
+// document.getElementById("date_from").value = '2024-08-25 00:00:00';
+// document.getElementById("date_to").value = '2024-09-01 00:00:00';
+// document.getElementById("sel_query").value = 'paymentInformation.paymentType.type:"credit card"';
+document.getElementById("sel_query").value = 'clientReferenceInformation.code:811cac8b8706b8eb4f512f4911c5c018';
+// document.getElementById("sel_offset").value = '0';
+// document.getElementById("sel_limit").value = '3';
+// document.getElementById("sel_sort").value = 'id:asc,submitTimeUtc:asc';
+
+search(0);
+
+
+</script>
+
+
+</body>
+</html>

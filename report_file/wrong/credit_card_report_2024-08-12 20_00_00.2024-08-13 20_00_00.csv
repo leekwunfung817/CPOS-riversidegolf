@@ -1,0 +1,8 @@
+"Reserv. No","Reserv. Date","Begin Hour","End Hour","Payment Method","Total Amount","Payment Time","Credit Card Number"
+376,'2024-08-14,17:00,19:00,Mastercard,100.00,"'2024-08-13 12:36:34",542969xxxxxx5756
+375,'2024-08-14,13:00,15:00,Visa,80.00,"'2024-08-13 12:06:09",431784xxxxxx1506
+374,'2024-08-14,11:00,12:00,Mastercard,50.00,"'2024-08-13 11:55:47",542969xxxxxx5756
+373,'2024-08-14,19:00,20:00,Visa,40.00,"'2024-08-13 11:17:13",431784xxxxxx1506
+,
+"Total Payment:","HKD $ 270"
+Transactions:,4,record(s)

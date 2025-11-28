@@ -1,0 +1,19 @@
+"Reserv. No","Reserv. Date","Begin Hour","End Hour","Payment Method","Total Amount","Payment Time","Credit Card Number"
+,,0:00,0:00,Mastercard,300.00,"'2024-06-22 11:52:07",xxxxxxxxxxxx3304
+,,0:00,0:00,Mastercard,200.00,"'2024-06-22 10:38:32",xxxxxxxxxxxx3304
+,,0:00,0:00,Mastercard,100.00,"'2024-06-22 10:33:37",xxxxxxxxxxxx3304
+,,0:00,0:00,Mastercard,300.00,"'2024-06-22 10:33:00",xxxxxxxxxxxx3304
+,,0:00,0:00,Mastercard,400.00,"'2024-06-22 05:33:01",xxxxxxxxxxxx4444
+,,0:00,0:00,Visa,400.00,"'2024-06-22 04:53:32",xxxxxxxxxxxx1111
+,,0:00,0:00,Mastercard,100.00,"'2024-06-22 04:52:32",xxxxxxxxxxxx3304
+,,0:00,0:00,Mastercard,1800.00,"'2024-06-22 04:50:16",xxxxxxxxxxxx4444
+,,0:00,0:00,Mastercard,7700.00,"'2024-06-22 04:44:19",xxxxxxxxxxxx4444
+,,0:00,0:00,Mastercard,200.00,"'2024-06-22 04:41:13",xxxxxxxxxxxx4444
+,,0:00,0:00,Visa,240.00,"'2024-06-22 04:35:07",xxxxxxxxxxxx1111
+,,0:00,0:00,Mastercard,64.00,"'2024-06-22 04:17:36",xxxxxxxxxxxx4444
+,,0:00,0:00,Visa,300.00,"'2024-06-22 04:14:20",xxxxxxxxxxxx1111
+,,0:00,0:00,Mastercard,300.00,"'2024-06-22 03:33:15",xxxxxxxxxxxx4444
+,,0:00,0:00,Mastercard,100.00,"'2024-06-22 03:16:13",xxxxxxxxxxxx4444
+,
+"Total Payment:","HKD $ 12504"
+Transactions:,15,record(s)

@@ -1,0 +1,2907 @@
+20251016 000103 68efc53f1132b return page stop_by_invalid_booking_2 您使用本網站的方式不恰當，請逐步使用\nThe way you are using this website is inappropriate, please use it step by step []
+20251016 000622 68efc67e2f9e2 Reach Main Page [] []
+20251016 000633 68efc689d9d63 reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 004624 68efcfe0c85c8 Reach Main Page [] []
+20251016 004732 68efd0242c470 Reach Main Page [] []
+20251016 010918 68efd53e5ff0b Reach Main Page [] []
+20251016 012420 68efd8c439fa8 Reach Main Page [] []
+20251016 012420 68efd8c439fa8 Reach Main Page [] []
+20251016 013635 68efdba360b4b reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 013854 68efdc2ecd2d9 reach payment-confirm.php ef720_20251013_21_22_1_28
+20251016 013854 68efdc2ecd2d9 RSTUCS ef720_20251013_21_22_1_28
+20251016 013855 68efdc2f910f7 reach email return ef720_20251013_21_22_1_28
+20251016 013855 68efdc2f910f7 return page stop_by_invalid_booking_2 directly to go payment-confirm.php ef720_20251013_21_22_1_28
+20251016 013855 68efdc2ecd2d9 reach payment-confirm.php BANK ACCEPT ef720_20251013_21_22_1_28
+20251016 013855 68efdc2ecd2d9 reach payment-confirm.php Show Invoicee SUCCESSFULLY ef720_20251013_21_22_1_28
+20251016 013856 68efdc2f910f7 reach payment-confirm.php 您使用本網站的方式不恰當 {"req_reference_number":"ef720_20251013_21_22_1_28","auth":"ef720_20251013_21_22_1_28"} []
+20251016 021036 68efdc2f910f7 Reach Main Page [] []
+20251016 021037 68efdc2f910f7 Reach Main Page [] []
+20251016 021117 68efdc2f910f7 Reach Main Page [] []
+20251016 022947 68efe81bf10a8 reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 022950 68efe81bf10a8 Reach Main Page [] []
+20251016 023005 68efe82d7bc12 reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 023008 68efe82d7bc12 Reach Main Page [] []
+20251016 023710 68efe9d654294 Reach Main Page [] []
+20251016 024027 68efea9b9f738 return page stop_by_invalid_booking_2 您使用本網站的方式不恰當，請逐步使用\nThe way you are using this website is inappropriate, please use it step by step []
+20251016 034056 68eff8c8cf8cc Reach Main Page [] []
+20251016 034213 68eff915b7c9f Reach Main Page [] []
+20251016 042649 68f00389c07a1 reach payment-confirm.php 23052_20251013_19_20_1_52
+20251016 042649 68f00389c07a1 RSTUCS 23052_20251013_19_20_1_52
+20251016 042654 68f00389c07a1 reach payment-confirm.php BANK ACCEPT 23052_20251013_19_20_1_52
+20251016 042654 68f00389c07a1 reach payment-confirm.php Show Invoicee SUCCESSFULLY 23052_20251013_19_20_1_52
+20251016 043624 68f00389c07a1 reach email return b8f1e_20251012_19_20_1_52
+20251016 043624 68f00389c07a1 return page stop_by_invalid_booking_2 directly to go payment-confirm.php b8f1e_20251012_19_20_1_52
+20251016 043624 68f00389c07a1 reach payment-confirm.php 您使用本網站的方式不恰當 {"req_reference_number":"b8f1e_20251012_19_20_1_52","auth":"b8f1e_20251012_19_20_1_52"} []
+20251016 062141 68f01e75b6a29 Reach Main Page [] []
+20251016 062216 68f01e981e073 Reach Main Page [] []
+20251016 062252 68f01ebc47933 Reach Main Page [] []
+20251016 062344 68f01e75b6a29 reach email confirm a49c1_20251016_14_15_1_78
+20251016 062344 68f01e75b6a29 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Garlos Lee', 'garlos.lee@gmail.com', '92282640', '', '',
+                '2025-10-16', '14', '15', 'H', '["78"]', 'a49c1_20251016_14_15_1_78', 'online', '')
+20251016 062344 68f01e75b6a29 page exit forward to next payment page ./email-confirmation-return.php?name=Garlos+Lee&auth=a49c1_20251016_14_15_1_78
+20251016 062344 68f01e75b6a29 reach email return a49c1_20251016_14_15_1_78
+20251016 062349 68f01e75b6a29 reach payment index.php a49c1_20251016_14_15_1_78
+20251016 062349 68f01e75b6a29 payment index.php chose credit card a49c1_20251016_14_15_1_78
+20251016 062354 68f01e75b6a29 reach SecureAcceptanceCheckout Array
+20251016 062354 68f01e75b6a29 reach pay.php {"reference":"a49c1_20251016_14_15_1_78","amount":"80.00"}
+20251016 062354 68f01e75b6a29 pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 80.00, a49c1_20251016_14_15_1_78
+20251016 062354 68f01e75b6a29 pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 062405 68f01f05bae48 RSTUCS a49c1_20251016_14_15_1_78
+20251016 062409 68f01f0940964 Reach Main Page [] []
+20251016 062409 68f01f09a93aa Reach Main Page [] []
+20251016 062424 68f01f1887fb7 RSTUCS a49c1_20251016_14_15_1_78
+20251016 062426 68f01e75b6a29 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx4861','en-us','SJU3qg1ALFhGF+nJOYe6OpShJqmopx5kdu6li2r7N+g=','1','7605670635966990703615','Garlos','05-2032','','','Mastercard','100','80.00','00','Lee','card','Axj//wSTnE3iGteHyNv/AHIs3bMGrZuwbM2rls2cuWDdgzbMWqf7089C3gSf7089C3qwN+gKVEMmkmXoxyKQhBg6k5xN4hrXh8jb/wAAUDbe','','2025-10-15T222425Z','80.00','7605670635966990703615','HKD','002','ACCEPT','https://riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_reason_code,payer_authentication_validate_result,payer_authentication_enroll_e_commerce_indicator,payer_authentication_eci,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_uad,payer_authentication_uci,payer_authentication_enroll_veres_enrolled,payer_authentication_acs_transaction_id,payment_account_reference,signed_field_names,signed_date_time','68f01efa1c201','U','551727','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','a49c1_20251016_14_15_1_78','528822468646','2025-10-15T22:24:26Z');
+20251016 062426 68f01e75b6a29 reach payment-confirm.php a49c1_20251016_14_15_1_78
+20251016 062426 68f01e75b6a29 RSTUCS a49c1_20251016_14_15_1_78
+20251016 062427 68f01e75b6a29 reach payment-confirm.php BANK ACCEPT a49c1_20251016_14_15_1_78
+20251016 062427 68f01e75b6a29 reach lib_complete_payment.php TRY SEND MAIL a49c1_20251016_14_15_1_78
+20251016 062427 68f01e75b6a29 reach payment-confirm.php Show Invoicee SUCCESSFULLY a49c1_20251016_14_15_1_78
+20251016 062433 68f01e75b6a29 reach payment-confirm.php a49c1_20251016_14_15_1_78
+20251016 062433 68f01e75b6a29 RSTUCS a49c1_20251016_14_15_1_78
+20251016 062435 68f01e75b6a29 reach payment-confirm.php BANK ACCEPT a49c1_20251016_14_15_1_78
+20251016 062435 68f01e75b6a29 reach payment-confirm.php Show Invoicee SUCCESSFULLY a49c1_20251016_14_15_1_78
+20251016 063344 68f02148cf0bd Reach Main Page [] []
+20251016 063527 68f021af91ed5 reach email return 235c6_20251009_21_22_1_60
+20251016 063527 68f021af91ed5 return page stop_by_invalid_booking_2 directly to go payment-confirm.php 235c6_20251009_21_22_1_60
+20251016 063528 68f021af91ed5 reach payment-confirm.php 您使用本網站的方式不恰當 {"req_reference_number":"235c6_20251009_21_22_1_60","auth":"235c6_20251009_21_22_1_60"} []
+20251016 063659 68f0220b07e7b Reach Main Page [] []
+20251016 064523 68f024035a873 reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 064524 68f024035a873 reach email return 82721_20251009_15_17_1_82
+20251016 064524 68f024035a873 return page stop_by_invalid_booking_2 directly to go payment-confirm.php 82721_20251009_15_17_1_82
+20251016 064524 68f024035a873 reach payment-confirm.php 您使用本網站的方式不恰當 {"req_reference_number":"82721_20251009_15_17_1_82","auth":"82721_20251009_15_17_1_82"} []
+20251016 064533 68f024035a873 reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 064548 68f024035a873 reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 064551 68f024035a873 reach email return 235a7_20250911_14_16_1_83
+20251016 064552 68f024035a873 return page stop_by_invalid_booking_2 directly to go payment-confirm.php 235a7_20250911_14_16_1_83
+20251016 064553 68f024035a873 reach payment-confirm.php 您使用本網站的方式不恰當 {"req_reference_number":"235a7_20250911_14_16_1_83","auth":"235a7_20250911_14_16_1_83"} []
+20251016 064553 68f024035a873 reach email return 4b3be_20250909_16_18_1_83
+20251016 064554 68f024035a873 return page stop_by_invalid_booking_2 directly to go payment-confirm.php 4b3be_20250909_16_18_1_83
+20251016 064600 68f024035a873 reach email return 399f0_20250902_16_18_1_83
+20251016 064602 68f024035a873 return page stop_by_invalid_booking_2 directly to go payment-confirm.php 399f0_20250902_16_18_1_83
+20251016 064603 68f024035a873 reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 064604 68f024035a873 reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 064607 68f024035a873 reach email return 07ae5_20250821_16_18_2_83_85
+20251016 064609 68f024035a873 return page stop_by_invalid_booking_2 directly to go payment-confirm.php 07ae5_20250821_16_18_2_83_85
+20251016 064610 68f024035a873 reach payment-confirm.php a0aa2_20250812_16_18_1_82
+20251016 064610 68f024035a873 RSTUCS a0aa2_20250812_16_18_1_82
+20251016 064616 68f024035a873 reach payment-confirm.php BANK ACCEPT a0aa2_20250812_16_18_1_82
+20251016 064616 68f024035a873 reach payment-confirm.php Show Invoicee SUCCESSFULLY a0aa2_20250812_16_18_1_82
+20251016 064624 68f024035a873 reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 064626 68f024035a873 reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 070346 68f02852da6f0 reach payment-confirm.php 35591_20251015_16_17_3_62_63_65
+20251016 070346 68f02852da6f0 RSTUCS 35591_20251015_16_17_3_62_63_65
+20251016 070350 68f02852da6f0 reach payment-confirm.php BANK ACCEPT 35591_20251015_16_17_3_62_63_65
+20251016 070350 68f02852da6f0 reach payment-confirm.php Show Invoicee SUCCESSFULLY 35591_20251015_16_17_3_62_63_65
+20251016 070432 68f02880c187e Reach Main Page [] []
+20251016 070432 68f02880c6eb6 return page stop_by_invalid_booking_2 您使用本網站的方式不恰當，請逐步使用\nThe way you are using this website is inappropriate, please use it step by step []
+20251016 071128 68f02a2007d35 Reach Main Page [] []
+20251016 071218 68f02a2007d35 reach email confirm b03cb_20251016_9_10_1_67
+20251016 071218 68f02a2007d35 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('黃', 'mr.john.von@gmail.com', '92784567', '', '',
+                '2025-10-16', '9', '10', 'H', '["67"]', 'b03cb_20251016_9_10_1_67', 'online', '')
+20251016 071218 68f02a2007d35 page exit forward to next payment page ./email-confirmation-return.php?name=%E9%BB%83&auth=b03cb_20251016_9_10_1_67
+20251016 071218 68f02a2007d35 reach email return b03cb_20251016_9_10_1_67
+20251016 071221 68f02a2007d35 reach payment index.php b03cb_20251016_9_10_1_67
+20251016 071221 68f02a2007d35 payment index.php chose credit card b03cb_20251016_9_10_1_67
+20251016 071222 68f02a2007d35 reach SecureAcceptanceCheckout Array
+20251016 071222 68f02a2007d35 reach pay.php {"reference":"b03cb_20251016_9_10_1_67","amount":"80.00"}
+20251016 071222 68f02a2007d35 pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 80.00, b03cb_20251016_9_10_1_67
+20251016 071222 68f02a2007d35 pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 071231 68f02a5f83477 RSTUCS b03cb_20251016_9_10_1_67
+20251016 071308 68f02a8434d2c reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx8737','en-us','JZ6sDy0DlhwXyKAYBFfEKa8JOlZ3YgLfZKXqjjfh8gQ=','1','7605699853946038503048','Von','11-2028','','','Mastercard','100','80.00','00','John','card','Axj//wSTnE5J6HBl+8aIAHIs3bMGrZy5cNWblo2YM3DVgzYNHCf71BjhjgSf71BjhjqwN+gKVEMmkmXoxyKQhBhJk5xOSehwZfvGiAAAGAzO','','2025-10-15T231307Z','80.00','7605699853946038503048','HKD','002','ACCEPT','https://riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_reason_code,payer_authentication_validate_result,payer_authentication_enroll_e_commerce_indicator,payer_authentication_eci,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_uad,payer_authentication_uci,payer_authentication_enroll_veres_enrolled,payer_authentication_acs_transaction_id,payment_account_reference,signed_field_names,signed_date_time','68f02a5663299','U','572339','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','b03cb_20251016_9_10_1_67','528823184567','2025-10-15T23:13:07Z');
+20251016 071308 68f02a8434d2c reach payment-confirm.php b03cb_20251016_9_10_1_67
+20251016 071308 68f02a8434d2c RSTUCS b03cb_20251016_9_10_1_67
+20251016 071313 68f02a8434d2c reach payment-confirm.php BANK ACCEPT b03cb_20251016_9_10_1_67
+20251016 071313 68f02a8434d2c reach lib_complete_payment.php TRY SEND MAIL b03cb_20251016_9_10_1_67
+20251016 071313 68f02a8434d2c reach payment-confirm.php Show Invoicee SUCCESSFULLY b03cb_20251016_9_10_1_67
+20251016 071318 68f02a8434d2c reach payment-confirm.php b03cb_20251016_9_10_1_67
+20251016 071318 68f02a8434d2c RSTUCS b03cb_20251016_9_10_1_67
+20251016 071325 68f02a8434d2c reach payment-confirm.php BANK ACCEPT b03cb_20251016_9_10_1_67
+20251016 071325 68f02a8434d2c reach payment-confirm.php Show Invoicee SUCCESSFULLY b03cb_20251016_9_10_1_67
+20251016 072010 68f02c2a240ef reach payment-confirm.php 93f0d_20251011_19_21_1_56
+20251016 072010 68f02c2a240ef RSTUCS 93f0d_20251011_19_21_1_56
+20251016 072011 68f02c2a240ef reach payment-confirm.php BANK ACCEPT 93f0d_20251011_19_21_1_56
+20251016 072011 68f02c2a240ef reach payment-confirm.php Show Invoicee SUCCESSFULLY 93f0d_20251011_19_21_1_56
+20251016 072637 68f02dad97c04 Reach Main Page [] []
+20251016 072819 68f02e13ccc59 Reach Main Page [] []
+20251016 073141 68f02e13ccc59 Varify Email Confirm Code g4andy@hotmail.com _ 2025-10-16T07:28:24 >  > 233606
+20251016 073141 68f02e13ccc59 Send Email Confirm Code g4andy@hotmail.com >>> 233606
+20251016 073223 68f02e13ccc59 Varify Email Confirm Code g4andy@hotmail.com _ 2025-10-16T07:28:24 > 233606 > 233606
+20251016 073512 68f02e13ccc59 reach email confirm 5b28c_20251017_21_22_1_60
+20251016 073512 68f02e13ccc59 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('LAU OI CHING', 'g4andy@hotmail.com', '56681313', '', '',
+                '2025-10-17', '21', '22', 'S', '["60"]', '5b28c_20251017_21_22_1_60', 'online', 'The Education University of Hong Kong ')
+20251016 073512 68f02e13ccc59 page exit forward to next payment page ./email-confirmation-return.php?name=LAU+OI+CHING&auth=5b28c_20251017_21_22_1_60
+20251016 073512 68f02e13ccc59 reach email return 5b28c_20251017_21_22_1_60
+20251016 073514 68f02fb28bce2 RSTUCS 5b28c_20251017_21_22_1_60
+20251016 073519 68f02e13ccc59 reach payment index.php 5b28c_20251017_21_22_1_60
+20251016 073519 68f02e13ccc59 payment index.php chose credit card 5b28c_20251017_21_22_1_60
+20251016 073522 68f02e13ccc59 reach SecureAcceptanceCheckout Array
+20251016 073522 68f02e13ccc59 reach pay.php {"reference":"5b28c_20251017_21_22_1_60","amount":"40.00"}
+20251016 073522 68f02e13ccc59 pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 40.00, 5b28c_20251017_21_22_1_60
+20251016 073522 68f02e13ccc59 pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 073607 68f02fe7a3ae4 RSTUCS 5b28c_20251017_21_22_1_60
+20251016 073614 68f02feea533d RSTUCS 5b28c_20251017_21_22_1_60
+20251016 073711 68f030274858e RSTUCS 5b28c_20251017_21_22_1_60
+20251016 073714 68f0302ab3af9 RSTUCS 5b28c_20251017_21_22_1_60
+20251016 073742 68f02e13ccc59 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx6009','en-us','0kUD6p/vtFst+0Df2FiCXsULKEAUmjbCaIpmlYBFCX8=','1','7605714611066062303244','LEE','05-2027','','','Mastercard','100','40.00','00','KAM FAI','card','Axj//wSTnE5+VfYm6PAMAHIs3bMGrdi0bMWLBs2YNmTNgzZNGif71DXe/gSf71DXe/qwM+gUqIZNJMvRjkUhCDCPJzic/KvsTdHgGAAAIQ20','','2025-10-15T233742Z','40.00','7605714611066062303244','HKD','002','ACCEPT','https://www.riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,payer_authentication_reason_code,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_enroll_veres_enrolled,payer_authentication_acs_transaction_id,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_validate_result,payer_authentication_validate_e_commerce_indicator,payer_authentication_eci,payer_authentication_uad,payer_authentication_uci,payment_account_reference,signed_field_names,signed_date_time','68f02fba634c7','U','T06615','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','5b28c_20251017_21_22_1_60','528823449034','2025-10-15T23:37:42Z');
+20251016 073742 68f02e13ccc59 reach payment-confirm.php 5b28c_20251017_21_22_1_60
+20251016 073742 68f02e13ccc59 RSTUCS 5b28c_20251017_21_22_1_60
+20251016 073747 68f02e13ccc59 reach payment-confirm.php BANK ACCEPT 5b28c_20251017_21_22_1_60
+20251016 073747 68f02e13ccc59 reach lib_complete_payment.php TRY SEND MAIL 5b28c_20251017_21_22_1_60
+20251016 073747 68f02e13ccc59 reach payment-confirm.php Show Invoicee SUCCESSFULLY 5b28c_20251017_21_22_1_60
+20251016 073754 68f02e13ccc59 reach payment-confirm.php 5b28c_20251017_21_22_1_60
+20251016 073754 68f02e13ccc59 RSTUCS 5b28c_20251017_21_22_1_60
+20251016 073755 68f02e13ccc59 reach payment-confirm.php BANK ACCEPT 5b28c_20251017_21_22_1_60
+20251016 073755 68f02e13ccc59 reach payment-confirm.php Show Invoicee SUCCESSFULLY 5b28c_20251017_21_22_1_60
+20251016 073839 68f0307f0c218 reach payment-confirm.php f52a5_20251016_20_22_3_61_62_63
+20251016 073839 68f0307f0c218 RSTUCS f52a5_20251016_20_22_3_61_62_63
+20251016 073844 68f0307f0c218 reach payment-confirm.php BANK ACCEPT f52a5_20251016_20_22_3_61_62_63
+20251016 073844 68f0307f0c218 reach payment-confirm.php Show Invoicee SUCCESSFULLY f52a5_20251016_20_22_3_61_62_63
+20251016 073902 68f0307f0c218 Reach Main Page [] []
+20251016 073942 68f0307f0c218 reach email confirm c39e1_20251017_21_22_1_61
+20251016 073942 68f0307f0c218 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('LEE KAM FAI', 'g4andy@hotmail.com', '92781968', '', '',
+                '2025-10-17', '21', '22', 'H', '["61"]', 'c39e1_20251017_21_22_1_61', 'online', '')
+20251016 073942 68f0307f0c218 page exit forward to next payment page ./email-confirmation-return.php?name=LEE+KAM+FAI&auth=c39e1_20251017_21_22_1_61
+20251016 073942 68f0307f0c218 reach email return c39e1_20251017_21_22_1_61
+20251016 073946 68f0307f0c218 reach payment index.php c39e1_20251017_21_22_1_61
+20251016 073946 68f0307f0c218 payment index.php chose credit card c39e1_20251017_21_22_1_61
+20251016 073950 68f0307f0c218 reach SecureAcceptanceCheckout Array
+20251016 073951 68f0307f0c218 reach pay.php {"reference":"c39e1_20251017_21_22_1_61","amount":"80.00"}
+20251016 073951 68f0307f0c218 pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 80.00, c39e1_20251017_21_22_1_61
+20251016 073951 68f0307f0c218 pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 074014 68f030de9b67e Reach Main Page [] []
+20251016 074016 68f030e01398f RSTUCS c39e1_20251017_21_22_1_61
+20251016 074018 68f030de9b67e RSTUCS c39e1_20251017_21_22_1_61
+20251016 074022 68f030e682a43 RSTUCS c39e1_20251017_21_22_1_61
+20251016 074111 68f0307f0c218 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx6009','en-us','Yd0zQi6u4qGyQgeGhSrJFsaqfBtng6NsmMTtE7mj3w8=','1','7605716694266066803242','LEE','05-2027','','','Mastercard','100','80.00','00','KAM FAI','card','Axj//wSTnE6FvJ7zLJoqAHIs3bMGrdi2bOWjJs2YNmzhgzZNGSf71DoIrASf71DoIrKwN+gKVEMmkmXoxyKQhBhHk5xOhbye8yyaKgAA6gQF','','2025-10-15T234110Z','80.00','7605716694266066803242','HKD','002','ACCEPT','https://riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,payer_authentication_reason_code,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_enroll_veres_enrolled,payer_authentication_acs_transaction_id,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_validate_result,payer_authentication_validate_e_commerce_indicator,payer_authentication_eci,payer_authentication_uad,payer_authentication_uci,payment_account_reference,signed_field_names,signed_date_time','68f030c70955f','U','T07354','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','c39e1_20251017_21_22_1_61','528823960947','2025-10-15T23:41:10Z');
+20251016 074111 68f0307f0c218 reach payment-confirm.php c39e1_20251017_21_22_1_61
+20251016 074111 68f0307f0c218 RSTUCS c39e1_20251017_21_22_1_61
+20251016 074114 68f0307f0c218 reach payment-confirm.php BANK ACCEPT c39e1_20251017_21_22_1_61
+20251016 074114 68f0307f0c218 reach lib_complete_payment.php TRY SEND MAIL c39e1_20251017_21_22_1_61
+20251016 074114 68f0307f0c218 reach payment-confirm.php Show Invoicee SUCCESSFULLY c39e1_20251017_21_22_1_61
+20251016 074121 68f0307f0c218 reach payment-confirm.php c39e1_20251017_21_22_1_61
+20251016 074121 68f0307f0c218 RSTUCS c39e1_20251017_21_22_1_61
+20251016 074122 68f0307f0c218 reach payment-confirm.php BANK ACCEPT c39e1_20251017_21_22_1_61
+20251016 074122 68f0307f0c218 reach payment-confirm.php Show Invoicee SUCCESSFULLY c39e1_20251017_21_22_1_61
+20251016 074350 68f0307f0c218 Reach Main Page [] []
+20251016 074803 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','','','ACCEPT','','','','','','','','','','','889c6_20251016_8_9_1_72','','');
+20251016 074803 68f032b3f1416 reach payment-confirm.php 889c6_20251016_8_9_1_72
+20251016 074803 68f032b3f1416 RSTUCS 889c6_20251016_8_9_1_72
+20251016 074807 68f032b3f1416 reach payment-confirm.php UNPAID PAID 889c6_20251016_8_9_1_72
+20251016 074807 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL 889c6_20251016_8_9_1_72
+20251016 074807 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 889c6_20251016_8_9_1_72
+20251016 074812 68f032b3f1416 reach payment-confirm.php 889c6_20251016_8_9_1_72
+20251016 074812 68f032b3f1416 RSTUCS 889c6_20251016_8_9_1_72
+20251016 074816 68f032b3f1416 reach payment-confirm.php UNPAID PAID 889c6_20251016_8_9_1_72
+20251016 074816 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 889c6_20251016_8_9_1_72
+20251016 074824 68f032c8b69c8 Reach Main Page [] []
+20251016 074930 68f0330a884e5 reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 074957 68f032b3f1416 reach email confirm b7e4b_20251016_9_11_1_68
+20251016 074957 68f032b3f1416 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '9', '11', 'H', '["68"]', 'b7e4b_20251016_9_11_1_68', 'winnie', '')
+20251016 074957 68f032b3f1416 page exit forward to next payment page ./email-confirmation-return.php?name=&auth=b7e4b_20251016_9_11_1_68
+20251016 074958 68f032b3f1416 reach email return b7e4b_20251016_9_11_1_68
+20251016 075001 68f032b3f1416 reach payment index.php b7e4b_20251016_9_11_1_68
+20251016 075001 68f032b3f1416 payment index.php chose cash b7e4b_20251016_9_11_1_68
+20251016 075003 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','b7e4b_20251016_9_11_1_68','','');
+20251016 075003 68f032b3f1416 reach payment-confirm.php b7e4b_20251016_9_11_1_68
+20251016 075003 68f032b3f1416 RSTUCS b7e4b_20251016_9_11_1_68
+20251016 075013 68f032b3f1416 reach payment-confirm.php CASH PAYMENT b7e4b_20251016_9_11_1_68
+20251016 075013 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL b7e4b_20251016_9_11_1_68
+20251016 075013 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY b7e4b_20251016_9_11_1_68
+20251016 075018 68f032b3f1416 reach payment-confirm.php b7e4b_20251016_9_11_1_68
+20251016 075018 68f032b3f1416 RSTUCS b7e4b_20251016_9_11_1_68
+20251016 075020 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY b7e4b_20251016_9_11_1_68
+20251016 075416 68f032b3f1416 reach email confirm ed851_20251016_8_9_1_71
+20251016 075416 68f032b3f1416 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '8', '9', 'H', '["71"]', 'ed851_20251016_8_9_1_71', 'winnie', '')
+20251016 075416 68f032b3f1416 page exit forward to next payment page ./email-confirmation-return.php?name=&auth=ed851_20251016_8_9_1_71
+20251016 075416 68f032b3f1416 reach email return ed851_20251016_8_9_1_71
+20251016 075422 68f032b3f1416 reach payment index.php ed851_20251016_8_9_1_71
+20251016 075422 68f032b3f1416 payment index.php chose cash ed851_20251016_8_9_1_71
+20251016 075424 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','ed851_20251016_8_9_1_71','','');
+20251016 075424 68f032b3f1416 reach payment-confirm.php ed851_20251016_8_9_1_71
+20251016 075424 68f032b3f1416 RSTUCS ed851_20251016_8_9_1_71
+20251016 075427 68f032b3f1416 reach payment-confirm.php CASH PAYMENT ed851_20251016_8_9_1_71
+20251016 075427 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL ed851_20251016_8_9_1_71
+20251016 075427 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY ed851_20251016_8_9_1_71
+20251016 075427 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','ed851_20251016_8_9_1_71','','');
+20251016 075427 68f032b3f1416 reach payment-confirm.php ed851_20251016_8_9_1_71
+20251016 075427 68f032b3f1416 RSTUCS ed851_20251016_8_9_1_71
+20251016 075433 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL ed851_20251016_8_9_1_71
+20251016 075433 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY ed851_20251016_8_9_1_71
+20251016 075433 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','ed851_20251016_8_9_1_71','','');
+20251016 075433 68f032b3f1416 reach payment-confirm.php ed851_20251016_8_9_1_71
+20251016 075433 68f032b3f1416 RSTUCS ed851_20251016_8_9_1_71
+20251016 075434 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL ed851_20251016_8_9_1_71
+20251016 075434 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY ed851_20251016_8_9_1_71
+20251016 075439 68f032b3f1416 reach payment-confirm.php ed851_20251016_8_9_1_71
+20251016 075439 68f032b3f1416 RSTUCS ed851_20251016_8_9_1_71
+20251016 075440 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY ed851_20251016_8_9_1_71
+20251016 080037 68f032b3f1416 reach email confirm 9404a_20251016_8_9_1_62
+20251016 080037 68f032b3f1416 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '8', '9', 'H', '["62"]', '9404a_20251016_8_9_1_62', 'winnie', '')
+20251016 080037 68f032b3f1416 page exit forward to next payment page ./email-confirmation-return.php?name=&auth=9404a_20251016_8_9_1_62
+20251016 080037 68f032b3f1416 reach email return 9404a_20251016_8_9_1_62
+20251016 080041 68f032b3f1416 reach payment index.php 9404a_20251016_8_9_1_62
+20251016 080041 68f032b3f1416 payment index.php chose cash 9404a_20251016_8_9_1_62
+20251016 080043 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','9404a_20251016_8_9_1_62','','');
+20251016 080043 68f032b3f1416 reach payment-confirm.php 9404a_20251016_8_9_1_62
+20251016 080043 68f032b3f1416 RSTUCS 9404a_20251016_8_9_1_62
+20251016 080044 68f032b3f1416 reach payment-confirm.php CASH PAYMENT 9404a_20251016_8_9_1_62
+20251016 080044 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL 9404a_20251016_8_9_1_62
+20251016 080045 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 9404a_20251016_8_9_1_62
+20251016 080050 68f032b3f1416 reach payment-confirm.php 9404a_20251016_8_9_1_62
+20251016 080050 68f032b3f1416 RSTUCS 9404a_20251016_8_9_1_62
+20251016 080051 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 9404a_20251016_8_9_1_62
+20251016 080437 68f032b3f1416 reach email confirm 90229_20251016_8_10_1_70
+20251016 080437 68f032b3f1416 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '8', '10', 'H', '["70"]', '90229_20251016_8_10_1_70', 'winnie', '')
+20251016 080438 68f032b3f1416 page exit forward to next payment page ./email-confirmation-return.php?name=&auth=90229_20251016_8_10_1_70
+20251016 080438 68f032b3f1416 reach email return 90229_20251016_8_10_1_70
+20251016 080441 68f036991d158 return page stop_by_invalid_booking_2 您使用本網站的方式不恰當，請逐步使用\nThe way you are using this website is inappropriate, please use it step by step []
+20251016 080443 68f032b3f1416 reach payment index.php 90229_20251016_8_10_1_70
+20251016 080443 68f032b3f1416 payment index.php chose cash 90229_20251016_8_10_1_70
+20251016 080445 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','90229_20251016_8_10_1_70','','');
+20251016 080445 68f032b3f1416 reach payment-confirm.php 90229_20251016_8_10_1_70
+20251016 080445 68f032b3f1416 RSTUCS 90229_20251016_8_10_1_70
+20251016 080446 68f032b3f1416 reach payment-confirm.php CASH PAYMENT 90229_20251016_8_10_1_70
+20251016 080446 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL 90229_20251016_8_10_1_70
+20251016 080446 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 90229_20251016_8_10_1_70
+20251016 080451 68f032b3f1416 reach payment-confirm.php 90229_20251016_8_10_1_70
+20251016 080451 68f032b3f1416 RSTUCS 90229_20251016_8_10_1_70
+20251016 080452 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 90229_20251016_8_10_1_70
+20251016 080541 68f036d58de60 Reach Main Page [] []
+20251016 080636 68f036d58de60 reach email confirm cfff7_20251016_11_12_1_78
+20251016 080637 68f036d58de60 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Daniel Mak', 'dymmak@gmail.com', '90208799', '', '',
+                '2025-10-16', '11', '12', 'H', '["78"]', 'cfff7_20251016_11_12_1_78', 'online', '')
+20251016 080637 68f036d58de60 page exit forward to next payment page ./email-confirmation-return.php?name=Daniel+Mak&auth=cfff7_20251016_11_12_1_78
+20251016 080637 68f036d58de60 reach email return cfff7_20251016_11_12_1_78
+20251016 080643 68f036d58de60 reach payment index.php cfff7_20251016_11_12_1_78
+20251016 080643 68f036d58de60 payment index.php chose credit card cfff7_20251016_11_12_1_78
+20251016 080647 68f036d58de60 reach SecureAcceptanceCheckout Array
+20251016 080647 68f036d58de60 reach pay.php {"reference":"cfff7_20251016_11_12_1_78","amount":"80.00"}
+20251016 080647 68f036d58de60 pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 80.00, cfff7_20251016_11_12_1_78
+20251016 080647 68f036d58de60 pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 080707 68f0372b84eca RSTUCS cfff7_20251016_11_12_1_78
+20251016 080718 68f0373675733 RSTUCS cfff7_20251016_11_12_1_78
+20251016 080721 68f036d58de60 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx4305','en-us','bILKLvkag4eoG7uMxDueprsNCCJ/YQfI1MiWswcHxVs=','1','7605732392896104103271','Mak','02-2030','2','','Visa','100','80.00','00','Daniel','card','Axj//wSTnE69gnEWAf1nAHIs3bMGrdmyZuWThy2YsGjFgzZN2Kf71FkexgKf71FkexqwN+gKVEMmkmXoxyKQhBg3k5xOvYJxFgH9ZwAAmTsR','2','2025-10-16T000720Z','80.00','7605732392896104103271','HKD','001','ACCEPT','https://riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cavv_result,auth_cavv_result_raw,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_reason_code,payer_authentication_validate_result,payer_authentication_cavv,payer_authentication_enroll_e_commerce_indicator,payer_authentication_eci,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_enroll_veres_enrolled,payer_authentication_xid,payer_authentication_acs_transaction_id,payment_account_reference,signed_field_names,signed_date_time','68f03717ac752','U','615937','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','cfff7_20251016_11_12_1_78','528800715684','2025-10-16T00:07:20Z');
+20251016 080721 68f036d58de60 reach payment-confirm.php cfff7_20251016_11_12_1_78
+20251016 080721 68f036d58de60 RSTUCS cfff7_20251016_11_12_1_78
+20251016 080722 68f036d58de60 reach payment-confirm.php BANK ACCEPT cfff7_20251016_11_12_1_78
+20251016 080722 68f036d58de60 reach lib_complete_payment.php TRY SEND MAIL cfff7_20251016_11_12_1_78
+20251016 080722 68f036d58de60 reach payment-confirm.php Show Invoicee SUCCESSFULLY cfff7_20251016_11_12_1_78
+20251016 080727 68f036d58de60 reach payment-confirm.php cfff7_20251016_11_12_1_78
+20251016 080727 68f036d58de60 RSTUCS cfff7_20251016_11_12_1_78
+20251016 080728 68f036d58de60 reach payment-confirm.php BANK ACCEPT cfff7_20251016_11_12_1_78
+20251016 080728 68f036d58de60 reach payment-confirm.php Show Invoicee SUCCESSFULLY cfff7_20251016_11_12_1_78
+20251016 080752 68f037586c178 Reach Main Page [] []
+20251016 080817 68f032b3f1416 reach email confirm 47e05_20251016_8.5_9.5_1_61
+20251016 080818 68f032b3f1416 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '8.5', '9.5', 'H', '["61"]', '47e05_20251016_8.5_9.5_1_61', 'winnie', '')
+20251016 080818 68f032b3f1416 page exit forward to next payment page ./email-confirmation-return.php?name=&auth=47e05_20251016_8.5_9.5_1_61
+20251016 080818 68f032b3f1416 reach email return 47e05_20251016_8.5_9.5_1_61
+20251016 080822 68f032b3f1416 reach payment index.php 47e05_20251016_8.5_9.5_1_61
+20251016 080822 68f032b3f1416 payment index.php chose cash 47e05_20251016_8.5_9.5_1_61
+20251016 080825 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','47e05_20251016_8.5_9.5_1_61','','');
+20251016 080825 68f032b3f1416 reach payment-confirm.php 47e05_20251016_8.5_9.5_1_61
+20251016 080825 68f032b3f1416 RSTUCS 47e05_20251016_8.5_9.5_1_61
+20251016 080828 68f032b3f1416 reach payment-confirm.php CASH PAYMENT 47e05_20251016_8.5_9.5_1_61
+20251016 080828 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL 47e05_20251016_8.5_9.5_1_61
+20251016 080828 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 47e05_20251016_8.5_9.5_1_61
+20251016 080833 68f032b3f1416 reach payment-confirm.php 47e05_20251016_8.5_9.5_1_61
+20251016 080833 68f032b3f1416 RSTUCS 47e05_20251016_8.5_9.5_1_61
+20251016 080837 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 47e05_20251016_8.5_9.5_1_61
+20251016 080914 68f037aaa369f Reach Main Page [] []
+20251016 081246 68f0387eb1f6e Varify Email Confirm Code hillmon.xiao@gmail.com _ 2025-10-16T08:11:45 >  > 761480
+20251016 081246 68f0387eb1f6e Send Email Confirm Code hillmon.xiao@gmail.com >>> 761480
+20251016 081328 68f032b3f1416 reach email confirm b7579_20251016_9_10_1_63
+20251016 081328 68f032b3f1416 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '9', '10', 'H', '["63"]', 'b7579_20251016_9_10_1_63', 'winnie', '')
+20251016 081328 68f032b3f1416 page exit forward to next payment page ./email-confirmation-return.php?name=&auth=b7579_20251016_9_10_1_63
+20251016 081328 68f032b3f1416 reach email return b7579_20251016_9_10_1_63
+20251016 081328 68f0387eb1f6e Varify Email Confirm Code hillmon.xiao@gmail.com _ 2025-10-16T08:11:45 > 761480 > 761480
+20251016 081332 68f032b3f1416 reach payment index.php b7579_20251016_9_10_1_63
+20251016 081332 68f032b3f1416 payment index.php chose cash b7579_20251016_9_10_1_63
+20251016 081333 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','b7579_20251016_9_10_1_63','','');
+20251016 081333 68f032b3f1416 reach payment-confirm.php b7579_20251016_9_10_1_63
+20251016 081333 68f032b3f1416 RSTUCS b7579_20251016_9_10_1_63
+20251016 081334 68f032b3f1416 reach payment-confirm.php CASH PAYMENT b7579_20251016_9_10_1_63
+20251016 081334 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL b7579_20251016_9_10_1_63
+20251016 081335 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY b7579_20251016_9_10_1_63
+20251016 081340 68f032b3f1416 reach payment-confirm.php b7579_20251016_9_10_1_63
+20251016 081340 68f032b3f1416 RSTUCS b7579_20251016_9_10_1_63
+20251016 081341 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY b7579_20251016_9_10_1_63
+20251016 081422 68f0387eb1f6e reach email confirm dc4ff_20251016_9_11_1_66
+20251016 081422 68f0387eb1f6e golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Xiao Xiaoming', 'hillmon.xiao@gmail.com', '67798612', '', '',
+                '2025-10-16', '9', '11', 'H', '["66"]', 'dc4ff_20251016_9_11_1_66', 'online', '')
+20251016 081422 68f0387eb1f6e page exit forward to next payment page ./email-confirmation-return.php?name=Xiao+Xiaoming&auth=dc4ff_20251016_9_11_1_66
+20251016 081422 68f0387eb1f6e reach email return dc4ff_20251016_9_11_1_66
+20251016 081426 68f038e28ec08 RSTUCS dc4ff_20251016_9_11_1_66
+20251016 081427 68f0387eb1f6e reach payment index.php dc4ff_20251016_9_11_1_66
+20251016 081427 68f0387eb1f6e payment index.php chose credit card dc4ff_20251016_9_11_1_66
+20251016 081434 68f0387eb1f6e reach SecureAcceptanceCheckout Array
+20251016 081434 68f0387eb1f6e reach pay.php {"reference":"dc4ff_20251016_9_11_1_66","amount":"160.00"}
+20251016 081434 68f0387eb1f6e pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 160.00, dc4ff_20251016_9_11_1_66
+20251016 081434 68f0387eb1f6e pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 081519 68f039176a6b6 RSTUCS dc4ff_20251016_9_11_1_66
+20251016 081529 68f032b3f1416 reach email confirm e2ce3_20251016_8_10_1_59
+20251016 081529 68f032b3f1416 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '8', '10', 'H', '["59"]', 'e2ce3_20251016_8_10_1_59', 'winnie', '')
+20251016 081529 68f032b3f1416 page exit forward to next payment page ./email-confirmation-return.php?name=&auth=e2ce3_20251016_8_10_1_59
+20251016 081529 68f032b3f1416 reach email return e2ce3_20251016_8_10_1_59
+20251016 081531 68f032b3f1416 reach payment index.php e2ce3_20251016_8_10_1_59
+20251016 081531 68f032b3f1416 payment index.php chose cash e2ce3_20251016_8_10_1_59
+20251016 081534 68f03926ab425 RSTUCS dc4ff_20251016_9_11_1_66
+20251016 081535 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','e2ce3_20251016_8_10_1_59','','');
+20251016 081535 68f032b3f1416 reach payment-confirm.php e2ce3_20251016_8_10_1_59
+20251016 081535 68f032b3f1416 RSTUCS e2ce3_20251016_8_10_1_59
+20251016 081540 68f032b3f1416 reach payment-confirm.php CASH PAYMENT e2ce3_20251016_8_10_1_59
+20251016 081540 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL e2ce3_20251016_8_10_1_59
+20251016 081540 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY e2ce3_20251016_8_10_1_59
+20251016 081545 68f032b3f1416 reach payment-confirm.php e2ce3_20251016_8_10_1_59
+20251016 081545 68f032b3f1416 RSTUCS e2ce3_20251016_8_10_1_59
+20251016 081546 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY e2ce3_20251016_8_10_1_59
+20251016 081611 68f0394b27163 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx4901','en-us','AWcBybsfxr5h5xWeVPQI10BdqlwR/YwPCTuScAwEcvg=','1','7605737691286120303294','Xiao','11-2028','2','','Visa','100','160.00','00','Xiaoming','card','Axj//wSTnE7QVUykzgq+AHIs3bMGrdm3bOWLJw2YsmDNgzZOWif71GONcAKf71GONcKwO+gFKiGTSTL0Y5FIQgwiSc4naCqmUmcFXwAA7jgN','2','2025-10-16T001610Z','160.00','7605737691286120303294','HKD','001','ACCEPT','https://riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cavv_result,auth_cavv_result_raw,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_reason_code,payer_authentication_validate_result,payer_authentication_cavv,payer_authentication_enroll_e_commerce_indicator,payer_authentication_eci,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_enroll_veres_enrolled,payer_authentication_xid,payer_authentication_acs_transaction_id,payment_account_reference,signed_field_names,signed_date_time','68f038eaa54ba','U','625097','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','dc4ff_20251016_9_11_1_66','528800998931','2025-10-16T00:16:10Z');
+20251016 081611 68f0394b27163 reach payment-confirm.php dc4ff_20251016_9_11_1_66
+20251016 081611 68f0394b27163 RSTUCS dc4ff_20251016_9_11_1_66
+20251016 081612 68f0394b27163 reach payment-confirm.php BANK ACCEPT dc4ff_20251016_9_11_1_66
+20251016 081612 68f0394b27163 reach lib_complete_payment.php TRY SEND MAIL dc4ff_20251016_9_11_1_66
+20251016 081612 68f0394b27163 reach payment-confirm.php Show Invoicee SUCCESSFULLY dc4ff_20251016_9_11_1_66
+20251016 081617 68f0394b27163 reach payment-confirm.php dc4ff_20251016_9_11_1_66
+20251016 081617 68f0394b27163 RSTUCS dc4ff_20251016_9_11_1_66
+20251016 081618 68f0394b27163 reach payment-confirm.php BANK ACCEPT dc4ff_20251016_9_11_1_66
+20251016 081618 68f0394b27163 reach payment-confirm.php Show Invoicee SUCCESSFULLY dc4ff_20251016_9_11_1_66
+20251016 081636 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','','','ACCEPT','','','','','','','','','','','7eaf0_20251016_9_11_1_62','','');
+20251016 081636 68f032b3f1416 reach payment-confirm.php 7eaf0_20251016_9_11_1_62
+20251016 081636 68f032b3f1416 RSTUCS 7eaf0_20251016_9_11_1_62
+20251016 081640 68f032b3f1416 reach payment-confirm.php UNPAID PAID 7eaf0_20251016_9_11_1_62
+20251016 081640 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL 7eaf0_20251016_9_11_1_62
+20251016 081640 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 7eaf0_20251016_9_11_1_62
+20251016 081646 68f032b3f1416 reach payment-confirm.php 7eaf0_20251016_9_11_1_62
+20251016 081646 68f032b3f1416 RSTUCS 7eaf0_20251016_9_11_1_62
+20251016 081647 68f032b3f1416 reach payment-confirm.php UNPAID PAID 7eaf0_20251016_9_11_1_62
+20251016 081647 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 7eaf0_20251016_9_11_1_62
+20251016 081724 68f039942727c Reach Main Page [] []
+20251016 081926 68f03a0e76b9f Reach Main Page [] []
+20251016 081937 68f03a19215a3 reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 081938 68f03a19215a3 reach email return e500c_20251016_10_11_1_63
+20251016 081938 68f03a19215a3 return page stop_by_invalid_booking_2 directly to go payment-confirm.php e500c_20251016_10_11_1_63
+20251016 081947 68f032b3f1416 reach email confirm a9793_20251016_8.5_9.5_1_51
+20251016 081948 68f032b3f1416 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '8.5', '9.5', 'H', '["51"]', 'a9793_20251016_8.5_9.5_1_51', 'winnie', '')
+20251016 081948 68f032b3f1416 page exit forward to next payment page ./email-confirmation-return.php?name=&auth=a9793_20251016_8.5_9.5_1_51
+20251016 081948 68f032b3f1416 reach email return a9793_20251016_8.5_9.5_1_51
+20251016 081950 68f032b3f1416 reach payment index.php a9793_20251016_8.5_9.5_1_51
+20251016 081950 68f032b3f1416 payment index.php chose cash a9793_20251016_8.5_9.5_1_51
+20251016 081952 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','a9793_20251016_8.5_9.5_1_51','','');
+20251016 081952 68f032b3f1416 reach payment-confirm.php a9793_20251016_8.5_9.5_1_51
+20251016 081952 68f032b3f1416 RSTUCS a9793_20251016_8.5_9.5_1_51
+20251016 081953 68f032b3f1416 reach payment-confirm.php CASH PAYMENT a9793_20251016_8.5_9.5_1_51
+20251016 081953 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL a9793_20251016_8.5_9.5_1_51
+20251016 081953 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY a9793_20251016_8.5_9.5_1_51
+20251016 081958 68f032b3f1416 reach payment-confirm.php a9793_20251016_8.5_9.5_1_51
+20251016 081958 68f032b3f1416 RSTUCS a9793_20251016_8.5_9.5_1_51
+20251016 082000 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY a9793_20251016_8.5_9.5_1_51
+20251016 082030 68f03a0e76b9f Varify Email Confirm Code pauyeung@163.com _ 2025-10-16T08:19:33 >  > 165451
+20251016 082030 68f03a0e76b9f Send Email Confirm Code pauyeung@163.com >>> 165451
+20251016 082153 68f03a0e76b9f Varify Email Confirm Code pauyeung@163.com _ 2025-10-16T08:19:33 > 165451 > 165451
+20251016 082237 68f032b3f1416 reach email confirm 5334f_20251025_10_12_1_56
+20251016 082237 68f032b3f1416 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '90250903', '', '',
+                '2025-10-25', '10', '12', 'H', '["56"]', '5334f_20251025_10_12_1_56', 'winnie', '')
+20251016 082237 68f032b3f1416 page exit forward to next payment page ./email-confirmation-return.php?name=&auth=5334f_20251025_10_12_1_56
+20251016 082237 68f032b3f1416 reach email return 5334f_20251025_10_12_1_56
+20251016 082240 68f032b3f1416 reach payment index.php 5334f_20251025_10_12_1_56
+20251016 082240 68f032b3f1416 payment index.php chose keep account 5334f_20251025_10_12_1_56
+20251016 082242 68f032b3f1416 reach account-unpaid.php Array
+20251016 082244 68f032b3f1416 Reach Main Page [] []
+20251016 082252 68f03a0e76b9f reach email confirm 857a1_20251018_8_9_1_66
+20251016 082252 68f03a0e76b9f golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Patrick Au Yeung ', 'pauyeung@163.com', '59880210', '', '',
+                '2025-10-18', '8', '9', 'H', '["66"]', '857a1_20251018_8_9_1_66', 'online', '')
+20251016 082252 68f03a0e76b9f page exit forward to next payment page ./email-confirmation-return.php?name=Patrick+Au+Yeung+&auth=857a1_20251018_8_9_1_66
+20251016 082252 68f03a0e76b9f reach email return 857a1_20251018_8_9_1_66
+20251016 082254 68f03ade5df86 RSTUCS 857a1_20251018_8_9_1_66
+20251016 082320 68f03af86833d RSTUCS 857a1_20251018_8_9_1_66
+20251016 082357 68f03b1df2f5b RSTUCS 857a1_20251018_8_9_1_66
+20251016 082420 68f03b3486ae8 RSTUCS 857a1_20251018_8_9_1_66
+20251016 082503 68f03b5f31969 RSTUCS 857a1_20251018_8_9_1_66
+20251016 082520 68f03b70a9146 RSTUCS 857a1_20251018_8_9_1_66
+20251016 082610 68f03ba2443c4 RSTUCS 857a1_20251018_8_9_1_66
+20251016 082620 68f03bacc5aec RSTUCS 857a1_20251018_8_9_1_66
+20251016 082712 68f03be097ce2 RSTUCS 857a1_20251018_8_9_1_66
+20251016 082720 68f03be8e409d RSTUCS 857a1_20251018_8_9_1_66
+20251016 082746 68f03c02da906 return page stop_by_invalid_booking_2 您使用本網站的方式不恰當，請逐步使用\nThe way you are using this website is inappropriate, please use it step by step []
+20251016 082815 68f03c1f0d956 RSTUCS 857a1_20251018_8_9_1_66
+20251016 082821 68f03c250da5a RSTUCS 857a1_20251018_8_9_1_66
+20251016 082917 68f03c5d68a2c RSTUCS 857a1_20251018_8_9_1_66
+20251016 082921 68f03c6135246 RSTUCS 857a1_20251018_8_9_1_66
+20251016 082953 68f032b3f1416 reach email confirm a982e_20251016_8.5_10_1_73
+20251016 082953 68f032b3f1416 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '8.5', '10', 'H', '["73"]', 'a982e_20251016_8.5_10_1_73', 'winnie', '')
+20251016 082953 68f032b3f1416 page exit forward to next payment page ./email-confirmation-return.php?name=&auth=a982e_20251016_8.5_10_1_73
+20251016 082953 68f032b3f1416 reach email return a982e_20251016_8.5_10_1_73
+20251016 082956 68f032b3f1416 reach payment index.php a982e_20251016_8.5_10_1_73
+20251016 082956 68f032b3f1416 payment index.php chose cash a982e_20251016_8.5_10_1_73
+20251016 082958 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','a982e_20251016_8.5_10_1_73','','');
+20251016 082958 68f032b3f1416 reach payment-confirm.php a982e_20251016_8.5_10_1_73
+20251016 082958 68f032b3f1416 RSTUCS a982e_20251016_8.5_10_1_73
+20251016 083001 68f032b3f1416 reach payment-confirm.php CASH PAYMENT a982e_20251016_8.5_10_1_73
+20251016 083001 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL a982e_20251016_8.5_10_1_73
+20251016 083001 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY a982e_20251016_8.5_10_1_73
+20251016 083001 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','a982e_20251016_8.5_10_1_73','','');
+20251016 083001 68f032b3f1416 reach payment-confirm.php a982e_20251016_8.5_10_1_73
+20251016 083001 68f032b3f1416 RSTUCS a982e_20251016_8.5_10_1_73
+20251016 083002 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL a982e_20251016_8.5_10_1_73
+20251016 083002 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY a982e_20251016_8.5_10_1_73
+20251016 083007 68f032b3f1416 reach payment-confirm.php a982e_20251016_8.5_10_1_73
+20251016 083007 68f032b3f1416 RSTUCS a982e_20251016_8.5_10_1_73
+20251016 083008 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY a982e_20251016_8.5_10_1_73
+20251016 083015 68f03c978518b reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 083019 68f03c9bc9fd4 RSTUCS 857a1_20251018_8_9_1_66
+20251016 083021 68f03c9d4a695 RSTUCS 857a1_20251018_8_9_1_66
+20251016 083121 68f03cd968bfe RSTUCS 857a1_20251018_8_9_1_66
+20251016 083123 68f03cdba31f8 RSTUCS 857a1_20251018_8_9_1_66
+20251016 083221 68f03d1588f4c RSTUCS 857a1_20251018_8_9_1_66
+20251016 083234 68f03d222f532 RSTUCS 857a1_20251018_8_9_1_66
+20251016 083303 68f03d3f5510c reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 083305 68f03d3f5510c Reach Main Page [] []
+20251016 083306 68f03d4217d9a RSTUCS 857a1_20251018_8_9_1_66
+20251016 083321 68f03d51a8488 RSTUCS 857a1_20251018_8_9_1_66
+20251016 083339 68f03d6350a01 RSTUCS 857a1_20251018_8_9_1_66
+20251016 083421 68f03d8dc6a17 RSTUCS 857a1_20251018_8_9_1_66
+20251016 083446 68f03da647f8c RSTUCS 857a1_20251018_8_9_1_66
+20251016 083521 68f03dc9dfcfb RSTUCS 857a1_20251018_8_9_1_66
+20251016 083548 68f03de4db7eb RSTUCS 857a1_20251018_8_9_1_66
+20251016 083622 68f03e06097db RSTUCS 857a1_20251018_8_9_1_66
+20251016 083653 68f03e25bbec9 RSTUCS 857a1_20251018_8_9_1_66
+20251016 083722 68f03e4227701 RSTUCS 857a1_20251018_8_9_1_66
+20251016 083756 68f03e643d3b2 RSTUCS 857a1_20251018_8_9_1_66
+20251016 083822 68f03e7e46395 RSTUCS 857a1_20251018_8_9_1_66
+20251016 083837 68f03e8da2986 Reach Main Page [] []
+20251016 083838 68f03e8ee3514 RSTUCS 857a1_20251018_8_9_1_66
+20251016 083858 68f03ea29d1da RSTUCS 857a1_20251018_8_9_1_66
+20251016 083906 68f032b3f1416 reach email confirm a38b3_20251016_9_10_1_69
+20251016 083906 68f032b3f1416 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '9', '10', 'H', '["69"]', 'a38b3_20251016_9_10_1_69', 'winnie', '')
+20251016 083906 68f032b3f1416 page exit forward to next payment page ./email-confirmation-return.php?name=&auth=a38b3_20251016_9_10_1_69
+20251016 083906 68f032b3f1416 reach email return a38b3_20251016_9_10_1_69
+20251016 083910 68f032b3f1416 reach payment index.php a38b3_20251016_9_10_1_69
+20251016 083910 68f032b3f1416 payment index.php chose cash a38b3_20251016_9_10_1_69
+20251016 083912 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','a38b3_20251016_9_10_1_69','','');
+20251016 083912 68f032b3f1416 reach payment-confirm.php a38b3_20251016_9_10_1_69
+20251016 083912 68f032b3f1416 RSTUCS a38b3_20251016_9_10_1_69
+20251016 083922 68f032b3f1416 reach payment-confirm.php CASH PAYMENT a38b3_20251016_9_10_1_69
+20251016 083922 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL a38b3_20251016_9_10_1_69
+20251016 083922 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY a38b3_20251016_9_10_1_69
+20251016 083922 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','a38b3_20251016_9_10_1_69','','');
+20251016 083922 68f032b3f1416 reach payment-confirm.php a38b3_20251016_9_10_1_69
+20251016 083922 68f032b3f1416 RSTUCS a38b3_20251016_9_10_1_69
+20251016 083923 68f03ebb6768a RSTUCS 857a1_20251018_8_9_1_66
+20251016 083926 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL a38b3_20251016_9_10_1_69
+20251016 083926 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY a38b3_20251016_9_10_1_69
+20251016 083932 68f032b3f1416 reach payment-confirm.php a38b3_20251016_9_10_1_69
+20251016 083932 68f032b3f1416 RSTUCS a38b3_20251016_9_10_1_69
+20251016 083933 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY a38b3_20251016_9_10_1_69
+20251016 083953 68f032b3f1416 reach email confirm 633f9_20251016_9_11_1_60
+20251016 083953 68f032b3f1416 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '9', '11', 'H', '["60"]', '633f9_20251016_9_11_1_60', 'winnie', '')
+20251016 083953 68f032b3f1416 page exit forward to next payment page ./email-confirmation-return.php?name=&auth=633f9_20251016_9_11_1_60
+20251016 083953 68f032b3f1416 reach email return 633f9_20251016_9_11_1_60
+20251016 083955 68f032b3f1416 reach payment index.php 633f9_20251016_9_11_1_60
+20251016 083955 68f032b3f1416 payment index.php chose cash 633f9_20251016_9_11_1_60
+20251016 083957 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','633f9_20251016_9_11_1_60','','');
+20251016 083957 68f032b3f1416 reach payment-confirm.php 633f9_20251016_9_11_1_60
+20251016 083957 68f032b3f1416 RSTUCS 633f9_20251016_9_11_1_60
+20251016 084001 68f03ee10f4da RSTUCS 857a1_20251018_8_9_1_66
+20251016 084002 68f032b3f1416 reach payment-confirm.php CASH PAYMENT 633f9_20251016_9_11_1_60
+20251016 084002 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL 633f9_20251016_9_11_1_60
+20251016 084002 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 633f9_20251016_9_11_1_60
+20251016 084007 68f032b3f1416 reach payment-confirm.php 633f9_20251016_9_11_1_60
+20251016 084007 68f032b3f1416 RSTUCS 633f9_20251016_9_11_1_60
+20251016 084008 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 633f9_20251016_9_11_1_60
+20251016 084022 68f03ef684ac7 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084100 68f03f1c21ced Reach Main Page [] []
+20251016 084100 68f03f1c927a7 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084104 68f03f20a0805 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084122 68f03f32a1126 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084153 68f03f1c21ced Varify Email Confirm Code frankiepslam@gmail.com _ 2025-10-16T08:41:08 >  > 768433
+20251016 084153 68f03f1c21ced Send Email Confirm Code frankiepslam@gmail.com >>> 768433
+20251016 084207 68f03f5f09697 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084222 68f03f6ec0a28 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084240 68f03f1c21ced Varify Email Confirm Code frankiepslam@gmail.com _ 2025-10-16T08:41:08 > 768433 > 768433
+20251016 084311 68f03f9f9d266 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084322 68f03faadcec8 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084330 68f03f1c21ced Reach Main Page [] []
+20251016 084330 68f03f1c927a7 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084417 68f03fe181880 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084423 68f03fe7084b7 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084520 68f04020026a6 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084523 68f0402327df2 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084622 68f0405e6e340 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084623 68f0405f47dbb RSTUCS 857a1_20251018_8_9_1_66
+20251016 084640 68f0407093a66 Reach Main Page [] []
+20251016 084640 68f0407093a66 Reach Main Page [] []
+20251016 084640 68f04070e0dd0 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084714 68f0407093a66 Reach Main Page [] []
+20251016 084714 68f04070e0dd0 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084723 68f0409b63c12 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084727 68f0409f009e8 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084823 68f040d7787a8 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084829 68f040dd78444 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084923 68f041138e907 RSTUCS 857a1_20251018_8_9_1_66
+20251016 084931 68f0411bec56d RSTUCS 857a1_20251018_8_9_1_66
+20251016 085024 68f04150b6feb RSTUCS 857a1_20251018_8_9_1_66
+20251016 085036 68f0415c3d976 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085123 68f0418bc3356 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085138 68f0419aaac64 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085223 68f041c7dff15 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085245 68f041ddd4573 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085324 68f042042ad2a RSTUCS 857a1_20251018_8_9_1_66
+20251016 085348 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','','','ACCEPT','','','','','','','','','','','6dd01_20251016_9_11_1_53','','');
+20251016 085348 68f032b3f1416 reach payment-confirm.php 6dd01_20251016_9_11_1_53
+20251016 085348 68f032b3f1416 RSTUCS 6dd01_20251016_9_11_1_53
+20251016 085349 68f032b3f1416 reach payment-confirm.php UNPAID PAID 6dd01_20251016_9_11_1_53
+20251016 085350 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL 6dd01_20251016_9_11_1_53
+20251016 085350 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 6dd01_20251016_9_11_1_53
+20251016 085355 68f032b3f1416 reach payment-confirm.php 6dd01_20251016_9_11_1_53
+20251016 085355 68f032b3f1416 RSTUCS 6dd01_20251016_9_11_1_53
+20251016 085356 68f032b3f1416 reach payment-confirm.php UNPAID PAID 6dd01_20251016_9_11_1_53
+20251016 085356 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 6dd01_20251016_9_11_1_53
+20251016 085357 68f0422534dac RSTUCS 857a1_20251018_8_9_1_66
+20251016 085424 68f0424026675 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085451 68f03a19215a3 Reach Main Page [] []
+20251016 085458 68f03a19215a3 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085500 68f04264d2f11 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085524 68f0427c438e6 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085548 68f032b3f1416 reach email confirm 86d1e_20251016_9_10_1_55
+20251016 085548 68f032b3f1416 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '9', '10', 'H', '["55"]', '86d1e_20251016_9_10_1_55', 'winnie', '')
+20251016 085548 68f032b3f1416 page exit forward to next payment page ./email-confirmation-return.php?name=&auth=86d1e_20251016_9_10_1_55
+20251016 085548 68f032b3f1416 reach email return 86d1e_20251016_9_10_1_55
+20251016 085550 68f032b3f1416 reach payment index.php 86d1e_20251016_9_10_1_55
+20251016 085550 68f032b3f1416 payment index.php chose cash 86d1e_20251016_9_10_1_55
+20251016 085552 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','86d1e_20251016_9_10_1_55','','');
+20251016 085552 68f032b3f1416 reach payment-confirm.php 86d1e_20251016_9_10_1_55
+20251016 085552 68f032b3f1416 RSTUCS 86d1e_20251016_9_10_1_55
+20251016 085553 68f032b3f1416 reach payment-confirm.php CASH PAYMENT 86d1e_20251016_9_10_1_55
+20251016 085553 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL 86d1e_20251016_9_10_1_55
+20251016 085553 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 86d1e_20251016_9_10_1_55
+20251016 085558 68f032b3f1416 reach payment-confirm.php 86d1e_20251016_9_10_1_55
+20251016 085558 68f032b3f1416 RSTUCS 86d1e_20251016_9_10_1_55
+20251016 085559 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY 86d1e_20251016_9_10_1_55
+20251016 085603 68f042a341815 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085624 68f042b863711 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085710 68f042e6c3fb1 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085724 68f042f480383 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085817 68f04329a8e04 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085824 68f04330ac568 RSTUCS 857a1_20251018_8_9_1_66
+20251016 085920 68f043681b6be RSTUCS 857a1_20251018_8_9_1_66
+20251016 085924 68f0436cc6f19 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090022 68f043a6854b7 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090024 68f043a8ea729 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090125 68f043e51643c RSTUCS 857a1_20251018_8_9_1_66
+20251016 090125 68f043e520440 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090225 68f044213841c RSTUCS 857a1_20251018_8_9_1_66
+20251016 090227 68f0442388247 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090255 68f032b3f1416 reach email confirm dd8b1_20251016_9_11_1_71
+20251016 090255 68f032b3f1416 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '9', '11', 'H', '["71"]', 'dd8b1_20251016_9_11_1_71', 'winnie', '')
+20251016 090255 68f032b3f1416 page exit forward to next payment page ./email-confirmation-return.php?name=&auth=dd8b1_20251016_9_11_1_71
+20251016 090255 68f032b3f1416 reach email return dd8b1_20251016_9_11_1_71
+20251016 090258 68f032b3f1416 reach payment index.php dd8b1_20251016_9_11_1_71
+20251016 090258 68f032b3f1416 payment index.php chose cash dd8b1_20251016_9_11_1_71
+20251016 090300 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','dd8b1_20251016_9_11_1_71','','');
+20251016 090300 68f032b3f1416 reach payment-confirm.php dd8b1_20251016_9_11_1_71
+20251016 090300 68f032b3f1416 RSTUCS dd8b1_20251016_9_11_1_71
+20251016 090304 68f032b3f1416 reach payment-confirm.php CASH PAYMENT dd8b1_20251016_9_11_1_71
+20251016 090304 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL dd8b1_20251016_9_11_1_71
+20251016 090304 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY dd8b1_20251016_9_11_1_71
+20251016 090304 68f032b3f1416 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','dd8b1_20251016_9_11_1_71','','');
+20251016 090304 68f032b3f1416 reach payment-confirm.php dd8b1_20251016_9_11_1_71
+20251016 090304 68f032b3f1416 RSTUCS dd8b1_20251016_9_11_1_71
+20251016 090305 68f032b3f1416 reach lib_complete_payment.php TRY SEND MAIL dd8b1_20251016_9_11_1_71
+20251016 090305 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY dd8b1_20251016_9_11_1_71
+20251016 090310 68f032b3f1416 reach payment-confirm.php dd8b1_20251016_9_11_1_71
+20251016 090310 68f032b3f1416 RSTUCS dd8b1_20251016_9_11_1_71
+20251016 090311 68f032b3f1416 reach payment-confirm.php Show Invoicee SUCCESSFULLY dd8b1_20251016_9_11_1_71
+20251016 090325 68f0445d5c1ca RSTUCS 857a1_20251018_8_9_1_66
+20251016 090332 68f04464a8264 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090425 68f0449976602 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090435 68f044a3181ff RSTUCS 857a1_20251018_8_9_1_66
+20251016 090525 68f044d59218e RSTUCS 857a1_20251018_8_9_1_66
+20251016 090537 68f044e194664 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090625 68f04511af586 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090639 68f0451fed1e1 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090725 68f0454dce675 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090745 68f045615c29d RSTUCS 857a1_20251018_8_9_1_66
+20251016 090759 68f0456f0824b reach payment-confirm.php 73bb1_20251014_16_18_1_77
+20251016 090759 68f0456f0824b RSTUCS 73bb1_20251014_16_18_1_77
+20251016 090800 68f0456f0824b reach payment-confirm.php BANK ACCEPT 73bb1_20251014_16_18_1_77
+20251016 090800 68f0456f0824b reach payment-confirm.php Show Invoicee SUCCESSFULLY 73bb1_20251014_16_18_1_77
+20251016 090825 68f04589ee824 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090847 68f0459fb9875 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090926 68f045c61db28 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090945 68f045d9b666f Reach Main Page [] []
+20251016 090950 68f045de53ad3 RSTUCS 857a1_20251018_8_9_1_66
+20251016 090953 68f045d9b666f RSTUCS 857a1_20251018_8_9_1_66
+20251016 091026 68f046023b24b RSTUCS 857a1_20251018_8_9_1_66
+20251016 091052 68f0461cd63ef RSTUCS 857a1_20251018_8_9_1_66
+20251016 091126 68f0463e5839e RSTUCS 857a1_20251018_8_9_1_66
+20251016 091204 68f046643b2b5 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091226 68f0467a77e0b RSTUCS 857a1_20251018_8_9_1_66
+20251016 091229 68f0467d516e1 Reach Main Page [] []
+20251016 091229 68f0467dbc287 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091232 68f046808e718 reach email confirm 34a6f_20251016_14_16_1_80
+20251016 091232 68f046808e718 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Li', 'cklimail@gmail.com', '55338699', '', '',
+                '2025-10-16', '14', '16', 'H', '["80"]', '34a6f_20251016_14_16_1_80', 'online', '')
+20251016 091232 68f046808e718 page exit forward to next payment page ./email-confirmation-return.php?name=Li&auth=34a6f_20251016_14_16_1_80
+20251016 091233 68f046808e718 reach email return 34a6f_20251016_14_16_1_80
+20251016 091239 68f046808e718 reach payment index.php 34a6f_20251016_14_16_1_80
+20251016 091239 68f046808e718 payment index.php chose credit card 34a6f_20251016_14_16_1_80
+20251016 091241 68f046808e718 reach SecureAcceptanceCheckout Array
+20251016 091241 68f046808e718 reach pay.php {"reference":"34a6f_20251016_14_16_1_80","amount":"160.00"}
+20251016 091241 68f046808e718 pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 160.00, 34a6f_20251016_14_16_1_80
+20251016 091241 68f046808e718 pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 091306 68f046a2a370b RSTUCS 34a6f_20251016_14_16_1_80
+20251016 091307 68f046a3ccebd RSTUCS 857a1_20251018_8_9_1_66
+20251016 091326 68f046b695103 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091326 68f046b695bac RSTUCS 34a6f_20251016_14_16_1_80
+20251016 091332 68f0467d516e1 reach email confirm b5d96_20251016_11_12_1_36
+20251016 091332 68f0467d516e1 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Wing sun Liu', 'Wingsunl@icloud.com', '95949319', '', '',
+                '2025-10-16', '11', '12', 'H', '["36"]', 'b5d96_20251016_11_12_1_36', 'online', '')
+20251016 091332 68f0467d516e1 page exit forward to next payment page ./email-confirmation-return.php?name=Wing+sun+Liu&auth=b5d96_20251016_11_12_1_36
+20251016 091332 68f0467d516e1 reach email return b5d96_20251016_11_12_1_36
+20251016 091348 68f046ccea478 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx0018','en-us','bbXZYcIVknJKP3qHwO1l78D6CZ5VbvXCzWmvUFoyZ3E=','1','7605772263656213603046','Li','02-2030','','','Mastercard','100','160.00','00','C','card','Axj//wSTnE9LKK/TQmLmAHIs3bMGrduyZNmbZq2ZMWbZgzYNGyf71KktFgSf71KktFqwO+gFKiGTSTL0Y5FIQgweyc4npZRX6aExcwAAvD/r','','2025-10-16T011348Z','160.00','7605772263656213603046','HKD','002','ACCEPT','https://www.riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_reason_code,payer_authentication_validate_result,payer_authentication_enroll_e_commerce_indicator,payer_authentication_eci,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_uad,payer_authentication_uci,payer_authentication_enroll_veres_enrolled,payer_authentication_acs_transaction_id,payment_account_reference,signed_field_names,signed_date_time','68f046898748c','U','T02664','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','34a6f_20251016_14_16_1_80','528801794129','2025-10-16T01:13:48Z');
+20251016 091348 68f046ccea478 reach payment-confirm.php 34a6f_20251016_14_16_1_80
+20251016 091348 68f046ccea478 RSTUCS 34a6f_20251016_14_16_1_80
+20251016 091349 68f046ccea478 reach payment-confirm.php BANK ACCEPT 34a6f_20251016_14_16_1_80
+20251016 091349 68f046ccea478 reach lib_complete_payment.php TRY SEND MAIL 34a6f_20251016_14_16_1_80
+20251016 091350 68f046ccea478 reach payment-confirm.php Show Invoicee SUCCESSFULLY 34a6f_20251016_14_16_1_80
+20251016 091356 68f046ccea478 reach payment-confirm.php 34a6f_20251016_14_16_1_80
+20251016 091356 68f046ccea478 RSTUCS 34a6f_20251016_14_16_1_80
+20251016 091357 68f046ccea478 reach payment-confirm.php BANK ACCEPT 34a6f_20251016_14_16_1_80
+20251016 091357 68f046ccea478 reach payment-confirm.php Show Invoicee SUCCESSFULLY 34a6f_20251016_14_16_1_80
+20251016 091411 68f046e3033a5 RSTUCS b5d96_20251016_11_12_1_36
+20251016 091412 68f046e410357 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091426 68f046f2b12a5 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091426 68f046f2b14d3 RSTUCS b5d96_20251016_11_12_1_36
+20251016 091438 68f046fe2074f reach payment-confirm.php dc4ff_20251016_9_11_1_66
+20251016 091438 68f046fe2074f RSTUCS dc4ff_20251016_9_11_1_66
+20251016 091439 68f046fe2074f reach payment-confirm.php BANK ACCEPT dc4ff_20251016_9_11_1_66
+20251016 091439 68f046fe2074f reach payment-confirm.php Show Invoicee SUCCESSFULLY dc4ff_20251016_9_11_1_66
+20251016 091449 68f0467d516e1 reach payment index.php b5d96_20251016_11_12_1_36
+20251016 091449 68f0467d516e1 payment index.php chose credit card b5d96_20251016_11_12_1_36
+20251016 091455 68f0467d516e1 reach SecureAcceptanceCheckout Array
+20251016 091455 68f0467d516e1 reach pay.php {"reference":"b5d96_20251016_11_12_1_36","amount":"80.00"}
+20251016 091455 68f0467d516e1 pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 80.00, b5d96_20251016_11_12_1_36
+20251016 091455 68f0467d516e1 pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 091515 68f04723973c6 RSTUCS b5d96_20251016_11_12_1_36
+20251016 091516 68f04724b6916 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091526 68f0472ed0579 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091526 68f0472ed0b6d RSTUCS b5d96_20251016_11_12_1_36
+20251016 091535 68f0473708c59 Reach Main Page [] []
+20251016 091535 68f0473741b6d RSTUCS b5d96_20251016_11_12_1_36
+20251016 091535 68f0473741ef4 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091619 68f04763e1483 RSTUCS b5d96_20251016_11_12_1_36
+20251016 091621 68f047650b197 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091625 68f0467d516e1 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx7743','en-us','bmjv8hEuKQkxhrNz0T3eXZRXQYfHxbCDeuY0lrUuY+s=','1','7605773845586216803244','Liu','09-2030','2','','Visa','100','80.00','00','Wing sun','card','Axj//wSTnE9Qx3GbKNusAHIs3bMGrduzcNGrVw2ZMWzhgzZNGif71KzL0AKf71KzL0KwN+gKVEMmkmXoxyKQhBhBk5xPUMdxmyjbrAAAzxaD','2','2025-10-16T011625Z','80.00','7605773845586216803244','HKD','001','ACCEPT','https://www.riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,payer_authentication_reason_code,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_enroll_veres_enrolled,payer_authentication_acs_transaction_id,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cavv_result,auth_cavv_result_raw,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_validate_result,payer_authentication_cavv,payer_authentication_validate_e_commerce_indicator,payer_authentication_eci,payer_authentication_xid,payment_account_reference,signed_field_names,signed_date_time','68f0470f6f878','U','806398','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','b5d96_20251016_11_12_1_36','528801864254','2025-10-16T01:16:25Z');
+20251016 091625 68f0467d516e1 reach payment-confirm.php b5d96_20251016_11_12_1_36
+20251016 091625 68f0467d516e1 RSTUCS b5d96_20251016_11_12_1_36
+20251016 091626 68f0467d516e1 reach payment-confirm.php BANK ACCEPT b5d96_20251016_11_12_1_36
+20251016 091626 68f0467d516e1 reach lib_complete_payment.php TRY SEND MAIL b5d96_20251016_11_12_1_36
+20251016 091626 68f0467d516e1 reach payment-confirm.php Show Invoicee SUCCESSFULLY b5d96_20251016_11_12_1_36
+20251016 091627 68f0476b022e6 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091633 68f0467d516e1 reach payment-confirm.php b5d96_20251016_11_12_1_36
+20251016 091633 68f0467d516e1 RSTUCS b5d96_20251016_11_12_1_36
+20251016 091634 68f0467d516e1 reach payment-confirm.php BANK ACCEPT b5d96_20251016_11_12_1_36
+20251016 091634 68f0467d516e1 reach payment-confirm.php Show Invoicee SUCCESSFULLY b5d96_20251016_11_12_1_36
+20251016 091643 68f0473708c59 reach email confirm 27519_20251018_14_16_1_77
+20251016 091644 68f0473708c59 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Holiday Wong', 'Hiuyingwong1@gmail.com', '56427254', '', '',
+                '2025-10-18', '14', '16', 'H', '["77"]', '27519_20251018_14_16_1_77', 'online', '')
+20251016 091644 68f0473708c59 page exit forward to next payment page ./email-confirmation-return.php?name=Holiday+Wong&auth=27519_20251018_14_16_1_77
+20251016 091644 68f0473708c59 reach email return 27519_20251018_14_16_1_77
+20251016 091646 68f0473708c59 reach payment index.php 27519_20251018_14_16_1_77
+20251016 091646 68f0473708c59 payment index.php chose credit card 27519_20251018_14_16_1_77
+20251016 091648 68f0473708c59 reach SecureAcceptanceCheckout Array
+20251016 091648 68f0473708c59 reach pay.php {"reference":"27519_20251018_14_16_1_77","amount":"280.00"}
+20251016 091648 68f0473708c59 pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 280.00, 27519_20251018_14_16_1_77
+20251016 091648 68f0473708c59 pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 091723 68f047a35f2ea RSTUCS 27519_20251018_14_16_1_77
+20251016 091724 68f047a485710 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091727 68f047a722017 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091727 68f047a7231c3 RSTUCS 27519_20251018_14_16_1_77
+20251016 091750 68f0473708c59 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx3800','en-us','zaKK8EJ0sifaII4sw+Qe2Q9vDZttG+XaZ3Jh5nP/jK4=','1','7605774684906221503598','Wong','11-2028','2','','Visa','100','280.00','00','Hiu ying','card','Axj//wSTnE9Tws0F5IRuAHIs3bMGrdu0bOGjlg2ZMmLVgzauXCf71K7FagKf71K7FaqwP2sClRDJpJl6McikIQYM5OcT1PCzQXkhG4AAvz6B','2','2025-10-16T011749Z','280.00','7605774684906221503598','HKD','001','ACCEPT','https://www.riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cavv_result,auth_cavv_result_raw,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_reason_code,payer_authentication_validate_result,payer_authentication_cavv,payer_authentication_enroll_e_commerce_indicator,payer_authentication_eci,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_enroll_veres_enrolled,payer_authentication_xid,payer_authentication_acs_transaction_id,payment_account_reference,signed_field_names,signed_date_time','68f04780bdc5f','U','688575','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','27519_20251018_14_16_1_77','528801607698','2025-10-16T01:17:50Z');
+20251016 091750 68f0473708c59 reach payment-confirm.php 27519_20251018_14_16_1_77
+20251016 091750 68f0473708c59 RSTUCS 27519_20251018_14_16_1_77
+20251016 091751 68f0473708c59 reach payment-confirm.php BANK ACCEPT 27519_20251018_14_16_1_77
+20251016 091751 68f0473708c59 reach lib_complete_payment.php TRY SEND MAIL 27519_20251018_14_16_1_77
+20251016 091751 68f0473708c59 reach payment-confirm.php Show Invoicee SUCCESSFULLY 27519_20251018_14_16_1_77
+20251016 091758 68f0473708c59 reach payment-confirm.php 27519_20251018_14_16_1_77
+20251016 091758 68f0473708c59 RSTUCS 27519_20251018_14_16_1_77
+20251016 091759 68f0473708c59 reach payment-confirm.php BANK ACCEPT 27519_20251018_14_16_1_77
+20251016 091759 68f0473708c59 reach payment-confirm.php Show Invoicee SUCCESSFULLY 27519_20251018_14_16_1_77
+20251016 091827 68f047e33f523 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091828 68f047e4a4132 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091842 68f047f26d2d5 Reach Main Page [] []
+20251016 091927 68f0481f5bff8 RSTUCS 857a1_20251018_8_9_1_66
+20251016 091931 68f04823101d2 RSTUCS 857a1_20251018_8_9_1_66
+20251016 092027 68f0485b7c145 RSTUCS 857a1_20251018_8_9_1_66
+20251016 092033 68f04861851bc RSTUCS 857a1_20251018_8_9_1_66
+20251016 092127 68f048979a424 RSTUCS 857a1_20251018_8_9_1_66
+20251016 092135 68f0489fd9886 RSTUCS 857a1_20251018_8_9_1_66
+20251016 092227 68f048d3b893e RSTUCS 857a1_20251018_8_9_1_66
+20251016 092240 68f048e027f57 RSTUCS 857a1_20251018_8_9_1_66
+20251016 092254 68f048eebac34 Reach Main Page [] []
+20251016 092301 68f048eebac34 RSTUCS 857a1_20251018_8_9_1_66
+20251016 092327 68f0490fd9193 RSTUCS 857a1_20251018_8_9_1_66
+20251016 092342 68f0491ea3620 RSTUCS 857a1_20251018_8_9_1_66
+20251016 092428 68f0494c01fb4 RSTUCS 857a1_20251018_8_9_1_66
+20251016 092432 68f0495097ffc reach email confirm 53e27_20251016_9.5_10.5_1_61
+20251016 092432 68f0495097ffc golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '9.5', '10.5', 'H', '["61"]', '53e27_20251016_9.5_10.5_1_61', 'online', '')
+20251016 092432 68f0495097ffc page exit forward to next payment page ./email-confirmation-return.php?name=&auth=53e27_20251016_9.5_10.5_1_61
+20251016 092432 68f0495097ffc reach email return 53e27_20251016_9.5_10.5_1_61
+20251016 092435 68f0495097ffc reach payment index.php 53e27_20251016_9.5_10.5_1_61
+20251016 092435 68f0495097ffc payment index.php chose cash 53e27_20251016_9.5_10.5_1_61
+20251016 092437 68f0495097ffc reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','53e27_20251016_9.5_10.5_1_61','','');
+20251016 092437 68f0495097ffc reach payment-confirm.php 53e27_20251016_9.5_10.5_1_61
+20251016 092437 68f0495097ffc RSTUCS 53e27_20251016_9.5_10.5_1_61
+20251016 092438 68f0495097ffc reach payment-confirm.php CASH PAYMENT 53e27_20251016_9.5_10.5_1_61
+20251016 092438 68f0495097ffc reach lib_complete_payment.php TRY SEND MAIL 53e27_20251016_9.5_10.5_1_61
+20251016 092438 68f0495097ffc reach payment-confirm.php Show Invoicee SUCCESSFULLY 53e27_20251016_9.5_10.5_1_61
+20251016 092438 68f0495097ffc Move to history: {"id":"112663","auth_code":null,"discount":"H","name":"Patrick Au Yeung ","email":"pauyeung@163.com","telephone":"59880210","octopus_no":"","check_digit":"","begin_hour":"8","end_hour":"9","p_selections":"[\"66\"]","amount":" ","req_card_number":null,"cash":null,"is_paid":"","booking_date":"2025-10-18","golf_payment_status":"F","golf_payment_datetime":null,"remark":null,"locker_link":"<a href=\".\/admin-locker.php?auth=857a1_20251018_8_9_1_66&name=Patrick Au Yeung &telephone=59880210\" target=\"_blank\">\u9810\u8a02\u7f6e\u7269\u6ac3<\/a>","Link":"","resend_email":"","payment_confirmed":"F","carpark_checked_in":"F","fairway_checked_in":"F","email_confirmation_status":"T","is_synchronized":"F","booking_expired":"Y","card_type_name":null,"auth":"857a1_20251018_8_9_1_66","pay_amount":null,"src":"online","invalid":null,"timestamp":"2025-10-16 08:22:52","signed_date_time":null,"pay_type":"credit-card"}
+20251016 092443 68f0495097ffc reach payment-confirm.php 53e27_20251016_9.5_10.5_1_61
+20251016 092443 68f0495097ffc RSTUCS 53e27_20251016_9.5_10.5_1_61
+20251016 092444 68f0495097ffc reach payment-confirm.php Show Invoicee SUCCESSFULLY 53e27_20251016_9.5_10.5_1_61
+20251016 092454 68f0496601719 RSTUCS 857a1_20251018_8_9_1_66
+20251016 092628 68f049c48e96f Reach Main Page [] []
+20251016 092657 68f049c48e96f Reach Main Page [] []
+20251016 093029 68f049c48e96f Reach Main Page [] []
+20251016 093254 68f04b4656c4a reach payment-confirm.php cbfcc_20251014_14_16_1_80
+20251016 093254 68f04b4656c4a RSTUCS cbfcc_20251014_14_16_1_80
+20251016 093255 68f04b4656c4a reach payment-confirm.php BANK ACCEPT cbfcc_20251014_14_16_1_80
+20251016 093255 68f04b4656c4a reach payment-confirm.php Show Invoicee SUCCESSFULLY cbfcc_20251014_14_16_1_80
+20251016 093303 68f04b4f21dfd reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 093405 68f0495097ffc reach email confirm 4ac8b_20251016_10_11_1_65
+20251016 093405 68f0495097ffc golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '10', '11', 'H', '["65"]', '4ac8b_20251016_10_11_1_65', 'online', '')
+20251016 093405 68f0495097ffc page exit forward to next payment page ./email-confirmation-return.php?name=&auth=4ac8b_20251016_10_11_1_65
+20251016 093405 68f0495097ffc reach email return 4ac8b_20251016_10_11_1_65
+20251016 093409 68f0495097ffc reach payment index.php 4ac8b_20251016_10_11_1_65
+20251016 093409 68f0495097ffc payment index.php chose cash 4ac8b_20251016_10_11_1_65
+20251016 093410 68f0495097ffc reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','4ac8b_20251016_10_11_1_65','','');
+20251016 093410 68f0495097ffc reach payment-confirm.php 4ac8b_20251016_10_11_1_65
+20251016 093410 68f0495097ffc RSTUCS 4ac8b_20251016_10_11_1_65
+20251016 093412 68f0495097ffc reach payment-confirm.php CASH PAYMENT 4ac8b_20251016_10_11_1_65
+20251016 093412 68f0495097ffc reach lib_complete_payment.php TRY SEND MAIL 4ac8b_20251016_10_11_1_65
+20251016 093412 68f0495097ffc reach payment-confirm.php Show Invoicee SUCCESSFULLY 4ac8b_20251016_10_11_1_65
+20251016 093417 68f0495097ffc reach payment-confirm.php 4ac8b_20251016_10_11_1_65
+20251016 093417 68f0495097ffc RSTUCS 4ac8b_20251016_10_11_1_65
+20251016 093418 68f0495097ffc reach payment-confirm.php Show Invoicee SUCCESSFULLY 4ac8b_20251016_10_11_1_65
+20251016 093504 68f0495097ffc reach email confirm b480f_20251016_10_11_1_67
+20251016 093504 68f0495097ffc golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '10', '11', 'H', '["67"]', 'b480f_20251016_10_11_1_67', 'online', '')
+20251016 093504 68f0495097ffc page exit forward to next payment page ./email-confirmation-return.php?name=&auth=b480f_20251016_10_11_1_67
+20251016 093504 68f0495097ffc reach email return b480f_20251016_10_11_1_67
+20251016 093506 68f02a8434d2c Reach Main Page [] []
+20251016 093512 68f0495097ffc reach payment index.php b480f_20251016_10_11_1_67
+20251016 093512 68f0495097ffc payment index.php chose cash b480f_20251016_10_11_1_67
+20251016 093514 68f0495097ffc reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','b480f_20251016_10_11_1_67','','');
+20251016 093514 68f0495097ffc reach payment-confirm.php b480f_20251016_10_11_1_67
+20251016 093514 68f0495097ffc RSTUCS b480f_20251016_10_11_1_67
+20251016 093515 68f0495097ffc reach payment-confirm.php CASH PAYMENT b480f_20251016_10_11_1_67
+20251016 093515 68f0495097ffc reach lib_complete_payment.php TRY SEND MAIL b480f_20251016_10_11_1_67
+20251016 093515 68f0495097ffc reach payment-confirm.php Show Invoicee SUCCESSFULLY b480f_20251016_10_11_1_67
+20251016 093521 68f0495097ffc reach payment-confirm.php b480f_20251016_10_11_1_67
+20251016 093521 68f0495097ffc RSTUCS b480f_20251016_10_11_1_67
+20251016 093522 68f0495097ffc reach payment-confirm.php Show Invoicee SUCCESSFULLY b480f_20251016_10_11_1_67
+20251016 093629 68f04c1d4e3e2 reach payment-confirm.php 7d062_20251016_11_13_3_72_73_75
+20251016 093629 68f04c1d4e3e2 RSTUCS 7d062_20251016_11_13_3_72_73_75
+20251016 093630 68f04c1d4e3e2 reach payment-confirm.php BANK ACCEPT 7d062_20251016_11_13_3_72_73_75
+20251016 093630 68f04c1d4e3e2 reach payment-confirm.php Show Invoicee SUCCESSFULLY 7d062_20251016_11_13_3_72_73_75
+20251016 094405 68f04de5556d3 reach payment-confirm.php bfa59_20251015_18_19_1_72
+20251016 094405 68f04de5556d3 RSTUCS bfa59_20251015_18_19_1_72
+20251016 094406 68f04de5556d3 reach payment-confirm.php BANK ACCEPT bfa59_20251015_18_19_1_72
+20251016 094406 68f04de5556d3 reach payment-confirm.php Show Invoicee SUCCESSFULLY bfa59_20251015_18_19_1_72
+20251016 094409 68f04de5556d3 Reach Main Page [] []
+20251016 094553 68f04de5556d3 reach email confirm 3aec8_20251016_10_11_1_80
+20251016 094553 68f04de5556d3 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Matthew Li', 'matthewlier210@gmail.com', '92262243', '', '',
+                '2025-10-16', '10', '11', 'H', '["80"]', '3aec8_20251016_10_11_1_80', 'online', '')
+20251016 094553 68f04de5556d3 page exit forward to next payment page ./email-confirmation-return.php?name=Matthew+Li&auth=3aec8_20251016_10_11_1_80
+20251016 094553 68f04de5556d3 reach email return 3aec8_20251016_10_11_1_80
+20251016 094558 68f04de5556d3 reach payment index.php 3aec8_20251016_10_11_1_80
+20251016 094558 68f04de5556d3 payment index.php chose credit card 3aec8_20251016_10_11_1_80
+20251016 094602 68f04de5556d3 reach SecureAcceptanceCheckout Array
+20251016 094602 68f04de5556d3 reach pay.php {"reference":"3aec8_20251016_10_11_1_80","amount":"80.00"}
+20251016 094602 68f04de5556d3 pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 80.00, 3aec8_20251016_10_11_1_80
+20251016 094602 68f04de5556d3 pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 094630 68f04e769c14b RSTUCS 3aec8_20251016_10_11_1_80
+20251016 094632 68f04e78447f6 RSTUCS 3aec8_20251016_10_11_1_80
+20251016 094659 68f04de5556d3 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx6751','en-us','SAibUocnTaal2Cc2ntT61Lxnm9ohKtwEFWEXkp/LSSM=','1','7605792174036275603603','Chun Kwong','07-2028','2','','Visa','100','80.00','00','Li','card','Axj//wSTnE+R5RJuMqiTAHIs3bMGrdyyYt2jBm2ZN2rZgzbMGaf71NPfPAKf71NPfPKwN+gKVEMmkmXoxyKQhBg7k5xPkeUSbjKokwAAjSHp','2','2025-10-16T014658Z','80.00','7605792174036275603603','HKD','001','ACCEPT','https://www.riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cavv_result,auth_cavv_result_raw,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_reason_code,payer_authentication_validate_result,payer_authentication_cavv,payer_authentication_enroll_e_commerce_indicator,payer_authentication_eci,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_enroll_veres_enrolled,payer_authentication_xid,payer_authentication_acs_transaction_id,payment_account_reference,signed_field_names,signed_date_time','68f04e5aa7bff','U','714057','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','3aec8_20251016_10_11_1_80','528801839711','2025-10-16T01:46:58Z');
+20251016 094659 68f04de5556d3 reach payment-confirm.php 3aec8_20251016_10_11_1_80
+20251016 094659 68f04de5556d3 RSTUCS 3aec8_20251016_10_11_1_80
+20251016 094700 68f04de5556d3 reach payment-confirm.php BANK ACCEPT 3aec8_20251016_10_11_1_80
+20251016 094700 68f04de5556d3 reach lib_complete_payment.php TRY SEND MAIL 3aec8_20251016_10_11_1_80
+20251016 094700 68f04de5556d3 reach payment-confirm.php Show Invoicee SUCCESSFULLY 3aec8_20251016_10_11_1_80
+20251016 094702 68f04e961516a reach email confirm 9dbf3_20251016_10_11_1_78
+20251016 094702 68f04e961516a golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Tsoi Sin Yu', 'apriltsoi@yahoo.com.hk', '60725423', '', '',
+                '2025-10-16', '10', '11', 'H', '["78"]', '9dbf3_20251016_10_11_1_78', 'online', '')
+20251016 094702 68f04e961516a page exit forward to next payment page ./email-confirmation-return.php?name=Tsoi+Sin+Yu&auth=9dbf3_20251016_10_11_1_78
+20251016 094702 68f04e961516a reach email return 9dbf3_20251016_10_11_1_78
+20251016 094708 68f04de5556d3 reach payment-confirm.php 3aec8_20251016_10_11_1_80
+20251016 094708 68f04de5556d3 RSTUCS 3aec8_20251016_10_11_1_80
+20251016 094717 68f04de5556d3 reach payment-confirm.php BANK ACCEPT 3aec8_20251016_10_11_1_80
+20251016 094717 68f04de5556d3 reach payment-confirm.php Show Invoicee SUCCESSFULLY 3aec8_20251016_10_11_1_80
+20251016 094730 68f04eb2b9602 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 094734 68f04eb6a7eee RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 094735 68f04e961516a reach email confirm 79b16_20251016_10_11_1_52
+20251016 094735 68f04e961516a golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Tsoi Sin Yu', 'apriltsoi@yahoo.com.hk', '60725423', '', '',
+                '2025-10-16', '10', '11', 'H', '["52"]', '79b16_20251016_10_11_1_52', 'online', '')
+20251016 094735 68f04e961516a page exit forward to next payment page ./email-confirmation-return.php?name=Tsoi+Sin+Yu&auth=79b16_20251016_10_11_1_52
+20251016 094735 68f04e961516a reach email return 79b16_20251016_10_11_1_52
+20251016 094735 68f04eb7bfc58 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 094738 68f04e961516a reach payment index.php 79b16_20251016_10_11_1_52
+20251016 094738 68f04e961516a payment index.php chose credit card 79b16_20251016_10_11_1_52
+20251016 094740 68f04e961516a reach SecureAcceptanceCheckout Array
+20251016 094740 68f04e961516a reach pay.php {"reference":"79b16_20251016_10_11_1_52","amount":"80.00"}
+20251016 094740 68f04e961516a pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 80.00, 79b16_20251016_10_11_1_52
+20251016 094740 68f04e961516a pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 094830 68f04eeed7287 RSTUCS 79b16_20251016_10_11_1_52
+20251016 094831 68f04eefd71a4 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 094838 68f04ef6ebf09 RSTUCS 79b16_20251016_10_11_1_52
+20251016 094840 68f04ef812fed RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 094850 68f04e961516a reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx9606','en-us','Xk4rwvG50RqlWAnbuqolaY1qswuwf3FSm/l49CG7veg=','1','7605793290276280703045','Sin Yu','07-2027','2','','Visa','100','80.00','00','Tsoi','card','Axj//wSTnE+V3ElPL5hFAHIs3bMGrdyzZOWDJu2ZOGDdgzYNGqf71NYv9gKf71NYv9qwN+gKVEMmkmXoxyKQhBg/k5xPldxJTy+YRQAA/y7s','2','2025-10-16T014849Z','80.00','7605793290276280703045','HKD','001','ACCEPT','https://www.riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,payer_authentication_reason_code,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_enroll_veres_enrolled,payer_authentication_acs_transaction_id,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cavv_result,auth_cavv_result_raw,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_validate_result,payer_authentication_cavv,payer_authentication_validate_e_commerce_indicator,payer_authentication_eci,payer_authentication_xid,payment_account_reference,signed_field_names,signed_date_time','68f04ebc58a55','U','819527','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','79b16_20251016_10_11_1_52','528801375876','2025-10-16T01:48:49Z');
+20251016 094850 68f04e961516a reach payment-confirm.php 79b16_20251016_10_11_1_52
+20251016 094850 68f04e961516a RSTUCS 79b16_20251016_10_11_1_52
+20251016 094851 68f04e961516a reach payment-confirm.php BANK ACCEPT 79b16_20251016_10_11_1_52
+20251016 094851 68f04e961516a reach lib_complete_payment.php TRY SEND MAIL 79b16_20251016_10_11_1_52
+20251016 094851 68f04e961516a reach payment-confirm.php Show Invoicee SUCCESSFULLY 79b16_20251016_10_11_1_52
+20251016 094857 68f04e961516a reach payment-confirm.php 79b16_20251016_10_11_1_52
+20251016 094857 68f04e961516a RSTUCS 79b16_20251016_10_11_1_52
+20251016 094859 68f04e961516a reach payment-confirm.php BANK ACCEPT 79b16_20251016_10_11_1_52
+20251016 094859 68f04e961516a reach payment-confirm.php Show Invoicee SUCCESSFULLY 79b16_20251016_10_11_1_52
+20251016 094931 68f04f2b04e80 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 094938 68f0495097ffc reach email confirm 44bd6_20251016_10_11_1_56
+20251016 094939 68f0495097ffc golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '', '', '',
+                '2025-10-16', '10', '11', 'H', '["56"]', '44bd6_20251016_10_11_1_56', 'online', '')
+20251016 094939 68f0495097ffc page exit forward to next payment page ./email-confirmation-return.php?name=&auth=44bd6_20251016_10_11_1_56
+20251016 094939 68f0495097ffc reach email return 44bd6_20251016_10_11_1_56
+20251016 094942 68f04f366e407 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 094946 68f0495097ffc reach payment index.php 44bd6_20251016_10_11_1_56
+20251016 094946 68f0495097ffc payment index.php chose cash 44bd6_20251016_10_11_1_56
+20251016 094953 68f0495097ffc reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('','','','','','','','','','','','','','','','','','','','','','','HKD','','ACCEPT','','','','','','','','','','','44bd6_20251016_10_11_1_56','','');
+20251016 094953 68f0495097ffc reach payment-confirm.php 44bd6_20251016_10_11_1_56
+20251016 094953 68f0495097ffc RSTUCS 44bd6_20251016_10_11_1_56
+20251016 094954 68f0495097ffc reach payment-confirm.php CASH PAYMENT 44bd6_20251016_10_11_1_56
+20251016 094954 68f0495097ffc reach lib_complete_payment.php TRY SEND MAIL 44bd6_20251016_10_11_1_56
+20251016 094954 68f0495097ffc reach payment-confirm.php Show Invoicee SUCCESSFULLY 44bd6_20251016_10_11_1_56
+20251016 094959 68f0495097ffc reach payment-confirm.php 44bd6_20251016_10_11_1_56
+20251016 094959 68f0495097ffc RSTUCS 44bd6_20251016_10_11_1_56
+20251016 095000 68f0495097ffc reach payment-confirm.php Show Invoicee SUCCESSFULLY 44bd6_20251016_10_11_1_56
+20251016 095032 68f04f6837d3d RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095041 68f04f71c34f0 Reach Main Page [] []
+20251016 095042 68f04f722a4ee RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095046 68f04f761056c RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095131 68f04fa343ce7 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095148 68f04fb475352 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095231 68f04fdf639ae RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095250 68f04ff2eeb89 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095331 68f0501b825d3 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095353 68f05031646d1 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095431 68f05057a0228 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095455 68f0506fb643d RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095512 68f050807d2b7 Reach Main Page [] []
+20251016 095513 68f050807d2b7 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095531 68f05093bf4fc RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095558 68f050ae4b855 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095615 68f050bff2a1e reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 095618 68f050807d2b7 reach email confirm 3494e_20251016_13_15_1_60
+20251016 095618 68f050807d2b7 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Chan Yiu Ming', 'frenchan@gmail.com', '90112960', '', '',
+                '2025-10-16', '13', '15', 'H', '["60"]', '3494e_20251016_13_15_1_60', 'online', '')
+20251016 095618 68f050807d2b7 page exit forward to next payment page ./email-confirmation-return.php?name=Chan+Yiu+Ming&auth=3494e_20251016_13_15_1_60
+20251016 095619 68f050807d2b7 reach email return 3494e_20251016_13_15_1_60
+20251016 095631 68f050cfdd7ec RSTUCS 3494e_20251016_13_15_1_60
+20251016 095631 68f050cfdda33 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095653 68f050807d2b7 Move to history (process_expire.php): {"id":"112679","name":"Chan Yiu Ming","email":"frenchan@gmail.com","telephone":"90112960","octopus_no":"","check_digit":"","booking_date":"2025-10-16","begin_hour":"13","end_hour":"15","discount":"H","p_selections":"[\"60\"]","auth":"3494e_20251016_13_15_1_60","timestamp":"2025-10-16 09:56:18","src":"online","school-name":"","booking_expired":"N","payment_confirmed":"F"}
+20251016 095701 68f050edbe01d RSTUCS 3494e_20251016_13_15_1_60
+20251016 095702 68f050eee2bbc RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095725 68f050807d2b7 Reach Main Page [] []
+20251016 095731 68f050807d2b7 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095731 68f0510b4e35e Reach Main Page [] []
+20251016 095731 68f0510bd392c RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095733 68f0510d085d1 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095806 68f0512e7b121 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095832 68f05148270e0 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095850 68f0510b4e35e Varify Email Confirm Code terry26883@gmail.com _ 2025-10-16T09:57:48 >  > 941201
+20251016 095850 68f0510b4e35e Send Email Confirm Code terry26883@gmail.com >>> 941201
+20251016 095908 68f050807d2b7 reach email confirm a8016_20251016_13_15_1_60
+20251016 095908 68f050807d2b7 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Chan Yiu Ming', 'frenchan@gmail.com', '90112960', '', '',
+                '2025-10-16', '13', '15', 'H', '["60"]', 'a8016_20251016_13_15_1_60', 'online', '')
+20251016 095908 68f0516ce93bc RSTUCS a8016_20251016_13_15_1_60
+20251016 095909 68f050807d2b7 page exit forward to next payment page ./email-confirmation-return.php?name=Chan+Yiu+Ming&auth=a8016_20251016_13_15_1_60
+20251016 095909 68f050807d2b7 reach email return a8016_20251016_13_15_1_60
+20251016 095910 68f0516e00ecc RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095932 68f0518446ee2 RSTUCS a8016_20251016_13_15_1_60
+20251016 095932 68f05184470cf RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 095942 68f0510b4e35e Varify Email Confirm Code terry26883@gmail.com _ 2025-10-16T09:57:48 > 941201 > 941201
+20251016 095947 68f0519326c3a reach email confirm 72590_20251016_12_14_1_83
+20251016 095947 68f0519326c3a golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Hui Man Kit', 'dennishui123@gmail.com', '90939292', '', '',
+                '2025-10-16', '12', '14', 'H', '["83"]', '72590_20251016_12_14_1_83', 'online', '')
+20251016 095947 68f0519326c3a page exit forward to next payment page ./email-confirmation-return.php?name=Hui+Man+Kit&auth=72590_20251016_12_14_1_83
+20251016 095947 68f0519326c3a reach email return 72590_20251016_12_14_1_83
+20251016 095949 68f0519326c3a reach payment index.php 72590_20251016_12_14_1_83
+20251016 095949 68f0519326c3a payment index.php chose credit card 72590_20251016_12_14_1_83
+20251016 095952 68f0519326c3a reach SecureAcceptanceCheckout Array
+20251016 095952 68f0519326c3a reach pay.php {"reference":"72590_20251016_12_14_1_83","amount":"160.00"}
+20251016 095952 68f0519326c3a pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 160.00, 72590_20251016_12_14_1_83
+20251016 095952 68f0519326c3a pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 095955 68f050807d2b7 reach payment index.php a8016_20251016_13_15_1_60
+20251016 095955 68f050807d2b7 payment index.php chose credit card a8016_20251016_13_15_1_60
+20251016 100013 68f051ad1a470 RSTUCS 72590_20251016_12_14_1_83
+20251016 100014 68f051ae2a183 RSTUCS a8016_20251016_13_15_1_60
+20251016 100015 68f051af8f30b RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100021 68f050807d2b7 reach SecureAcceptanceCheckout Array
+20251016 100021 68f050807d2b7 reach pay.php {"reference":"a8016_20251016_13_15_1_60","amount":"160.00"}
+20251016 100021 68f050807d2b7 pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 160.00, a8016_20251016_13_15_1_60
+20251016 100021 68f050807d2b7 pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 100032 68f051c06c813 RSTUCS 72590_20251016_12_14_1_83
+20251016 100032 68f051c06e35b RSTUCS a8016_20251016_13_15_1_60
+20251016 100033 68f051c16978b RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100115 68f0510b4e35e reach email confirm 93942_20251016_11_12_1_66
+20251016 100115 68f0510b4e35e golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Terry NG', 'terry26883@gmail.com', '94182233', '', '',
+                '2025-10-16', '11', '12', 'H', '["66"]', '93942_20251016_11_12_1_66', 'online', '')
+20251016 100115 68f0510b4e35e page exit forward to next payment page ./email-confirmation-return.php?name=Terry+NG&auth=93942_20251016_11_12_1_66
+20251016 100116 68f0510b4e35e reach email return 93942_20251016_11_12_1_66
+20251016 100118 68f051ee7d7e8 RSTUCS 93942_20251016_11_12_1_66
+20251016 100119 68f051ef94715 RSTUCS 72590_20251016_12_14_1_83
+20251016 100120 68f051f0aa093 RSTUCS a8016_20251016_13_15_1_60
+20251016 100121 68f051f1c58ec RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100132 68f051fc87e7f RSTUCS 93942_20251016_11_12_1_66
+20251016 100132 68f051fc887d6 RSTUCS 72590_20251016_12_14_1_83
+20251016 100132 68f051fc88bbf RSTUCS a8016_20251016_13_15_1_60
+20251016 100133 68f051fd87cc5 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100134 68f0510b4e35e reach payment index.php 93942_20251016_11_12_1_66
+20251016 100134 68f0510b4e35e payment index.php chose credit card 93942_20251016_11_12_1_66
+20251016 100151 68f0495097ffc reach email confirm f2785_20251019_11_12_2_66_67
+20251016 100151 68f0495097ffc golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '91665022', '', '',
+                '2025-10-19', '11', '12', 'H', '["66","67"]', 'f2785_20251019_11_12_2_66_67', 'online', '')
+20251016 100151 68f0495097ffc page exit forward to next payment page ./email-confirmation-return.php?name=&auth=f2785_20251019_11_12_2_66_67
+20251016 100151 68f0495097ffc reach email return f2785_20251019_11_12_2_66_67
+20251016 100154 68f0495097ffc reach payment index.php f2785_20251019_11_12_2_66_67
+20251016 100154 68f0495097ffc payment index.php chose keep account f2785_20251019_11_12_2_66_67
+20251016 100157 68f0495097ffc reach account-unpaid.php Array
+20251016 100159 68f0495097ffc Reach Main Page [] []
+20251016 100204 68f0495097ffc RSTUCS 93942_20251016_11_12_1_66
+20251016 100205 68f0495097ffc RSTUCS 72590_20251016_12_14_1_83
+20251016 100206 68f0495097ffc RSTUCS a8016_20251016_13_15_1_60
+20251016 100214 68f0510b4e35e reach SecureAcceptanceCheckout Array
+20251016 100215 68f0510b4e35e reach pay.php {"reference":"93942_20251016_11_12_1_66","amount":"80.00"}
+20251016 100215 68f0510b4e35e pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 80.00, 93942_20251016_11_12_1_66
+20251016 100215 68f0510b4e35e pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 100216 68f052281eb57 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx9212','en-us','bPIhfNfxrblclSA/w0B8fI9MhW3Uz16TFw29//pvpb0=','1','7605801344906301403238','Chan','12-2027','','','Mastercard','100','160.00','00','Yiu Ming','card','Axj//wSTnE+yee4AXfBmAHIs3bMGrhgxZtGjlg2ZsGLRgzZM3Cf71Ob1kgSf71Ob1kqwO+gFKiGTSTL0Y5FIQgwgSc4n2Tz3AC74MwAALSOK','','2025-10-16T020215Z','160.00','7605801344906301403238','HKD','002','ACCEPT','https://riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,payer_authentication_reason_code,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_enroll_veres_enrolled,payer_authentication_acs_transaction_id,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_validate_result,payer_authentication_validate_e_commerce_indicator,payer_authentication_eci,payer_authentication_uad,payer_authentication_uci,payment_account_reference,signed_field_names,signed_date_time','68f051b551961','U','824723','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','a8016_20251016_13_15_1_60','528802200353','2025-10-16T02:02:15Z');
+20251016 100216 68f052281eb57 reach payment-confirm.php a8016_20251016_13_15_1_60
+20251016 100216 68f052281eb57 RSTUCS a8016_20251016_13_15_1_60
+20251016 100217 68f052281eb57 reach payment-confirm.php BANK ACCEPT a8016_20251016_13_15_1_60
+20251016 100217 68f052281eb57 reach lib_complete_payment.php TRY SEND MAIL a8016_20251016_13_15_1_60
+20251016 100217 68f052281eb57 reach payment-confirm.php Show Invoicee SUCCESSFULLY a8016_20251016_13_15_1_60
+20251016 100224 68f052301a286 RSTUCS 93942_20251016_11_12_1_66
+20251016 100225 68f0523136aea RSTUCS 72590_20251016_12_14_1_83
+20251016 100225 68f052281eb57 reach payment-confirm.php a8016_20251016_13_15_1_60
+20251016 100225 68f052281eb57 RSTUCS a8016_20251016_13_15_1_60
+20251016 100226 68f052324c5eb RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100226 68f052281eb57 reach payment-confirm.php BANK ACCEPT a8016_20251016_13_15_1_60
+20251016 100226 68f052281eb57 reach payment-confirm.php Show Invoicee SUCCESSFULLY a8016_20251016_13_15_1_60
+20251016 100232 68f05238ad3f8 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100232 68f05238adaf9 RSTUCS 93942_20251016_11_12_1_66
+20251016 100232 68f05238ae653 RSTUCS 72590_20251016_12_14_1_83
+20251016 100246 68f05246566ee reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx8857','en-us','2r5+FXS2xSl9RwhW3kEx3TYPY4jxYzWge3mb1bEQbkI=','1','7605801637866309503295','Kit','04-2026','','','Mastercard','100','160.00','00','Hui','card','Axj//wSTnE+zhGARlUk/AHIs3bMGrhgxbM27hs2ZsHLVgzZOWqf71Oed6gSf71Oed6qwO+gFKiGTSTL0Y5FIQgwgyc4n2cIwCMqkn4AAgB8+','','2025-10-16T020245Z','160.00','7605801637866309503295','HKD','002','ACCEPT','https://www.riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_reason_code,payer_authentication_validate_result,payer_authentication_enroll_e_commerce_indicator,payer_authentication_eci,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_uad,payer_authentication_uci,payer_authentication_enroll_veres_enrolled,payer_authentication_acs_transaction_id,payment_account_reference,signed_field_names,signed_date_time','68f051986a3dd','U','727082','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','72590_20251016_12_14_1_83','528802794869','2025-10-16T02:02:46Z');
+20251016 100246 68f05246566ee reach payment-confirm.php 72590_20251016_12_14_1_83
+20251016 100246 68f05246566ee RSTUCS 72590_20251016_12_14_1_83
+20251016 100247 68f05246566ee reach payment-confirm.php BANK ACCEPT 72590_20251016_12_14_1_83
+20251016 100247 68f05246566ee reach lib_complete_payment.php TRY SEND MAIL 72590_20251016_12_14_1_83
+20251016 100247 68f05246566ee reach payment-confirm.php Show Invoicee SUCCESSFULLY 72590_20251016_12_14_1_83
+20251016 100252 68f05246566ee reach payment-confirm.php 72590_20251016_12_14_1_83
+20251016 100252 68f05246566ee RSTUCS 72590_20251016_12_14_1_83
+20251016 100253 68f05246566ee reach payment-confirm.php BANK ACCEPT 72590_20251016_12_14_1_83
+20251016 100253 68f05246566ee reach payment-confirm.php Show Invoicee SUCCESSFULLY 72590_20251016_12_14_1_83
+20251016 100323 68f0526bb46ad reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx9918','en-us','V4o6bclsKmiwqQoUdcQD37sispq/yEydC2tFmMSOWD0=','1','7605802018646309003251','Ng','08-2030','2','','Visa','100','80.00','00','Wai Yuen','card','Axj//wSTnE+03rFSMN/zAHIs3bMGrhgyYMXDZo2ZsHLBgzZNWKf71Oh8ygKf71Oh8yqwN+gKVEMmkmXoxyKQhBg4k5xPtN6xUjDf8wAAxzLr','2','2025-10-16T020323Z','80.00','7605802018646309003251','HKD','001','ACCEPT','https://www.riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cavv_result,auth_cavv_result_raw,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_reason_code,payer_authentication_validate_result,payer_authentication_cavv,payer_authentication_enroll_e_commerce_indicator,payer_authentication_eci,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_enroll_veres_enrolled,payer_authentication_xid,payer_authentication_acs_transaction_id,payment_account_reference,signed_field_names,signed_date_time','68f052272a91c','U','727644','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','93942_20251016_11_12_1_66','528802931576','2025-10-16T02:03:23Z');
+20251016 100323 68f0526bb46ad reach payment-confirm.php 93942_20251016_11_12_1_66
+20251016 100323 68f0526bb46ad RSTUCS 93942_20251016_11_12_1_66
+20251016 100324 68f0526bb46ad reach payment-confirm.php BANK ACCEPT 93942_20251016_11_12_1_66
+20251016 100324 68f0526bb46ad reach lib_complete_payment.php TRY SEND MAIL 93942_20251016_11_12_1_66
+20251016 100324 68f0526bb46ad reach payment-confirm.php Show Invoicee SUCCESSFULLY 93942_20251016_11_12_1_66
+20251016 100329 68f0527102511 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100330 68f0526bb46ad reach payment-confirm.php 93942_20251016_11_12_1_66
+20251016 100330 68f0526bb46ad RSTUCS 93942_20251016_11_12_1_66
+20251016 100330 68f0495097ffc reach email confirm 9120e_20251020_20_21.5_4_e3b96
+20251016 100331 68f0495097ffc golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '98106716', '', '',
+                '2025-10-20', '20', '21.5', 'H', '["52","53","55","56"]', '9120e_20251020_20_21.5_4_e3b96', 'online', '')
+20251016 100331 68f0495097ffc page exit forward to next payment page ./email-confirmation-return.php?name=&auth=9120e_20251020_20_21.5_4_e3b96
+20251016 100331 68f0526bb46ad reach payment-confirm.php BANK ACCEPT 93942_20251016_11_12_1_66
+20251016 100331 68f0526bb46ad reach payment-confirm.php Show Invoicee SUCCESSFULLY 93942_20251016_11_12_1_66
+20251016 100331 68f0495097ffc reach email return 9120e_20251020_20_21.5_4_e3b96
+20251016 100332 68f05274c6dfa RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100335 68f0495097ffc reach payment index.php 9120e_20251020_20_21.5_4_e3b96
+20251016 100335 68f0495097ffc payment index.php chose keep account 9120e_20251020_20_21.5_4_e3b96
+20251016 100338 68f0495097ffc reach account-unpaid.php Array
+20251016 100341 68f0495097ffc Reach Main Page [] []
+20251016 100348 68f0495097ffc RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100406 68f0495097ffc reach email confirm 65a28_20251020_20_21_1_51
+20251016 100406 68f0495097ffc golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('', '', '98106716', '', '',
+                '2025-10-20', '20', '21', 'H', '["51"]', '65a28_20251020_20_21_1_51', 'online', '')
+20251016 100406 68f0495097ffc page exit forward to next payment page ./email-confirmation-return.php?name=&auth=65a28_20251020_20_21_1_51
+20251016 100406 68f0495097ffc reach email return 65a28_20251020_20_21_1_51
+20251016 100408 68f0495097ffc reach payment index.php 65a28_20251020_20_21_1_51
+20251016 100408 68f0495097ffc payment index.php chose keep account 65a28_20251020_20_21_1_51
+20251016 100411 68f0495097ffc reach account-unpaid.php Array
+20251016 100413 68f0495097ffc Reach Main Page [] []
+20251016 100418 68f0495097ffc RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100432 68f052b08dab9 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100432 68f052b0e4a5e RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100533 68f052ed13451 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100534 68f052eeeb67f RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100633 68f053292df9f RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100637 68f0532d5a41d RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100657 68f053411da6b reach payment-confirm.php 93942_20251016_11_12_1_66
+20251016 100657 68f053411da6b RSTUCS 93942_20251016_11_12_1_66
+20251016 100658 68f053411da6b reach payment-confirm.php BANK ACCEPT 93942_20251016_11_12_1_66
+20251016 100658 68f053411da6b reach payment-confirm.php Show Invoicee SUCCESSFULLY 93942_20251016_11_12_1_66
+20251016 100733 68f053654bd6c RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100739 68f0536be3243 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100833 68f053a168e04 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100842 68f053aa54dd0 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100933 68f053dd92443 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 100944 68f053e8e2498 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101033 68f05419ac635 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101042 68f054228863f Reach Main Page [] []
+20251016 101042 68f05422d6158 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101047 68f054274b058 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101123 68f054228863f reach email confirm 5575f_20251016_12_14_1_51
+20251016 101123 68f054228863f golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Yip Yuk Hing', 'yyh27.dy@gmail.com', '94391760', '', '',
+                '2025-10-16', '12', '14', 'H', '["51"]', '5575f_20251016_12_14_1_51', 'online', '')
+20251016 101123 68f054228863f page exit forward to next payment page ./email-confirmation-return.php?name=Yip+Yuk+Hing&auth=5575f_20251016_12_14_1_51
+20251016 101124 68f054228863f reach email return 5575f_20251016_12_14_1_51
+20251016 101133 68f05455c7f70 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101133 68f05455c840d RSTUCS 5575f_20251016_12_14_1_51
+20251016 101135 68f054228863f reach payment index.php 5575f_20251016_12_14_1_51
+20251016 101135 68f054228863f payment index.php chose credit card 5575f_20251016_12_14_1_51
+20251016 101143 68f054228863f reach SecureAcceptanceCheckout Array
+20251016 101143 68f054228863f reach pay.php {"reference":"5575f_20251016_12_14_1_51","amount":"160.00"}
+20251016 101143 68f054228863f pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 160.00, 5575f_20251016_12_14_1_51
+20251016 101143 68f054228863f pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 101149 68f05465b92b8 RSTUCS 5575f_20251016_12_14_1_51
+20251016 101150 68f05466cf596 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101222 68f05486b00da Reach Main Page [] []
+20251016 101227 68f05486b00da RSTUCS 5575f_20251016_12_14_1_51
+20251016 101228 68f05486b00da RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101233 68f05491e9b40 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101233 68f05491ea6a8 RSTUCS 5575f_20251016_12_14_1_51
+20251016 101253 68f054a5e398d RSTUCS 5575f_20251016_12_14_1_51
+20251016 101255 68f054a70505f RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101302 68f054ae7d1d5 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx4067','en-us','FQvOROK1/k8ECIzp9AGKqJroMDmNbTil9tvse9FHKkY=','1','7605807784306328403619','Hing','07-2031','','','Mastercard','100','160.00','00','Yip','card','Axj//wSTnE/JWoeniv6jAHIs3bMGrhg3buGjNg2ZsnDRgzbMXKf71PUMxgSf71PUMxqwO+gFKiGTSTL0Y5FIQgwWyc4n5K1D08V/UYAAJj8m','','2025-10-16T021301Z','160.00','7605807784306328403619','HKD','002','ACCEPT','https://www.riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_reason_code,payer_authentication_validate_result,payer_authentication_enroll_e_commerce_indicator,payer_authentication_eci,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_uad,payer_authentication_uci,payer_authentication_enroll_veres_enrolled,payer_authentication_acs_transaction_id,payment_account_reference,signed_field_names,signed_date_time','68f0545f825b5','U','736111','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','5575f_20251016_12_14_1_51','528802949281','2025-10-16T02:13:02Z');
+20251016 101302 68f054ae7d1d5 reach payment-confirm.php 5575f_20251016_12_14_1_51
+20251016 101302 68f054ae7d1d5 RSTUCS 5575f_20251016_12_14_1_51
+20251016 101303 68f054ae7d1d5 reach payment-confirm.php BANK ACCEPT 5575f_20251016_12_14_1_51
+20251016 101303 68f054ae7d1d5 reach lib_complete_payment.php TRY SEND MAIL 5575f_20251016_12_14_1_51
+20251016 101303 68f054ae7d1d5 reach payment-confirm.php Show Invoicee SUCCESSFULLY 5575f_20251016_12_14_1_51
+20251016 101308 68f054ae7d1d5 reach payment-confirm.php 5575f_20251016_12_14_1_51
+20251016 101308 68f054ae7d1d5 RSTUCS 5575f_20251016_12_14_1_51
+20251016 101309 68f054ae7d1d5 reach payment-confirm.php BANK ACCEPT 5575f_20251016_12_14_1_51
+20251016 101309 68f054ae7d1d5 reach payment-confirm.php Show Invoicee SUCCESSFULLY 5575f_20251016_12_14_1_51
+20251016 101324 68f054c4023b3 Reach Main Page [] []
+20251016 101332 68f054c4023b3 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101334 68f054ce148c7 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101357 68f054e55ab86 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101434 68f0550a375d1 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101459 68f05523c6933 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101534 68f0554656dfc RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101602 68f055623bf50 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101634 68f055826f6fb RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101704 68f055a0b6e8c RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101734 68f055be90764 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101807 68f055df2b1eb RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101834 68f055faa9bda RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101909 68f0561da29b1 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 101934 68f05636eb983 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102012 68f0565c1a28b RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102034 68f05672e39d7 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102114 68f0569a969e0 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102135 68f056af0d058 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102217 68f056d92010f RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102235 68f056eb2d8e0 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102319 68f0571791b8f RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102326 68f0571e2e9c2 Reach Main Page [] []
+20251016 102326 68f0571e6b073 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102335 68f057274eadb RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102351 68f05737c9ce6 reach email return 22e97_20250929_18_19_1_85
+20251016 102352 68f05737c9ce6 return page stop_by_invalid_booking_2 directly to go payment-confirm.php 22e97_20250929_18_19_1_85
+20251016 102352 68f05737c9ce6 reach payment-confirm.php 您使用本網站的方式不恰當 {"req_reference_number":"22e97_20250929_18_19_1_85","auth":"22e97_20250929_18_19_1_85"} []
+20251016 102358 68f05737c9ce6 Reach Main Page [] []
+20251016 102358 68f0573ee388f RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102422 68f057560e61e RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102426 68f0571e2e9c2 Reach Main Page [] []
+20251016 102426 68f0571e6b073 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102435 68f057636c8e8 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102440 68f05737c9ce6 reach email confirm 495a9_20251016_11_12_1_85
+20251016 102440 68f05737c9ce6 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Tsui chin shing', 'samsontsui908@gmail.com', '61540307', '', '',
+                '2025-10-16', '11', '12', 'H', '["85"]', '495a9_20251016_11_12_1_85', 'online', '')
+20251016 102441 68f05737c9ce6 page exit forward to next payment page ./email-confirmation-return.php?name=Tsui+chin+shing&auth=495a9_20251016_11_12_1_85
+20251016 102442 68f05737c9ce6 reach email return 495a9_20251016_11_12_1_85
+20251016 102452 68f05737c9ce6 reach payment index.php 495a9_20251016_11_12_1_85
+20251016 102452 68f05737c9ce6 payment index.php chose credit card 495a9_20251016_11_12_1_85
+20251016 102457 68f05737c9ce6 reach SecureAcceptanceCheckout Array
+20251016 102457 68f05737c9ce6 reach pay.php {"reference":"495a9_20251016_11_12_1_85","amount":"80.00"}
+20251016 102457 68f05737c9ce6 pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 80.00, 495a9_20251016_11_12_1_85
+20251016 102457 68f05737c9ce6 pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 102524 68f057946d8ec RSTUCS 495a9_20251016_11_12_1_85
+20251016 102525 68f057958b348 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102525 68f0571e2e9c2 reach email confirm aef0e_20251018_16_17_3_75_76_77
+20251016 102526 68f0571e2e9c2 golf_fairway_booking inserted successfully! INSERT INTO golf_fairway_booking (name, email, telephone, octopus_no, check_digit, booking_date, begin_hour, end_hour, discount, p_selections, auth, src, `school-name`)
+        VALUES ('Lam Pak Sun Frankie', 'frankiepslam@gmail.com', '90926262', '', '',
+                '2025-10-18', '16', '17', 'H', '["75","76","77"]', 'aef0e_20251018_16_17_3_75_76_77', 'online', '')
+20251016 102526 68f0571e2e9c2 page exit forward to next payment page ./email-confirmation-return.php?name=Lam+Pak+Sun+Frankie&auth=aef0e_20251018_16_17_3_75_76_77
+20251016 102526 68f0571e2e9c2 reach email return aef0e_20251018_16_17_3_75_76_77
+20251016 102526 68f05796a38d0 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102535 68f0579f89811 RSTUCS 495a9_20251016_11_12_1_85
+20251016 102535 68f0579f8a3fb RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102535 68f0579f8be22 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 102555 68f05737c9ce6 reach lib_complete_payment.php SUCCESS INSERT CREDIT CARD RECORD 
+INSERT INTO golf_cybersource (
+	utf8,
+	auth_cv_result,
+	req_card_number,
+	req_locale,
+	signature,
+	req_card_type_selection_indicator,
+	auth_trans_ref_no,
+	req_bill_to_surname,
+	req_card_expiry_date,
+	auth_cavv_result,
+	merchant_advice_code,
+	card_type_name,
+	reason_code,
+	auth_amount,
+	auth_response,
+	req_bill_to_forename,
+	req_payment_method,
+	request_token,
+	auth_cavv_result_raw,
+	auth_time,
+	req_amount,
+	transaction_id,
+	req_currency,
+	req_card_type,
+	decision,
+	req_override_custom_receipt_page,
+	message,
+	signed_field_names,
+	req_transaction_uuid,
+	auth_avs_code,
+	auth_code,
+	req_transaction_type,
+	req_access_key,
+	auth_cv_result_raw,
+	req_profile_id,
+	req_reference_number,
+	auth_reconciliation_reference_number,
+	signed_date_time
+		) VALUES ('✓','M','xxxxxxxxxxxx4757','en-us','v+hF7GoH8NSf9PNBT5kH9NRxOsME0pX0vHuGLjMbgsA=','1','7605815542096352103615','Tsui','03-2029','','','Mastercard','100','80.00','00','Samson','card','Axj//wSTnE/k6jLmJcy/AHIs3bMGrhi1atGTBy2ZtWTFgzbMWqf71QXp9ASf71QXp9KwN+gKVEMmkmXoxyKQhBhIk5xP5Ooy5iXMvwAA7yfj','','2025-10-16T022555Z','80.00','7605815542096352103615','HKD','002','ACCEPT','https://www.riversidegolf.com.hk/GolfBooking/payment-page/payment-confirm.php','Request was processed successfully.','transaction_id,decision,req_access_key,req_profile_id,req_transaction_uuid,req_transaction_type,req_reference_number,req_amount,req_currency,req_locale,req_payment_method,req_override_custom_receipt_page,req_bill_to_forename,req_bill_to_surname,req_bill_to_email,req_bill_to_address_line1,req_bill_to_address_city,req_bill_to_address_state,req_bill_to_address_country,req_bill_to_address_postal_code,req_card_number,req_card_type,req_card_type_selection_indicator,req_card_expiry_date,card_type_name,req_payer_authentication_acs_window_size,req_payer_authentication_indicator,req_payer_authentication_merchant_name,payer_authentication_reason_code,payer_authentication_pares_status,payer_authentication_specification_version,payer_authentication_transaction_id,payer_authentication_enroll_veres_enrolled,payer_authentication_acs_transaction_id,message,reason_code,auth_avs_code,auth_avs_code_raw,auth_response,auth_amount,auth_code,auth_cv_result,auth_cv_result_raw,auth_trans_ref_no,auth_time,request_token,auth_reconciliation_reference_number,bill_trans_ref_no,payer_authentication_validate_result,payer_authentication_validate_e_commerce_indicator,payer_authentication_eci,payer_authentication_uad,payer_authentication_uci,payment_account_reference,signed_field_names,signed_date_time','68f0577948aa9','U','T98942','sale','1f376db974fe39a38c56c8996af542fe','M','73B281D2-B93B-4CAA-95B4-8D945E5A4C4F','495a9_20251016_11_12_1_85','528802154499','2025-10-16T02:25:55Z');
+20251016 102555 68f05737c9ce6 reach payment-confirm.php 495a9_20251016_11_12_1_85
+20251016 102555 68f05737c9ce6 RSTUCS 495a9_20251016_11_12_1_85
+20251016 102556 68f05737c9ce6 reach payment-confirm.php BANK ACCEPT 495a9_20251016_11_12_1_85
+20251016 102556 68f05737c9ce6 reach lib_complete_payment.php TRY SEND MAIL 495a9_20251016_11_12_1_85
+20251016 102556 68f05737c9ce6 reach payment-confirm.php Show Invoicee SUCCESSFULLY 495a9_20251016_11_12_1_85
+20251016 102605 68f05737c9ce6 reach payment-confirm.php 495a9_20251016_11_12_1_85
+20251016 102605 68f05737c9ce6 RSTUCS 495a9_20251016_11_12_1_85
+20251016 102606 68f05737c9ce6 reach payment-confirm.php BANK ACCEPT 495a9_20251016_11_12_1_85
+20251016 102606 68f05737c9ce6 reach payment-confirm.php Show Invoicee SUCCESSFULLY 495a9_20251016_11_12_1_85
+20251016 102629 68f057d56354e RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 102630 68f057d67dd63 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102636 68f057dc06306 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102636 68f057dc07c94 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 102644 68f057e49e209 return page stop_by_invalid_booking_2 您使用本網站的方式不恰當，請逐步使用\nThe way you are using this website is inappropriate, please use it step by step []
+20251016 102646 68f057e68c7b0 reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 102648 68f057e68c7b0 reach email return 8c353_20251016_15_16_1_78
+20251016 102648 68f057e68c7b0 return page stop_by_invalid_booking_2 directly to go payment-confirm.php 8c353_20251016_15_16_1_78
+20251016 102648 68f057e68c7b0 reach payment-confirm.php 您使用本網站的方式不恰當 {"req_reference_number":"8c353_20251016_15_16_1_78","auth":"8c353_20251016_15_16_1_78"} []
+20251016 102656 68f0571e2e9c2 reach payment index.php aef0e_20251018_16_17_3_75_76_77
+20251016 102656 68f0571e2e9c2 payment index.php chose credit card aef0e_20251018_16_17_3_75_76_77
+20251016 102656 68f057f0d414a reach payment-confirm.php 您使用本網站的方式不恰當 [] []
+20251016 102712 68f057f0d414a Reach Main Page [] []
+20251016 102712 68f0571e2e9c2 reach SecureAcceptanceCheckout Array
+20251016 102712 68f0571e2e9c2 reach pay.php {"reference":"aef0e_20251018_16_17_3_75_76_77","amount":"420.00"}
+20251016 102712 68f0571e2e9c2 pay.php getCheckoutPara 1f376db974fe39a38c56c8996af542fe, c3028e36e6d8483bafd567cc73e17161805651d0aa484c629293ab71e63a6a9d89e3e8a417964b47bec9a7c007735e10085187857cea4c93a59d3ed7ba162ca486cafdd18be248ec85f4c69e95bfa3152dcaf7e5ced84919a0001a217a8c45cd9da011f2672c4e5f9572801b0328e1d517125b5ffdef43e9ba1a81f1c0086507, 73B281D2-B93B-4CAA-95B4-8D945E5A4C4F, 420.00, aef0e_20251018_16_17_3_75_76_77
+20251016 102712 68f0571e2e9c2 pay.php buildOnlinePaymentSubmitForm https://secureacceptance.cybersource.com/pay, 
+20251016 102713 68f0580179a61 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102713 68f0580179c7a RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 102733 68f05815a3662 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 102734 68f05816c5949 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102735 68f05817c9b4c RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102735 68f05817cb935 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 102835 68f05853e4514 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102835 68f05853e4eab RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 102837 68f05855873c4 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 102838 68f05856a188d RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102936 68f058900ef97 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 102936 68f058900fc80 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 102941 68f05895006e4 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 102942 68f058960175c RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 103036 68f058cc2bc91 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 103036 68f058cc2c911 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 103044 68f058d45f897 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 103045 68f058d577a92 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 103136 68f059084aae3 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 103136 68f059084d601 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 103147 68f05913d6ffc RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 103148 68f05914ef503 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 103236 68f0594467ec5 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 103236 68f0594468d08 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 103251 68f05953572d3 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 103252 68f0595462825 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 103336 68f0598086881 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 103336 68f0598088932 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 103355 68f059930d73f RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 103356 68f059941f8c6 RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 103436 68f059bca2d0e RSTUCS 9dbf3_20251016_10_11_1_78
+20251016 103436 68f059bcacf87 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 103458 68f059d271a47 RSTUCS aef0e_20251018_16_17_3_75_76_77
+20251016 103459 68f059d38d2c2 RSTUCS 9dbf3_20251016_10_11_1_78
