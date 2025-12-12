@@ -63,7 +63,10 @@ date_default_timezone_set('Asia/Hong_Kong');
 // Start from the current month
 $start_iternation = new DateTime();
 // $end = (new DateTime())->sub(new DateInterval('P1Y')); // 10 years ago
-$end_iternation = (new DateTime())->sub(new DateInterval('P1Y')); // 10 years ago
+$end_iternation = (new DateTime())->sub(new DateInterval(
+    'P6M'
+    // 'P1Y'
+));
 
     // echo $start->format('Y-m') . "<br>"; // Output in YYYY-MM format
 
@@ -75,7 +78,11 @@ echo "Last month: " . $end_iternation->format('Y-m');
 ?>
 
 
-
+<h2 style="color: red;">
+    如果網頁伺服器繁忙，請勿下載每月報告，否則整個系統將因您的匯出操作而暫停，並在匯出完成後繼續運作。
+    <br>
+    If the web server is busy, do not download the monthly report; otherwise, the entire system will be paused due to your export operation and will resume operation after the export is completed.
+</h2>
 <?php 
 
 
@@ -93,6 +100,8 @@ echo "Last month: " . $end_iternation->format('Y-m');
     if ($conn_download_report->connect_error) {
         die("Connection failed: " . $conn_download_report->connect_error);
     }
+
+    require_once 'lib-statistic-core.php';
 
  ?>
 
@@ -116,96 +125,54 @@ echo "Last month: " . $end_iternation->format('Y-m');
         ?>
         </h1>
         <?php
+        
 
         $year = $start_iternation->format('Y'); // Current year
         $month = $start_iternation->format('m'); // Current month
+        $financial_dict = statistic_by_month($conn_download_report, $year, $month);
 
-        // First day of the month
-        $firstDate = new DateTime("$year-$month-01");
-
-        // Last day of the month
-        $lastDate = new DateTime("$year-$month-01");
-        $lastDate->modify('last day of this month');
-
-        echo "First date: " . $firstDate->format('Y-m-d')."<br>";
-        echo "Last date: " . $lastDate->format('Y-m-d')."<br>";
-
-        $begin = $firstDate->format('Y-m-d');
-        $end = $lastDate->format('Y-m-d');
-
-
+        echo "First date: " . $financial_dict['begin']."<br>";
+        echo "Last date: " . $financial_dict['end']."<br>";
         ?>
         <br>
         <b>Credit Card Transaction</b>
         <br>
         <?php
-
-        $sql = "
-        SELECT count(*) cre_c,  ifnull(sum(auth_amount),0) cre_sum
-        FROM `golf_cybersource_right`
-        where
-            DATE_ADD(signed_date_time, INTERVAL 8 HOUR) between '$begin' and '$end'
-        ;
-        ";
         
         $cre_sum = 0;
         $cas_sum = 0;
 
-        $result = $conn_download_report->query($sql);
-        // echo $column_index;
-        while ($row = $result->fetch_assoc()) {
-            echo "Credit/Debit Card Revenue: $".((int)$row['cre_sum'])."<br>";
-            echo "Transaction Count: ".$row['cre_c']."<br>";
-            // var_dump($row);
-            $cre_sum = $row['cre_sum'];
-        }
+        echo "Credit/Debit Card Revenue: $".$financial_dict['cre_sum']."<br>";
+        echo "Transaction Count: ".$financial_dict['cre_c']."<br>";
+        $cre_sum = $financial_dict['cre_sum'];
 
         ?>
+        <form action="./download_report.php" method="get" style="height: 0px;" target="_blank">
+            <input type="hidden" name="type" value="credit_card">
+            <input type="hidden" name="begin" value="<?php echo $financial_dict['begin']; ?>">
+            <input type="hidden" name="end" value="<?php echo $financial_dict['end']; ?>">
+            <input type="submit" value="Download">
+        </form>
+        <br>
+        <br>
         <br>
         <b>Cash Transaction</b>
         <br>
         <?php
-        $sql = "
-        SELECT 
-            (cas_c1 + IFNULL(unpaid_count,0) ) cas_c,
-            (cas_sum1 + IFNULL(unpaid_sum,0) ) cas_sum
-        from (
-            SELECT 
-                count(*) cas_c1, 
-                ifnull(sum(amount),0) cas_sum1 
-            FROM `golf-cash`
-            left join `golf-payment-session` on `golf-payment-session`.`auth`=`golf-cash`.`auth`
-            where 1=1
-            and `golf-payment-session`.`payment-datetime` between '$begin' and '$end'
-        ) t1, (
-            select 
-                count(*) unpaid_count
-                ,sum(
-                    case 
-                        when IFNULL((`golf-unpaid-account`.`is_paid`),-1)<=0
-                            then 0
-                        when IFNULL((`golf-unpaid-account`.`is_paid`),-1)=1
-                            then IFNULL((`golf-unpaid-account`.`amount`),0)
-                        else 0
-                    end
-                ) unpaid_sum 
-            from `golf-unpaid-account`
-                left join `golf-payment-session` on `golf-payment-session`.`auth`=`golf-unpaid-account`.`auth`
-            where 1=1
-                and `golf-unpaid-account`.`is_paid` is not null
-                and `golf-unpaid-account`.`is_paid`=1
-                and `golf-payment-session`.`payment-datetime` between '$begin' and '$end'
-        ) t2
-        ";
 
-        $result = $conn_download_report->query($sql);
-        while ($row = $result->fetch_assoc()) {
-            // var_dump($row);
-            echo "Cash Revenue: $".$row['cas_sum']."<br>";
-            echo "Transaction Count: ".$row['cas_c']."<br>";
-            $cas_sum = $row['cas_sum'];
-        }
+        echo "Cash Revenue: $".$financial_dict['cas_sum']."<br>";
+        echo "Transaction Count: ".$financial_dict['cas_c']."<br>";
+        $cas_sum = $financial_dict['cas_sum'];
+
          ?>
+        <form action="./download_report.php" method="get" style="height: 0px;" target="_blank">
+            <input type="hidden" name="type" value="cash_card">
+            <input type="hidden" name="begin" value="<?php echo $financial_dict['begin']; ?>">
+            <input type="hidden" name="end" value="<?php echo $financial_dict['end']; ?>">
+            <input type="submit" value="Download">    
+        </form>
+        <br>
+        <br>
         <br>
         <b>Total Revenue: $<?php echo ($cre_sum+$cas_sum); ?></b>
         <hr>

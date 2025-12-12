@@ -538,5 +538,15 @@ $html_preview_report = generate_report($conn,$complexArray, $src , $src2, $from,
 echo "$html_preview_report";
 
 
+if (isset($_GET['download'])) {
+	?>
+	<script>
+		window.print();
+		window.onafterprint = function() {
+			window.close();
+		};
+	</script>
+	<?php 
+}
 
 ?>

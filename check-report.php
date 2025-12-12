@@ -626,7 +626,7 @@ if ($result->num_rows > 0) {
 			$last_report_from = $from;
 			$last_report_to = $to;
 		}
-        $htmlArray[build_the_key($from,$to)] = generate_report($conn,$complexArray, $src, $src2, $from, $to, false);
+        $htmlArray[build_the_key($from,$to)] = 1;
 		if ($last_report_time == null) {
 			$last_report_time = $to;
 		}
@@ -714,24 +714,6 @@ if (!isset($_GET['download'])) {
 				</iframe>
 				<hr>
 
-<?php 	
-if (isset($_GET['download'])) {
- ?>
-<script type="text/javascript">
-    oIframe.contentWindow.document.open();
-    oIframe.contentWindow.document.write('<?php echo $htmlArray[$_GET['download']]; ?>');
-    oIframe.contentWindow.document.close();
-
-	setTimeout(() => {
-		oIframe.contentWindow.print();		
-	}, 3000);
-    
-    // window.close();
-</script>
-<?php
-die();
-}
- ?>
 		</td>
 	</tr>
 	<tr>

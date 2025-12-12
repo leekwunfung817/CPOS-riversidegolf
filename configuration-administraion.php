@@ -1195,7 +1195,7 @@ if ($_SESSION['identity']=='admin' || $_SESSION['identity']=='manager') {
 	</tr>
 <?php 
 
-$sql = "SELECT `holiday-name`, `holiday-date` FROM `applied-solar-holiday` order by `holiday-date` asc, `holiday-name` asc;";
+$sql = "SELECT `holiday-name`, `holiday-date` FROM `applied-solar-holiday` order by `holiday-date` desc, `holiday-name` asc limit 50;";
 $result = $conn->query($sql);
 
 require_once 'DateConvert.php';
