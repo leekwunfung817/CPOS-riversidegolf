@@ -592,38 +592,21 @@ for ($i=0; $i < $show_more_days; $i++) {
     $begin = date_format($date, 'Y-m-d').' 20:00:00';
     echo '<td>From '.$begin.'<br>To '.$end.'</td>';
 
-    $sql = "
-    SELECT count(*) cre_c,  ifnull(sum(auth_amount),0) cre_sum
-    FROM `golf_cybersource_right`
-    where
-        DATE_ADD(signed_date_time, INTERVAL 8 HOUR) between '$begin' and '$end'
-;
-    ";
-    // and decision='ACCEPT'and `req_transaction_type`='sale'
-     // -- `signed_date_time`<>'0000-00-00 00:00:00'
-     //    -- and `decision`='ACCEPT'
-     //    -- 
-     //    -- and 
-
 $part_start_6 = microtime(true);
 
-    $result = $conn_download_report->query($sql);
 
 $part_time_elapsed_secs = microtime(true) - $part_start_6;
 if (isset($_GET['debug'])) {
   echo '<br>(Part Cre Query Takes): '.is_over_time($part_time_elapsed_secs).' ';
 }
 
-    if (is_bool($result)) {
-    } else if ($result->num_rows > 0) {
-
+$result_credit_card_only = get_staff_credit_card_only($conn_download_report, $begin, $end);
 $part_start_1 = microtime(true);
 
 
-        while ($row = $result->fetch_assoc()) {
-            if ($row["cre_c"] > 0 || $row["cre_sum"] > 0) {
-                echo '<td>'.$row["cre_c"].' record(s)</td>';
-                echo '<td>HKD $'.$row["cre_sum"].'</td>';
+            if ($result_credit_card_only["cre_c"] > 0 || $result_credit_card_only["cre_sum"] > 0) {
+                echo '<td>'.$result_credit_card_only["cre_c"].' record(s)</td>';
+                echo '<td>HKD $'.$result_credit_card_only["cre_sum"].'</td>';
     ?>
 <td>
 <form action="./download_report.php" method="get" style="height: 0px;" target="_blank">
@@ -680,7 +663,7 @@ $part_start_1 = microtime(true);
 $part_start_3 = microtime(true);
 
 
-                $result = $conn_download_report->query($sql);
+                $result_history = $conn_download_report->query($sql);
 
 $part_time_elapsed_secs = microtime(true) - $part_start_3;
 if (isset($_GET['debug'])) {
@@ -688,28 +671,28 @@ if (isset($_GET['debug'])) {
 }
 $part_start_2 = microtime(true);
 
-                if (is_bool($result)) {
-                } else if ($result->num_rows > 0) {
+                if (is_bool($result_history)) {
+                } else if ($result_history->num_rows > 0) {
                     $arr = array();
-                    while ($row = $result->fetch_assoc()) {
-                        if (in_array($row['transaction_id'], $arr)) {
+                    while ($row_history = $result_history->fetch_assoc()) {
+                        if (in_array($row_history['transaction_id'], $arr)) {
                             continue;
                         }
-                        $arr[]=$row['transaction_id'];
+                        $arr[]=$row_history['transaction_id'];
 
                         $ids .= 
                         "<small> ["
-                        ."Booking ID:".$row['id']."<br>"
-                        ."Count:".$row['c']."<br>"
-                        ."Reference:".$row['auth']."<br>"
-                        ."Amount:".$row['auth_amount']."<br>"
-                        ."Transaction ID: ".$row['transaction_id']."<br>"
-                        ."Payment Datetime: ".$row['payment-datetime']."<br>"
-                        ."Transactionn Type: ".$row['req_transaction_type']
+                        ."Booking ID:".$row_history['id']."<br>"
+                        ."Count:".$row_history['c']."<br>"
+                        ."Reference:".$row_history['auth']."<br>"
+                        ."Amount:".$row_history['auth_amount']."<br>"
+                        ."Transaction ID: ".$row_history['transaction_id']."<br>"
+                        ."Payment Datetime: ".$row_history['payment-datetime']."<br>"
+                        ."Transactionn Type: ".$row_history['req_transaction_type']
 
                         ."]</small>".
                         "<br><br>";
-                        $total_amount += $row['auth_amount'];
+                        $total_amount += $row_history['auth_amount'];
                         $count += 1;
                     }
                 }
@@ -728,14 +711,12 @@ if (isset($_GET['debug'])) {
                 echo "<td> - </td>";
                 echo "<td> - </td>";
             }
-        }
 
 $part_time_elapsed_secs = microtime(true) - $part_start_1;
 if (isset($_GET['debug'])) {
   echo '(Part Credit Card Loop Takes): '.is_over_time($part_time_elapsed_secs).' ';
 }
 
-    }
 ?>
 </tr>
 <?php
@@ -811,56 +792,12 @@ for ($i=0; $i < $show_more_days; $i++) {
     echo '<td>From '.$begin.'<br>To '.$end.'</td>';
 
 
-
-    // echo '<td>'.$sql.'</td>';
-    $sql = "
-select 
-    (cas_c1 + IFNULL(unpaid_count,0) ) cas_c,
-    (cas_sum1 + IFNULL(unpaid_sum,0) ) cas_sum
-from (
-    SELECT 
-        count(*) cas_c1, 
-        ifnull(sum(amount),0) cas_sum1 
-    FROM `golf-cash`
-    left join `golf-payment-session` on `golf-payment-session`.`auth`=`golf-cash`.`auth`
-    where 1=1
-    and `golf-payment-session`.`payment-datetime` between '$begin' and '$end'
-) t1, (
-    select 
-        count(*) unpaid_count
-        ,sum(
-            case 
-                when IFNULL((`golf-unpaid-account`.`is_paid`),-1)<=0
-                    then 0
-                when IFNULL((`golf-unpaid-account`.`is_paid`),-1)=1
-                    then IFNULL((`golf-unpaid-account`.`amount`),0)
-                else 0
-            end
-        ) unpaid_sum 
-    from `golf-unpaid-account`
-        left join `golf-payment-session` on `golf-payment-session`.`auth`=`golf-unpaid-account`.`auth`
-    where 1=1
-        and `golf-unpaid-account`.`is_paid` is not null
-        and `golf-unpaid-account`.`is_paid`=1
-        and `golf-payment-session`.`payment-datetime` between '$begin' and '$end'
-) t2
-    ";
-    // where `timestamp` between '$begin' and '$end';
-    
-    // echo '<td>'.$sql.'</td>';
-    $result = $conn_download_report->query($sql);
-    // echo '<td>';
-    // var_dump($result);
-    // echo '</td>';
-
-    if ($result->num_rows > 0) {
-
+    $result_cash_n_bank_check_only = get_staff_cash_n_bank_check_only($conn_download_report, $begin, $end);
 $part_start_1 = microtime(true);
 
-        while ($row = $result->fetch_assoc()) {
-            if ($row["cas_c"] > 0 || $row["cas_sum"] > 0) {
-                echo '<td>'.$row["cas_c"].' record(s)</td>';
-                echo '<td>HKD $'.$row["cas_sum"].'</td>';
+            if ($result_cash_n_bank_check_only["cas_n_unpaid_c"] > 0 || $result_cash_n_bank_check_only["cas_n_unpaid_sum"] > 0) {
+                echo '<td>'.$result_cash_n_bank_check_only["cas_n_unpaid_c"].' record(s)</td>';
+                echo '<td>HKD $'.$result_cash_n_bank_check_only["cas_n_unpaid_sum"].'</td>';
     ?>
 <td>
 <form action="./download_report.php" method="get" style="height: 0px;" target="_blank">
@@ -884,7 +821,7 @@ $part_start_1 = microtime(true);
                 echo "<td> - </td>";
                 echo "<td> - </td>";
             }
-        }
+        
 
 $part_time_elapsed_secs = microtime(true) - $part_start_1;
 if (isset($_GET['debug'])) {
@@ -892,7 +829,6 @@ if (isset($_GET['debug'])) {
 }
 
 
-    }
 }
 
 $part_time_elapsed_secs = microtime(true) - $part_start;

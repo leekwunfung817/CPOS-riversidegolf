@@ -111,6 +111,8 @@ function addition_element_2($arr,$key,$key_2,$num)
 
 
 
+require_once 'common-function.php';
+
 function generate_report($conn,$complexArray, $src, $src2, $from, $to, $is_preview)
 {
 	
@@ -150,8 +152,8 @@ To
 				}
 				// echo "\n<!-- $from < $value['golf_payment_datetime'] < $to : $src/$value['src'] pay_type: $value['pay_type'] pay_amount : $value['pay_amount'] -->\n";
 				$arr = addition_element_2($arr, $value['src'], $value['pay_type'], $value['pay_amount']);
-				$total += $value['pay_amount'];
-				$record_count += 1;
+				// $total += $value['pay_amount'];
+				// $record_count += 1;
 			}
 		}
 
@@ -162,7 +164,94 @@ Report Debuug Identify:::::
 -->
 		<?php
 
+	{
+		
+    	$html_0 = "<tr>";
+    	$html_0 .= "<td span=\"2\">";
 
+
+		$html_0 .= "<table style=\"width: 100%\">";
+
+		$html_0 .= "<tr>";
+		
+		$html_0 .= "<td>";
+		$html_0 .= "Staff";
+		$html_0 .= "</td>";
+
+		$html_0 .= "<td>";
+		$html_0 .= "P.Method";
+		$html_0 .= "</td>";
+
+		$html_0 .= "<td>";
+		$html_0 .= "Tot Amt.";
+		$html_0 .= "</td>";
+
+		$html_0 .= "</tr>";
+
+		$username_list = array();
+	
+		if ($src=='all' || $src2=='all') {
+			$sql = "SELECT `id`,`name` FROM `golf-staff`";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				while ($row = $result->fetch_assoc()) {
+					array_push(
+						$username_list,
+						array(
+							'id'=>$row['id'],
+							'name'=>$row['name']
+						)
+					);
+				}
+			}
+
+		} else {
+			array_push(
+				$username_list,
+				array(
+					'id'=>$src,
+					'name'=>$src2
+				)
+			);
+		}
+		foreach ($username_list as $user_dict) {
+			$staff_cash_received = get_staff_cash_received(
+				$conn, 
+				$from, 
+				$to, 
+				$user_dict['id'], 
+				$user_dict['name']
+			);
+
+			$html_0 .= "<tr>";
+			$html_0 .= "<td>".$staff_cash_received['username']."</td>";
+			$html_0 .= "<td>Credit Card</td>";
+			$html_0 .= "<td>$".sprintf('%.2f', ((float)$staff_cash_received['cre_sum']))." - ".$staff_cash_received['cre_c']." record(s)</td>";
+			$html_0 .= "</tr>";
+
+			$html_0 .= "<tr>";
+			$html_0 .= "<td>".$staff_cash_received['username']."</td>";
+			$html_0 .= "<td>Cash</td>";
+			$html_0 .= "<td>$".sprintf('%.2f', ((float)$staff_cash_received['cas_sum']))." - ".$staff_cash_received['cas_c']." record(s)</td>";
+			$html_0 .= "</tr>";
+
+			$html_0 .= "<tr>";
+			$html_0 .= "<td>".$staff_cash_received['username']."</td>";
+			$html_0 .= "<td>Check/Bank Transaction</td>";
+			$html_0 .= "<td>$".sprintf('%.2f', ((float)$staff_cash_received['unpaid_sum']))." - ".$staff_cash_received['unpaid_c']." record(s)</td>";
+			$html_0 .= "</tr>";
+			
+			$total += $staff_cash_received['cre_sum'];
+			$total += $staff_cash_received['cas_sum'];
+			$total += $staff_cash_received['unpaid_sum'];
+			$record_count += $staff_cash_received['cre_c'];
+			$record_count += $staff_cash_received['cas_c'];
+			$record_count += $staff_cash_received['unpaid_c'];
+		}
+		$html_0 .= "</table>";
+    	$html_0 .= "</td>";
+    	$html_0 .= "</tr>";
+	}
 		{
 	    	// $from_date = DateTime::createFromFormat('Y-m-d H:i:s', $from)->format('Y-m-d');
 	    	// $to_date = DateTime::createFromFormat('Y-m-d H:i:s', $to)->format('Y-m-d');
@@ -385,17 +474,17 @@ Report Debuug Identify:::::
     	
     	$html .= "</tr>";
 
-    	$html .= "<tr>";
+    	// $html .= "<tr>";
     	
-    	$html .= "<td>";
-    	$html .= "Finish Float for Rent";
-    	$html .= "</td>";
+    	// $html .= "<td>";
+    	// $html .= "Finish Float for Rent";
+    	// $html .= "</td>";
 
-    	$html .= "<td>";
-    	$html .= "<h1></h1>";
-    	$html .= "</td>";
+    	// $html .= "<td>";
+    	// $html .= "<h1></h1>";
+    	// $html .= "</td>";
     	
-    	$html .= "</tr>";
+    	// $html .= "</tr>";
 
     	$html .= "<tr>";
     	
@@ -421,65 +510,7 @@ Report Debuug Identify:::::
     	
     	$html .= "</tr>";
 
-    	$html .= "<tr>";
-    	
-    	$html .= "<td span=\"2\">";
-
-
-    		$html .= "<table style=\"width: 100%\">";
-
-	    	$html .= "<tr>";
-	    	
-	    	$html .= "<td>";
-	    	$html .= "Staff";
-	    	$html .= "</td>";
-
-	    	$html .= "<td>";
-	    	$html .= "P.Method";
-	    	$html .= "</td>";
-
-	    	$html .= "<td>";
-	    	$html .= "Tot Amt.";
-	    	$html .= "</td>";
-
-	    	$html .= "</tr>";
-
-
-
-	    	foreach ($arr as $username => $ele_1) {
-		    	foreach ($ele_1 as $method => $amount) {
-		    		if ($src!='all' && $username!=$src && $username!=$src2 ) {
-		    			continue;
-		    		}
-		    		if ($username == '') {
-		    			$username = 'Unknown';
-		    		}
-			    	$html .= "<tr>";
-			    	
-			    	$html .= "<td>";
-			    	$html .= "$username";
-			    	$html .= "</td>";
-
-			    	$html .= "<td>";
-			    	$html .= "$method";
-			    	$html .= "</td>";
-
-			    	$html .= "<td>";
-			    	$html .= "$amount";
-			    	$html .= "</td>";
-
-			    	$html .= "</tr>";
-
-		    	}
-	    	}
-
-    		$html .= "</table>";
-
-
-    	$html .= "</td>";
-
-
-    	$html .= "</tr>";
+    	$html .= $html_0;
 
 
 
