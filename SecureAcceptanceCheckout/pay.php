@@ -31,6 +31,40 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
+$sql = "SELECT * FROM `golf_fairway_booking` where `auth`='".$auth."'; ";
+$result = $conn->query($sql);
+if ($result->num_rows == 0) {
+	m_log("reach pay.php 1 由於15分鐘已過，預訂已過期，如果您確定已付款，請申請退款。 $auth");
+	?>
+	<script type="text/javascript">
+		alert('由於15分鐘已過，預訂已過期，如果您確定已付款，請申請退款。 - Because 15 minutes are past,The booking expired, request the refund if you sure that you paid.');
+	    setTimeout(function() {
+	        window.location.href = "../";
+	    }, 2000);
+	</script>
+	<?php
+	die();
+}
+
+
+$sql = "SELECT * FROM `golf_fairway_booking_history` where `auth`='".$auth."'; ";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+	m_log("reach pay.php 2 由於15分鐘已過，預訂已過期，如果您確定已付款，請申請退款。 $auth");
+	?>
+	<script type="text/javascript">
+		alert('由於15分鐘已過，預訂已過期，如果您確定已付款，請申請退款。 Because 15 minutes are past,The booking expired, request the refund if you sure that you paid.');
+	    setTimeout(function() {
+	        window.location.href = "../";
+	    }, 2000);
+	</script>
+	<?php
+	die();
+}
+
+
+
 $sql = "SELECT * FROM `golf-payment-session` where `payment-datetime` is not null and `auth`='".$auth."'; ";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {

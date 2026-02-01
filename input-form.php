@@ -23,6 +23,29 @@ function getBrowser() {
     }
 }
 
+
+function is_mobile_browser() {
+    if (!isset($_SERVER['HTTP_USER_AGENT'])) {
+        return false;
+    }
+
+    $ua = strtolower($_SERVER['HTTP_USER_AGENT']);
+
+    $keywords = [
+        'android', 'iphone', 'ipad', 'ipod',
+        'blackberry', 'windows phone', 'opera mini',
+        'mobile', 'silk', 'kindle'
+    ];
+
+    foreach ($keywords as $k) {
+        if (strpos($ua, $k) !== false) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 // Get the browser
 $browser = getBrowser();
 
@@ -39,6 +62,7 @@ if ($browser === 'Chrome' || $browser === 'Edge' || $browser === 'Firefox' || $b
 session_start();
 $is_management = isset($_SESSION["management"]);
 
+$reserve_type = $_SESSION['type'];
 
  ?><?php 
 require_once 'tesing_stage_verification.php';
@@ -442,7 +466,7 @@ The website is under construction. Non-developers should not attempt to perform 
 <table style="background-color: white;">
     <tr>
         <td colspan="2">
-            <a href="../"> < Back</a>
+            <a href="."> < Back</a>
             <br>
             <div style="font-size: 0.9em;">
             <?php 
@@ -463,8 +487,19 @@ The website is under construction. Non-developers should not attempt to perform 
             </div>
             <h1 style="background-color: white;">
             <hr>
-            白石高爾夫球練習場<br>打球位置 預訂表格<br> 
-            White Head Club<br>Reservation Form
+            <?php 
+if ($reserve_type == 'pickleball') {
+?>
+匹克球練習場<br>打球位置 預訂表格<br> 
+Pickleball<br>Reservation Form
+<?php 
+} else {
+?>
+白石高爾夫球練習場<br>打球位置 預訂表格<br> 
+White Head Club<br>Reservation Form
+<?php 
+}
+            ?>
             <hr>
             </h1>
         </td>
@@ -518,6 +553,12 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
                 }
              ?>" 
             ><br></td>
+            <script>
+                function checkNameEmpty() {
+                    const nameValue = document.getElementById("name").value.trim();
+                    return (nameValue === "");
+                }
+            </script>
     </tr>
     <tr><!-- 
         <th class="hide_for_mobile"></th> -->
@@ -840,11 +881,12 @@ function isNumberKey(evt){
 
 
 
-
-
+<?php 
+if ($reserve_type != 'pickleball') {
+?>
     <tr>
         <td colspan="2">
-            
+
 <h3 style="background-color: white;">
 <hr>
 價錢及優惠 Pricing & Discount<br>
@@ -861,6 +903,10 @@ function isNumberKey(evt){
 
         </td>
     </tr>
+<?php 
+}
+ ?>
+
     <tr>
         <td colspan="2" style="text-align: center;">
             <hr>
@@ -1490,7 +1536,15 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
 
         </td>
     </tr>
-<tr>
+<tr
+<?php 
+if ($reserve_type == 'pickleball') {
+?>
+hidden
+<?php 
+}
+ ?>
+>
     <td>
 
 <label class="container" style="text-align: center;">
@@ -2229,9 +2283,23 @@ clearHours();
 
 
 <h3 style="background-color: white;"><hr>
-        請選擇高爾夫打球 預訂位置
-        <br>
-        Please select a golf course to reserve your spot<hr>
+
+<?php 
+if ($reserve_type == 'pickleball') {
+?>
+請選擇匹克球 預訂位置
+<br>
+Please select a pickleball spot to reserve your spot<hr>
+<?php 
+} else {
+    
+?>
+請選擇高爾夫打球 預訂位置
+<br>
+Please select a golf course to reserve your spot<hr>
+<?php 
+}
+ ?>
 </h3>
 
         </td>
@@ -2653,53 +2721,81 @@ function spotTableHorizon($arr)
 
 <table class="selection_area">
     <tbody>
-        <tr id="selection_VIP">
+        <?php
+$bays_tr = function($id, $position_submenu,  $title) {
+    ?>
+        <tr id="<?php echo $id; ?>">
             <td>
-                
 <?php 
-spotTableVertical($position_list_[1], '貴賓室球道 VIP Room Bays');
+spotTableVertical($position_submenu, $title);
  ?>
             </td>
         </tr>
-        <tr id="selection_sand">
-            <td>
-                
+    <?php
+};
+        ?>
 <?php 
-spotTableVertical($position_list_[0], '沙地 球道 Sand court');
- ?>
-            </td>
-        </tr>
-        <tr id="selection_iron">
-            <td>
-                
-<?php 
-spotTableVertical($position_list_[2], '鐵桿球道 <br> Irons Only Bays');
-// spotTableVertical($position_list_[3]);
- ?>
-            </td>
-        </tr>
-        <tr id="selection_short_wood">
-            <td>
-                
-<?php 
-spotTableVertical($position_list_[3], '鐵桿及球道木桿球道 <br> Irons to Fairway Woods Bays');
-// spotTableVertical($position_list_[3]);
- ?>
-            </td>
-        </tr>
-        <tr id="selection_wood">
-            <td>
+if (!$position_list_) {
+    die();
+}
+$golf_bays_trs = function() use ($bays_tr, $position_list_) {
+$bays_tr("selection_VIP", $position_list_[1], '貴賓室球道 VIP Room Bays');
+$bays_tr("selection_sand", $position_list_[0], '沙地 球道 Sand court');
+$bays_tr("selection_iron", $position_list_[2], '鐵桿球道 <br> Irons Only Bays');
+$bays_tr("selection_short_wood", $position_list_[3], '鐵桿及球道木桿球道 <br> Irons to Fairway Woods Bays');
+$bays_tr("selection_wood", $position_list_[4], '所有球桿球道 <br> All Clubs Bays');
+};
+?>
 
-                
+
+
+
+
+
+
+
+
+
+
+
 <?php 
-spotTableVertical($position_list_[4], '所有球桿球道 <br> All Clubs Bays');
-// spotTableVertical($position_list_[5]);
-// spotTableVertical($position_list_[6]);
+if ($reserve_type == 'pickleball') {
+    $bays_tr("selection_pickle_ball", $position_list_[5], '匹克球 <br> Pickle Ball');
+} else {
+    $golf_bays_trs();
+}
  ?>
-            </td>
-        </tr>
+
+<script>
+const expanded = document.querySelectorAll('.expend');
+if (expanded.length === 1) {
+    expanded[0].click();
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </tbody>
 </table>
+
+
+
+
+
+
+
+
 <hr>
 <script type="text/javascript">
     
@@ -2804,8 +2900,10 @@ show_and_hide_hours();
         checkboxesValids = validateCheckboxes();
         dateTimeIsValid = isValidDateTime();
         octopusConfirm = confirm_octopus();
-
-        if (!checkboxesValids) {
+        
+        if (checkNameEmpty()) {
+            alert("請輸入您的姓名。 \n Please enter your name.");
+        } else if (!checkboxesValids) {
             alert('請在提交前選擇球道 \n Please select a fairway before submitting ');
         } else if (!dateTimeIsValid) {
             alert('請輸入目前時間之前的有效日期 \n Please enter a valid date before the current time ');
@@ -2814,7 +2912,6 @@ show_and_hide_hours();
         } else if (!confirmationCodeValid) {
             alert('請輸入正確的電子郵件確認碼 \n Please enter correct email confirmation code ');
         }
-
         console.log('checkboxesValids,dateTimeIsValid,octopusConfirm: ',checkboxesValids,dateTimeIsValid,octopusConfirm);
     }
 </script>
@@ -2972,12 +3069,13 @@ Before submission, please make sure your (1) email confirmed with correct confir
         checkboxesValids = validateCheckboxes();
         dateTimeIsValid = isValidDateTime();
         octopusConfirm = confirm_octopus();
+        nameValid = !checkNameEmpty();
 
         // console.log('checkboxesValids,dateTimeIsValid,octopusConfirm: ',checkboxesValids,dateTimeIsValid,octopusConfirm);
 
         collection = document.getElementsByClassName('submit-button');
         for (let i = 0; i < collection.length; i++) {
-            if (checkboxesValids&&dateTimeIsValid&&octopusConfirm&&confirmationCodeValid) {
+            if (checkboxesValids&&dateTimeIsValid&&octopusConfirm&&confirmationCodeValid&&nameValid) {
                 collection[i].style.color = 'black';
                 collection[i].disabled = false;
             } else {

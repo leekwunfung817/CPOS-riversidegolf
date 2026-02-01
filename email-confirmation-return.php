@@ -464,13 +464,23 @@ if ($booking_arr['discount'] == 'S') {
     echo "沒有優惠";
 }
           ?> </li>
-          <li>八達通卡 : <?php 
+<?php 
 if ($booking_arr['octopus_no'] == null || $booking_arr['octopus_no'] == '') {
-    echo "不需要 (不會開車駛入)";
+    // echo "不需要 (不會開車駛入)";
 } else {
-    echo $booking_arr['octopus_no'].'('.$booking_arr['check_digit'].')';
+         		 ?> 
+          		<li>八達通卡 : 
+				 <?php 
+    echo $booking_arr['octopus_no'].' ('.$booking_arr['check_digit'].')';
+         		 ?> 
+				  </li>
+				 <?php 
 }
-          ?> </li>
+         		 ?> 
+
+
+
+
          <!-- 其他預訂細節 -->
         </ul>
 

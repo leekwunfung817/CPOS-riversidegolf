@@ -867,7 +867,7 @@ SELECT
 
     ,(case when 
       `$booking_table_name`.`timestamp`<DATE_SUB(CURRENT_TIMESTAMP, INTERVAL (
-        case when `name`=''
+        case when (`$booking_table_name`.`name`='' and `$booking_table_name`.`email`='')
           then 5
           else 60
         end

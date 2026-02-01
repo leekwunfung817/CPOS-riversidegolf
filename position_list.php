@@ -2,16 +2,16 @@
 
 
 $position_list_ = array(
-    //Sand
+    //Sand [0]
     array(
         1,2
         // ,3
     ),
-    // VIP
+    // VIP [1]
     array(
         "VIP"
     ),
-    // Iron
+    // Iron [2]
     array(
         
         5,6,7,8,9,10,11,12,13,
@@ -21,7 +21,7 @@ $position_list_ = array(
         27,28,29,
 
     ),
-    // Iron and Short Wood
+    // Iron and Short Wood [3]
     array(
 
         30,31,32,33,
@@ -32,7 +32,7 @@ $position_list_ = array(
         55,56,57,
         59,
     ),
-    // Wood
+    // Wood [4]
     array(
 
 
@@ -44,6 +44,10 @@ $position_list_ = array(
         75,76,77,78,79,80,81,82,83
         // ,84
         ,85
+    ),
+    // Picle Ball [5]
+    array(
+        100,101,102,103
     ),
 );
 

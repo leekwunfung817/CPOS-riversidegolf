@@ -1373,15 +1373,20 @@ if ($booking_arr_buf['discount'] == 'S') {
          		 ?> 
          		 <!-- <a href="?change=discount"><small>申請變更</small></a> </li> -->
 
-
-          		<li>八達通卡 : <?php 
+<?php 
 if ($booking_arr_buf['octopus_no'] == null || $booking_arr_buf['octopus_no'] == '') {
-    echo "不需要 (不會開車駛入)";
+    // echo "不需要 (不會開車駛入)";
 } else {
+         		 ?> 
+          		<li>八達通卡 : 
+				 <?php 
     echo $booking_arr_buf['octopus_no'].' ('.$booking_arr_buf['check_digit'].')';
+         		 ?> 
+				  </li>
+				 <?php 
 }
          		 ?> 
-         		 <!-- <a href="?change=octopus_no"><small>申請變更</small></a> </li> -->
+         		 <!-- <a href="?change=octopus_no"><small>申請變更</small></a>  -->
 
 
 				<li>交易方式：<?php 
