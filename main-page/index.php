@@ -129,7 +129,7 @@ require_once '../import-notice.php';
                                 <h1 class="display-3 text-white animated slideInDown mb-4">携手共創美好高球明天</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">備有六十三條球道，深度達二百餘碼，有充足的空間令練習時更清楚高爾夫球的飛行軌跡。球道所用的擊球墊、球座、練習球等均定期更換，保持高質的練習空間。而且所有球道均設有停車位置於正後方，極為方便。</p>
                                 <a href="../terms_booking.php?type=golf" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">打球道預訂<br>Fairway Booking</a>
-                                <a href="../terms_booking.php?type=pickleball" class="btn btn-light py-md-3 px-md-5 animated slideInRight">匹克球預訂<br>Pickleball Fairway</a>
+                                <a href="../terms_booking.php?type=pickleball" class="btn btn-light py-md-3 px-md-5 animated slideInRight">匹克球預訂<br>Pickleball Booking</a>
                             </div>
                         </div>
                     </div>

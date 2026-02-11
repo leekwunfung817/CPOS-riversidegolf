@@ -5,6 +5,7 @@ t_log('begin[email-confirmation-return.php]');
 session_start();
 $is_management = isset($_SESSION["management"]);
 
+$reserve_type = $_SESSION['type'];
 
 function stop_by_invalid_booking_2($str)
 {
@@ -85,7 +86,7 @@ m_log("reach email return $auth");
 <head>
      <meta charset="utf-8">
      <meta http-equiv="x-ua-compatible" content="ie=edge">
-     <title>高爾夫球場預訂確認</title>
+     <title><?php echo ($reserve_type == 'pickleball'?'匹克球練習場':'高爾夫練習場'); ?>預訂確認</title>
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <style type="text/css">
 
@@ -422,7 +423,20 @@ You will not be able to return to the same booking date, time and bay(s) current
 
         
         <p><?php echo $name; ?> 你好</p>
-        <p>感謝您預訂我們的高爾夫球場。 </p>
+        <p>感謝您預訂我們的
+            
+
+<?php 
+if ($reserve_type == 'pickleball') {
+?>
+匹克球練習場
+<?php 
+} else {
+?>
+高爾夫 球場
+<?php 
+}
+ ?>。 </p>
         <p>目前未付款, 以下是您的預訂詳情：  </p>
 <?php 
 
@@ -453,8 +467,20 @@ $position_display = str_replace( array('[', '"', ']', ' '), '', $booking_arr['p_
             <li>編號：<?php echo $id; ?></li>
             <li>日期：<?php echo $date_display; ?></li>
             <li>時間：<?php echo $time_display; ?></li>
-         <li>球場名稱：白石高爾夫球練習場</li>
-         <li>球道號碼：<?php echo $position_display; ?> </li>
+         <li>球場名稱：
+<?php 
+if ($reserve_type == 'pickleball') {
+?>
+匹克球 練習場<br>
+<?php 
+} else {
+    echo $reserve_type;
+?>
+白石高爾夫球練習場<br> 
+<?php 
+}
+ ?></li>
+         <li><?php echo ($reserve_type == 'pickleball'?'球場':'球道'); ?>號碼：<?php echo $position_display; ?> </li>
          <li>優惠 : <?php 
 if ($booking_arr['discount'] == 'S') {
     echo "學生";
@@ -545,21 +571,20 @@ if ($is_management) {
 
 
          <p>如果您有任何問題或需要進一步的協助，請隨時與我們聯絡。 </p>
-         <p>再次感謝您選擇我們的高爾夫球場！ </p>
-         <p>祝您有個愉快的高爾夫體驗。 </p>
+         <p>再次感謝您選擇我們的<?php echo ($reserve_type == 'pickleball'?'匹克球練習場':'高爾夫練習場'); ?>！ </p>
+         <p>祝您有個愉快的<?php echo ($reserve_type == 'pickleball'?'匹克球':'高爾夫'); ?>體驗。 </p>
          <p>此致，</p>
-         <p>白石高爾夫球練習場 團隊</p>
+         <p>白石<?php echo ($reserve_type == 'pickleball'?'匹克球練習場':'高爾夫練習場'); ?> 團隊</p>
 
 <hr>
-         <!-- <h1>White Head Club - Golf Court reservation confirmed</h1> -->
          <p>Dear <?php echo $name; ?></p>
 
-         <p>Thank you for booking our golf course. No payment has been made yet, here are your booking details:</p>
+         <p>Thank you for booking our <?php echo ($reserve_type == 'pickleball'?'pickle ball':'golf'); ?> court. No payment has been made yet, here are your booking details:</p>
          <ul>
              <li>ID：<?php echo $id; ?></li>
              <li>Date：<?php echo $date_display; ?></li>
              <li>Time：<?php echo $time_display; ?></li>
-             <li>Location：Riverside Whitehead Golf Club</li>
+             <li>Location：Riverside Whitehead <?php echo ($reserve_type == 'pickleball'?'Pickle Ball':'Golf'); ?> Club</li>
              <li>Bay No.：<?php echo $position_display; ?> </li>
              <li>Discount : <?php 
 if ($booking_arr['discount'] == 'S') {
@@ -577,26 +602,7 @@ if ($booking_arr['octopus_no'] == null || $booking_arr['octopus_no'] == '') {
     echo $booking_arr['octopus_no'].'('.$booking_arr['check_digit'].')';
 }
           ?> </li>
-             <!-- 其他預訂細節 -->
          </ul>
-<?php 
-
-// $total_price = price_calculation( array(
-//     'lan' => 'en',
-//     'print' => 'N'
-// ), $booking_arr);
-
-
- ?>
-
-
-
-
-
-
-
-
-
 
 
 <h2>Please choose the following payment method</h2>
@@ -635,102 +641,12 @@ if ($is_management) {
 
 
          <p>If you have any questions or need further assistance, please feel free to contact us. </p>
-          <p>Thank you again for choosing our golf course! </p>
-          <p>Wish you have a pleasant golf experience. </p>
+          <p>Thank you again for choosing our <?php echo ($reserve_type == 'pickleball'?'pickle ball':'golf'); ?> course! </p>
+          <p>Wish you have a pleasant <?php echo ($reserve_type == 'pickleball'?'pickle ball':'golf'); ?> experience. </p>
           <p>Sincerely,</p>
-          <p>White Rock Driving Range Team</p>
+          <p><?php echo ($reserve_type == 'pickleball'?'Pickle Ball':'White Golf'); ?> Team</p>
      </div>
 
-<?php 
-
-
-
-
-// function check_buffer_count($conn,$data)
-// {
-
-//     $id = $data['id'];
-//     $key1 = $data['booking_date'];
-//     $begin_hour = (int) $data['begin_hour'];
-//     $end_hour = (int) $data['end_hour'];
-//     $p_selections = $data['p_selections'];
-
-//     $buffer_count = 0;
-
-//     for ($cursor_hour=$begin_hour; $cursor_hour < $end_hour; $cursor_hour=$cursor_hour+0.5) {
-//         $hour_int = ((int) $cursor_hour);
-//         $is_half_hour = $cursor_hour != $hour_int;
-//         $half_hour_mark = ($is_half_hour ? ':30' : ':00');
-//         $key2=$hour_int . $half_hour_mark;
-//         foreach (json_decode($p_selections) as $key => $position) {
-//             // echo $position.'<br>';
-//           $buffer_count += 1;
-
-//                  $key4=str_replace("position_", "", $position);
-//                  $sql_1 = "
-//                  INSERT INTO `golf_booking_buffer`(`date`, `hour`, `position`, `src`) 
-//                  VALUES 
-//                  ('$key1','$key2','$key4','$id');
-//                  ";
-//                    try {
-//                        // Execute the query
-//                        if ($conn->query($sql_1) === TRUE) {
-//                            // echo "Data inserted successfully!";
-//                        } else {
-//                        //     echo "Error: " . $sql_1 . "<br>" . $conn->error;
-//                        // echo "SQL error 222 $sql";
-//                        }
-//                    } catch (Exception $e) {
-//                        // echo $e;
-//                        // echo "Exception 222 $sql_1";
-//                    }
-
-
-//                  $sql_1 = "
-//                  UPDATE `golf_booking_buffer` SET `src`='$id'
-//                  WHERE `date`='$key1' and `hour`='$key2' and `position`='$key4';
-//                  ";
-//                    try {
-//                        // Execute the query
-//                        if ($conn->query($sql_1) === TRUE) {
-//                            // echo "Data inserted successfully!";
-//                        } else {
-//                        //     echo "Error: " . $sql_1 . "<br>" . $conn->error;
-//                        // echo "SQL error 222 $sql";
-//                        }
-//                    } catch (Exception $e) {
-//                        // echo $e;
-//                        // echo "Exception 222 $sql_1";
-//                    }
-
-
-
-
-
-//         }
-//     }
-//     return $buffer_count;
-
-// }
-
-// $sql = "
-// SELECT * FROM `golf_fairway_booking`;
-// ";
-
-// $result = $conn->query($sql);
-// if ($result->num_rows > 0) {
-//   while ($row = $result->fetch_assoc()) {
-//     $count = check_buffer_count($conn,$row);
-//     // echo $count;
-//     // echo "<br>";
-//     // var_dump($row);
-//     // echo "<br>";
-//   }
-// }
-
-
-
- ?>
 
 <script type="text/javascript">
 // Set a timeout to close the page after 15 minutes (900,000 milliseconds)
@@ -801,88 +717,7 @@ try {
     
 }
 
-
-
 }
-
-// }
-
-
-
-
-
-
-
-
-
-// // Construct the SQL query
-// $sql = "INSERT INTO `golf-payment-session`(`auth`, `price`) VALUES ('$auth','$total_price');";
-// try {
-    
-//     // Execute the query
-//     if ($conn->query($sql) === TRUE) {
-//         // echo "Data inserted successfully!";
-//     } else {
-//         // echo "Error: " . $sql . "<br>" . $conn->error;
-//     }
-
-// } catch (Exception $e) {
-    
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// require_once './clear_record.php';
-
 
 t_log('end[email-confirmation-return.php]');
 

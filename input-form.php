@@ -490,12 +490,12 @@ The website is under construction. Non-developers should not attempt to perform 
             <?php 
 if ($reserve_type == 'pickleball') {
 ?>
-匹克球練習場<br>打球位置 預訂表格<br> 
+匹克球<br>預訂表格<br> 
 Pickleball<br>Reservation Form
 <?php 
 } else {
 ?>
-白石高爾夫球練習場<br>打球位置 預訂表格<br> 
+白石高爾夫球<br>預訂表格<br> 
 White Head Club<br>Reservation Form
 <?php 
 }
@@ -639,7 +639,7 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
             name="confirmation_code" 
             id="confirmation_code" 
             style="color: blue;" 
-            placeholder="驗證碼 Confirm code" 
+            placeholder="驗證碼 Verification code" 
             onkeydown="setTimeout(checkConfirmCode, 1)" 
             onblur="setTimeout(checkConfirmCode, 1)" 
             onclick="setTimeout(checkConfirmCode, 1)" 
@@ -907,7 +907,16 @@ if ($reserve_type != 'pickleball') {
 }
  ?>
 
-    <tr>
+    <tr
+    
+<?php 
+if ($reserve_type == 'pickleball') {
+?>
+hidden
+<?php 
+}
+?>
+    >
         <td colspan="2" style="text-align: center;">
             <hr>
             <h4>價錢選項 Pricing option</h4> 
@@ -1536,56 +1545,21 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
 
         </td>
     </tr>
-<tr
-<?php 
-if ($reserve_type == 'pickleball') {
-?>
-hidden
-<?php 
-}
- ?>
->
-    <td>
 
-<label class="container" style="text-align: center;">
-    <input type="checkbox" name="sand_bay_option" id="sand_bay_option" onclick="
-    check_sand_bay();
-    show_and_hide_hours_2();
-    show_and_hide_hours();
-">
-    <span id="sand_bay_option_span" class="span_checkbox checkmark widen_checkbox higher" 
-    style="
-        color: black;
-        border-style: solid;
-        border-radius:  20px;
-        text-align: center;
-    " onchange="setTimeout(function () {
-        check_sand_bay();show_and_hide_hours();show_and_hide_hours_2();
-    },10);">
-    </span>
 
-    
-</label>
 
-                        <br class="hide_for_mobile">
-                        <br class="hide_for_mobile">
-                        <br class="hide_for_mobile">
-                        <br class="hide_for_mobile">
-                        <br class="hide_for_mobile">
-                        <br class="hide_for_mobile">
 
-<br class="hide_for_desktop">
-<br class="hide_for_desktop">
-<br class="hide_for_desktop">
-<br class="hide_for_desktop">
-<br class="hide_for_desktop">
-<br class="hide_for_desktop">
-<br class="hide_for_desktop">
-<br class="hide_for_desktop">
-<br class="hide_for_desktop">
 
-    </td>
-</tr>
+
+
+
+
+
+
+
+
+
+
 
 <?php
 
@@ -1913,7 +1887,6 @@ $conn->close();
 
 }
 
-show_and_hide_hours_2();
 
 function show_and_hide_hours() {
     var sand_bay_option_checked = document.getElementById('sand_bay_option').checked;
@@ -2272,6 +2245,75 @@ clearHours();
 
 
 
+<tr
+<?php 
+if ($reserve_type == 'pickleball') {
+?>
+hidden
+<?php 
+}
+ ?>
+>
+    <td>
+
+<label class="container" style="text-align: center;">
+    <input type="checkbox" name="sand_bay_option" id="sand_bay_option" onclick="
+    check_sand_bay();
+    show_and_hide_hours_2();
+    show_and_hide_hours();
+">
+    <span id="sand_bay_option_span" class="span_checkbox checkmark widen_checkbox higher" 
+    style="
+        color: black;
+        border-style: solid;
+        border-radius:  20px;
+        text-align: center;
+    " onchange="setTimeout(function () {
+        check_sand_bay();show_and_hide_hours();show_and_hide_hours_2();
+    },10);">
+    </span>
+
+    
+</label>
+
+                        <br class="hide_for_mobile">
+                        <br class="hide_for_mobile">
+                        <br class="hide_for_mobile">
+                        <br class="hide_for_mobile">
+                        <br class="hide_for_mobile">
+                        <br class="hide_for_mobile">
+
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+
+    </td>
+</tr>
+<script>
+show_and_hide_hours_2();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2289,14 +2331,14 @@ if ($reserve_type == 'pickleball') {
 ?>
 請選擇匹克球 預訂位置
 <br>
-Please select a pickleball spot to reserve your spot<hr>
+Please select the courts you would like to reserve<hr>
 <?php 
 } else {
     
 ?>
 請選擇高爾夫打球 預訂位置
 <br>
-Please select a golf course to reserve your spot<hr>
+Please select the courts you would like to reserve<hr>
 <?php 
 }
  ?>
@@ -2336,10 +2378,11 @@ Please select a golf course to reserve your spot<hr>
 <table style="width: 100px;" class="selection_area">
     <tr><td colspan="2">
         
-請先選擇您的球道，然後按「提交」按鈕。<br>
-Please select your fairway first and then click the Submit button. <br>
-未選擇球道時，提交按鈕將無法使用。<br>
-When no lane is selected, the submit button will not be visible.<br>
+
+請先選擇您的<?php echo ($reserve_type == 'pickleball'?"球場":"球道"); ?>，然後按「提交」按鈕。<br>
+Please select your court(s) and then click the Submit button. <br>
+未選擇<?php echo ($reserve_type == 'pickleball'?"球場":"球道"); ?>時，提交按鈕將無法使用。<br>
+When no court is selected, the submit button will not be visible.<br>
 <hr>
     </td></tr>
     <tr><td style="width: 50px;"> 綠色（可預約）<br> Green (Available for reservation) </td><td style="background-color: #91FE69;width: 100px;"></td></tr>
@@ -2347,11 +2390,11 @@ When no lane is selected, the submit button will not be visible.<br>
 </table>
 
 <hr>
-
+<!-- 
 <p style="color: red;">
-            請不要選擇超過40條球道，否則將無法預訂<br>
+            請不要選擇超過40<?php echo ($reserve_type == 'pickleball'?"個球場":"條球道"); ?>，否則將無法預訂<br>
             Please do not select more than 40 fairways or your reservation will not be available
-</p>
+</p> -->
 
 <script>
 
@@ -2603,7 +2646,7 @@ require_once './position_list.php';
 </style>
 <?php
 
-function spotTableVertical($arr,$title="")
+$spotTableVertical = function ($arr,$title="") use ($reserve_type)
 {
 
     $ele_id = substr(md5($title), 0, 4);
@@ -2643,7 +2686,10 @@ function toggleDiv<?php echo $ele_id; ?>() {
 
 <div onclick="toggleDiv<?php echo $ele_id; ?>()" class="expend" style="background-color: white;">
 <hr>
-    <h3><b><?php echo $title; ?></b></h3><br>
+    <h3><b><?php 
+        echo $title; 
+    
+    ?></b></h3><br>
     <small>展開/隱藏 Expand/Hide</small><br>
 <hr>
 </div>
@@ -2665,7 +2711,18 @@ function toggleDiv<?php echo $ele_id; ?>() {
             }
          ?>
         <tr class="position position_<?php echo "$p"; ?>">
-            <td class="c higher position position_<?php echo "$p"; ?>" ><?php echo $p; ?></td>
+            <td class="c higher position position_<?php echo "$p"; ?>" ><?php 
+            // echo $p;
+    if ($reserve_type == 'pickleball') {
+        if (filter_var($p, FILTER_VALIDATE_INT) !== false) {
+            $num = (int)$p;
+            $result = $num - 100 + 1;
+            echo "Court ".$result;
+        }
+    } else {
+        echo $p; 
+    }
+            ?></td>
             <th>
 
 
@@ -2686,7 +2743,7 @@ function toggleDiv<?php echo $ele_id; ?>() {
     </tbody>
 </table>
 <?php
-}
+};
 
 
 function spotTableHorizon($arr)
@@ -2722,12 +2779,12 @@ function spotTableHorizon($arr)
 <table class="selection_area">
     <tbody>
         <?php
-$bays_tr = function($id, $position_submenu,  $title) {
+$bays_tr = function($id, $position_submenu,  $title) use ($reserve_type, $spotTableVertical) {
     ?>
         <tr id="<?php echo $id; ?>">
             <td>
 <?php 
-spotTableVertical($position_submenu, $title);
+$spotTableVertical($position_submenu, title: $title);
  ?>
             </td>
         </tr>
@@ -2760,7 +2817,7 @@ $bays_tr("selection_wood", $position_list_[4], '所有球桿球道 <br> All Club
 
 <?php 
 if ($reserve_type == 'pickleball') {
-    $bays_tr("selection_pickle_ball", $position_list_[5], '匹克球 <br> Pickle Ball');
+    $bays_tr("selection_pickle_ball", $position_list_[5], '匹克球 <br> Pickleball');
 } else {
     $golf_bays_trs();
 }
@@ -3128,7 +3185,7 @@ for (var i = 0; i < inputs.length; i++) {
 }
 document.getElementById('confirmation_code').value = '';
 
-document.getElementById('confirmation_button').value = ' 確認電郵 Confirm Email ';
+document.getElementById('confirmation_button').value = ' 確認電郵 Verify Email ';
 
 
 
