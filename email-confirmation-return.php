@@ -462,6 +462,22 @@ if (strpos($booking_arr['end_hour'], '.5') !== false) {
 $position_display = str_replace( array('[', '"', ']', ' '), '', $booking_arr['p_selections'] );
 // $position_display = $booking_arr['p_selections'];
 
+$items = explode(',', $position_display);
+
+foreach ($items as &$v) {
+    if (ctype_digit($v)) {              // ensure numeric
+        $num = (int)$v;
+        if ($num >= 100 && $num <= 199) {
+            $v = $num - 99;            // subtract 100
+            $v = "".$v;
+        }
+    }
+}
+
+$position_display = implode(',', $items);
+
+
+
  ?>
         <ul>
             <li>編號：<?php echo $id; ?></li>
@@ -471,7 +487,7 @@ $position_display = str_replace( array('[', '"', ']', ' '), '', $booking_arr['p_
 <?php 
 if ($reserve_type == 'pickleball') {
 ?>
-匹克球 練習場<br>
+白石匹克球練習場<br>
 <?php 
 } else {
     echo $reserve_type;
@@ -579,13 +595,13 @@ if ($is_management) {
 <hr>
          <p>Dear <?php echo $name; ?></p>
 
-         <p>Thank you for booking our <?php echo ($reserve_type == 'pickleball'?'pickle ball':'golf'); ?> court. No payment has been made yet, here are your booking details:</p>
+         <p>Thank you for booking our <?php echo ($reserve_type == 'pickleball'?'pickleball':'golf'); ?> court. No payment has been made yet, here are your booking details:</p>
          <ul>
              <li>ID：<?php echo $id; ?></li>
              <li>Date：<?php echo $date_display; ?></li>
              <li>Time：<?php echo $time_display; ?></li>
-             <li>Location：Riverside Whitehead <?php echo ($reserve_type == 'pickleball'?'Pickle Ball':'Golf'); ?> Club</li>
-             <li>Bay No.：<?php echo $position_display; ?> </li>
+             <li>Location：Riverside Whitehead <?php echo ($reserve_type == 'pickleball'?'Pickleball':'Golf'); ?> Club</li>
+             <li><?php echo ($reserve_type == 'pickleball'?'Court No.':'Bay No.'); ?>：<?php echo $position_display; ?> </li>
              <li>Discount : <?php 
 if ($booking_arr['discount'] == 'S') {
     echo "Student";
@@ -641,10 +657,10 @@ if ($is_management) {
 
 
          <p>If you have any questions or need further assistance, please feel free to contact us. </p>
-          <p>Thank you again for choosing our <?php echo ($reserve_type == 'pickleball'?'pickle ball':'golf'); ?> course! </p>
-          <p>Wish you have a pleasant <?php echo ($reserve_type == 'pickleball'?'pickle ball':'golf'); ?> experience. </p>
+          <p>Thank you again for choosing our <?php echo ($reserve_type == 'pickleball'?'pickleball':'golf'); ?> course! </p>
+          <p>Wish you have a pleasant <?php echo ($reserve_type == 'pickleball'?'pickleball':'golf'); ?> experience. </p>
           <p>Sincerely,</p>
-          <p><?php echo ($reserve_type == 'pickleball'?'Pickle Ball':'White Golf'); ?> Team</p>
+          <p><?php echo ($reserve_type == 'pickleball'?'Riverside Pickleball':'White Golf Team'); ?> </p>
      </div>
 
 

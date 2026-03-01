@@ -1059,6 +1059,32 @@ function comfirm_and_print(
 
 }
 
+
+function transformCsvIfInPickleballRange(csv) {
+	const normalizedCsv = String(csv).replace(/\s+/g, "");
+	const parts = normalizedCsv.split(",");
+
+  // Convert to numbers and ensure all are valid integers
+  const nums = parts.map(v => Number(v));
+  if (nums.some(n => !Number.isInteger(n))) {
+    return null; // invalid input
+  }
+
+  // Check all are between 100 and 199 (inclusive)
+  const allInRange = nums.every(n => n >= 100 && n <= 199);
+  if (!allInRange) {
+    return null; // condition not met
+  }
+
+  // Subtract 99 and return as new CSV
+  return nums.map(n => n - 99).join(",");
+}
+
+// Example:
+// console.log(transformCsvIfInRange("100,101,199")); // "1,2,100"
+// console.log(transformCsvIfInRange("100,99,150"));  // null
+
+
 function comfirm_and_print_o(
   auth,
   id,
@@ -1082,7 +1108,7 @@ function comfirm_and_print_o(
 ) {
 
   var msg = '';
-  var printing = '<h1>白石高球練習場</h1>';
+  var printing = '';
   <?php 
 	  if (isset($_SESSION['name'])&&isset($_SESSION['name2'])) {
    ?>
@@ -1090,14 +1116,33 @@ function comfirm_and_print_o(
   <?php 
 	  }
    ?>
-  printing += '<div style="text-align: right;">Tel: 27771813</div>';
-  printing += '<div style="text-align: right;">RIVERSIDE Whitehead Golf Club</div>';
-  printing += '<i style="text-align: center;"><hr></i>';
-
+  
+  var is_pickleball = false;
   sourceTxt = p_selections.replace(/,/g, ", ");
   if (sourceTxt.length>0) {
     msg += 'Booking:'+sourceTxt+'\n';
-    printing += '<b style="text-align: left;font-size: 1.8em;">Bay: '+sourceTxt+'</b><br>';
+	var pickelball_csv = transformCsvIfInPickleballRange(sourceTxt);
+	if (pickelball_csv) {
+		is_pickleball = true;
+		var printing_header = '';
+		printing_header += '<h1>白石匹克球練習場</h1>';
+		printing_header += '<div style="text-align: right;">Tel: 27771813</div>';
+		printing_header += '<div style="text-align: right;">RIVERSIDE Whitehead Pickleball</div>';
+		printing_header += '<i style="text-align: center;"><hr></i>';
+		printing += printing_header;
+
+		printing += '<b style="text-align: left;font-size: 1.8em;">Court: '+pickelball_csv+'</b><br>';
+    	printing += 'System No.: '+sourceTxt+'<br>';
+	} else {
+		var printing_header = '';
+		printing_header += '<h1>白石高球練習場</h1>';
+		printing_header += '<div style="text-align: right;">Tel: 27771813</div>';
+		printing_header += '<div style="text-align: right;">RIVERSIDE Whitehead Golf Club</div>';
+		printing_header += '<i style="text-align: center;"><hr></i>';
+		printing += printing_header;
+
+    	printing += '<b style="text-align: left;font-size: 1.8em;">Bay: '+sourceTxt+'</b><br>';
+	}
   }
 
   sourceTxt = booking_date;
@@ -1138,7 +1183,7 @@ function comfirm_and_print_o(
   
   sourceTxt = octopus_no;
   sourceTxt2 = check_digit;
-  if ( sourceTxt.length>1 && sourceTxt2.length>1 ) {
+  if ( sourceTxt.length>1 && sourceTxt2.length>1 && !is_pickleball) {
     msg += 'Octopus: '+sourceTxt+' ('+sourceTxt2+')'+'\n';
   }
   
@@ -1153,7 +1198,7 @@ function comfirm_and_print_o(
   }
   
   sourceTxt = discount_digit_convert(discount);
-  if (sourceTxt.length>0) {
+  if (sourceTxt.length>0 && !is_pickleball) {
     msg += 'Discount:'+sourceTxt+'\n';
     printing += '<i style="text-align: left;">Discount: '+sourceTxt+'</i><br>';
   }
@@ -1322,12 +1367,45 @@ function hour_num_to_hour_display($hour_num)
 
 
 
+<?php
+function transformCsvIfInPickleballRange($csv) {
+    $normalizedCsv = preg_replace('/\s+/', '', (string)$csv);
+    if ($normalizedCsv === '') {
+        return null;
+    }
 
+    $parts = explode(',', $normalizedCsv);
+    $result = [];
+
+    foreach ($parts as $part) {
+        if ($part === '' || !ctype_digit($part)) {
+            return null; // invalid input
+        }
+
+        $num = (int)$part;
+        if ($num < 100 || $num > 199) {
+            return null; // out of required range
+        }
+
+        $result[] = (string)($num - 99);
+    }
+
+    return implode(',', $result);
+}
+
+// Examples:
+// echo transformCsvIfInPickleballRange("100,101,199"); // 1,2,100
+// var_dump(transformCsvIfInPickleballRange("100, 99,150")); // null
+$pickleball_selections = transformCsvIfInPickleballRange($p_selections);
+
+// echo ($pickleball_selections ? "匹克球場編號: $pickleball_selections" : $p_selections);
+
+?>
 
 
 			<p>尊敬的 <?php echo $booking_arr_buf['name']; ?>,</p>
 
-			<p>感謝預訂白石高球練習場，閣下之預約資料如下：</p>
+			<p>感謝預訂<?php echo ($pickleball_selections ? "白石匹克球練習場" : "白石高球練習場"); ?>，閣下之預約資料如下：</p>
 			<ul>
 				<li>預約編號：<?php echo $booking_arr_buf['id']; ?></li>
 				<li>日期：<?php echo $booking_arr_buf['booking_date']; ?> 
@@ -1350,8 +1428,8 @@ function hour_num_to_hour_display($hour_num)
 
 				?> 
 				<!-- <a href="?change=hour"><small>申請變更</small></a> </li> -->
-				<li>球場名稱：白石高球練習場</li>
-				<li>球道號碼：<?php echo $p_selections; ?> 
+				<li>球場名稱：<?php echo ($pickleball_selections ? "白石匹克球練習場" : "白石高球練習場"); ?></li>
+				<li><?php echo ($pickleball_selections ? "匹克球場編號: $pickleball_selections" : "球道號碼：$p_selections"); ?> </li>
 				<!-- <a href="?change=p_selections"><small>申請變更</small></a> </li> -->
 <?php 
 
@@ -1362,6 +1440,11 @@ function hour_num_to_hour_display($hour_num)
 					}
 
  ?>
+<?php
+if ($pickleball_selections) {
+	// echo "這是匹克球的預訂。沒有優惠和八達通資料。<br>This is a pickleball booking. No discount and octopus information.";
+} else {
+ ?>
          		<li>優惠 : <?php 
 if ($booking_arr_buf['discount'] == 'S') {
     echo "學生";
@@ -1371,6 +1454,10 @@ if ($booking_arr_buf['discount'] == 'S') {
     echo "沒有優惠";
 }
          		 ?> 
+				 </li>
+<?php
+}
+?>
          		 <!-- <a href="?change=discount"><small>申請變更</small></a> </li> -->
 
 <?php 
@@ -1458,7 +1545,7 @@ $total_price = price_calculation( array(
 			<hr>
 			<p>Dear <?php echo $booking_arr_buf['name']; ?>,</p>
 
-			<p>Thank you for booking Riverside Whitehead Golf Course. Here are your booking details:</p>
+			<p>Thank you for booking Riverside Whitehead <?php echo ($pickleball_selections ? "Pickleball Court" : "Golf Court"); ?>. Here are your booking details:</p>
 
 			<ul>
 				<li>Date：<?php echo $booking_arr_buf['booking_date']; ?>
@@ -1483,10 +1570,18 @@ $total_price = price_calculation( array(
 				?>
 					<!-- <a href="?change=hour"><small>Apply for change</small></a> -->
 				</li>
-				<li>Location：Riverside Whitehead Golf Club</li>
+				<li>Location：Riverside Whitehead <?php echo ($pickleball_selections ? "Pickleball" : "Golf"); ?> Club</li>
 				<!-- <li>Bay No.：<?php echo $p_selections; ?> <a href="?change=hour"><small>Apply for change</small></a> </li> -->
+ 
+				<li><?php echo ($pickleball_selections ? "Pickleball Court No.: $pickleball_selections" : "Bay No.: $p_selections"); ?> </li>
 
 
+
+<?php
+if ($pickleball_selections) {
+	// echo "這是匹克球的預訂。沒有優惠和八達通資料。<br>This is a pickleball booking. No discount and octopus information.";
+} else {
+ ?>
 				<li>Discount : <?php 
 					if ($booking_arr_buf['discount'] == 'S') {
 						echo "Student";
@@ -1498,17 +1593,16 @@ $total_price = price_calculation( array(
 				// ?> 
 					<!-- <a href="?change=hour"><small>Apply for change</small></a>  -->
 				</li>
-				
-				<li>Octopus Card : <?php 
+<?php
+}
+?><?php 
 					if ($booking_arr_buf['octopus_no'] == null || $booking_arr_buf['octopus_no'] == '') {
-						echo "No needed (Will not drive in)";
+						// echo "No needed (Will not drive in)";
 					} else {
-						echo $booking_arr_buf['octopus_no'];
+						?><li>Octopus Card : <?php echo $booking_arr_buf['octopus_no']; ?></li><?php
 					}
 				// ?> 
-				<!-- <a href="?change=octopus_no"><small>Apply for change</small></a>  -->
-			</li>
-
+<!-- <a href="?change=octopus_no"><small>Apply for change</small></a>  -->
 				<li>Payment Method：<?php
 					if ($is_account_unpaid) {
 						echo "Bank Transfer or pay check";

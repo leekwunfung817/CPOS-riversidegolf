@@ -2717,7 +2717,11 @@ function toggleDiv<?php echo $ele_id; ?>() {
         if (filter_var($p, FILTER_VALIDATE_INT) !== false) {
             $num = (int)$p;
             $result = $num - 100 + 1;
-            echo "Court ".$result;
+            ?>
+            <small>
+                球場編號 Court No. <?php echo $result; ?>
+            </small>
+            <?php
         }
     } else {
         echo $p; 

@@ -12,19 +12,30 @@ if (file_exists("./$import_filepath__")) {
 require_once $import_filepath__;
 
 
+
+
 function mail_payment_record($booking_arr_buf,$mail_data)
 {
 
+	$pickleball_selections = transformCsvIfInPickleballRange($booking_arr_buf['p_selections']);
+
     // $_POST['confirmation_code'];
     // Set these parameters
-    $subject = '白石高爾夫球練習場 - 付款成功! | White Head Golf - Payment Confirmed'; // Subject of the email
+    $subject = 
+	($pickleball_selections ? "白石匹克球練習場" : "白石高爾夫球練習場").
+	' - 付款成功! | '.
+	($pickleball_selections ? "White Head Pickleball" : "White Head Golf").
+	' - Payment Confirmed';
+
     $emailadd = 'support@cpospay.com'; // Your email address (where the form information will be sent)
     $req = '0'; // Set to '1' to make all fields required, '0' to allow empty fields
 
     // Initialize variables
     $text = "親愛的高爾夫球場客戶，
 
-感謝您支付我們設施的高爾夫球場預訂費用 ".$booking_arr_buf['req_currency']." $".$booking_arr_buf['payment_amount']."，我們衷心感謝您的惠顧。 
+感謝您支付我們設施的".
+($pickleball_selections ? "匹克球練習場" : "高爾夫球練習場").
+"預訂費用 ".$booking_arr_buf['req_currency']." $".$booking_arr_buf['payment_amount']."，我們衷心感謝您的惠顧。 
 您可以在以下時間和地點透過以下身分驗證造訪我們的設施。
 
 
@@ -36,24 +47,24 @@ $text .= " - ";
 $text .= $mail_data['end_hour'];
 
 $text .= "
-球場名稱：白石高爾夫球練習場
-打球位置：".$booking_arr_buf['p_selections']."
+球場名稱：".($pickleball_selections ? "白石匹克球練習場" : "白石高爾夫球練習場")."
+打球位置：".($pickleball_selections ? $pickleball_selections : $booking_arr_buf['p_selections'])."
 
-請下載此二維碼作為進入高爾夫球場的門卡
+請下載此二維碼作為進入".($pickleball_selections ? "匹克球練習場" : "高爾夫球練習場")."的門卡
 ".$mail_data['full_url']."/GolfBooking/payment-page/payment-confirm.php?auth=".$mail_data['auth']."&decision=".$mail_data['decision']."&download=true
 
 
-歡迎您來到我們的高爾夫練習場！
+歡迎您來到我們的".($pickleball_selections ? "匹克球練習場" : "高爾夫球練習場")."！
 
 此致
-白石高爾夫球場 團隊
+白石".($pickleball_selections ? "匹克球練習場" : "高爾夫球練習場")." 團隊
 
 ____________________________________________________________________________________________________________________
 
 
-Dear Golf Course Customers,
+Dear ".($pickleball_selections ? "Pickleball" : "Golf")." Course Customers,
 
-Thank you for paying ".$booking_arr_buf['req_currency']." $".$booking_arr_buf['payment_amount']." for your golf course reservation at our facility. We sincerely thank you for your business and look forward to providing you with an exceptional golf experience.
+Thank you for paying ".$booking_arr_buf['req_currency']." $".$booking_arr_buf['payment_amount']." for your ".($pickleball_selections ? "pickleball" : "golf")." course reservation at our facility. We sincerely thank you for your business and look forward to providing you with an exceptional ".($pickleball_selections ? "pickleball" : "golf")." experience.
 You can visit our facilities at the following times and locations with the following authentication.
 
 
@@ -65,19 +76,19 @@ $text .= " - ";
 $text .= $mail_data['end_hour'];
 
 $text .= "
-Golf Court：White Head Club Golf Driving Range
-Spot：".$mail_data['p_selections']."
+".($pickleball_selections ? "Pickleball" : "Golf")." Court：".($pickleball_selections ? "White Head Pickleball" : "White Head Club Golf Driving Range")."
+Spot：".($pickleball_selections ? $pickleball_selections : $mail_data['p_selections'])."
 
 
-Please download this QR code as your keycard to enter the golf course
+Please download this QR code as your keycard to enter the ".($pickleball_selections ? "pickleball" : "golf")." course
 https://cpospay.com/GolfBooking/payment-page/payment-confirm.php?auth=".$mail_data['auth']."&decision=".$mail_data['decision']."&download=true
 
 
 
-Welcome to our driving range!
+Welcome to our ".($pickleball_selections ? "pickleball" : "golf")." driving range!
 
 Best Regards
-White Head Golf
+White Head ".($pickleball_selections ? "Pickleball" : "Golf")." Team
 
 
 ".$mail_data['initialize_report'];

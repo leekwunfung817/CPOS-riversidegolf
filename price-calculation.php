@@ -66,7 +66,10 @@ function price_calculation($price_config, $booking_arr)
 
 <div style="display: none;" id="price_calculation_steps_<?php echo $price_config['lan']; ?>">
 
-    <b><?php echo ($price_config['lan']=='en' ? "Price calculation" : ($price_config['lan']=='zn' ? "價格計算" : "價格計算 Price calculation") )." - ($period:$identity)"; ?></b>
+    <b><?php echo (
+        $price_config['lan']=='en' ? "Price calculation" : (
+            $price_config['lan']=='zn' ? "價格計算" : "價格計算 Price calculation"
+            ) )." - ($period:$identity)"; ?></b>
 
 
 
@@ -166,12 +169,7 @@ limit 1
                         break;
                     }
                 }
-                if ($price_config['print']=='Y') {
-                    echo "($this_period)";
-                }
             } else {
-
-
                 $sql = "
 SELECT 
     max(price) price 
@@ -193,6 +191,17 @@ limit 1
                         $price = (double) $row['price'];
                         break;
                     }
+                }
+            }
+            if ($price_config['print']=='Y') {
+                if ($this_period == 'holiday_19To22') {
+                    echo ' (週末或假日晚上 Weekend or holiday evenings)';
+                } else if ($this_period == 'holiday') {
+                    echo ' (週末或假日 Weekends or holidays)';
+                } else if ($this_period == 'workday') {
+                    echo ' (平日 Workdays)';
+                } else {
+                    echo ' (特殊時段 Special period)';
                 }
             }
 

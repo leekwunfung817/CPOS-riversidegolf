@@ -10,6 +10,14 @@ require_once '../logger.php';
 session_start();
 $is_management = isset($_SESSION["management"]);
 
+$reserve_type = $_SESSION['type'];
+
+
+
+
+
+
+
 $allGetParams = array_merge($_GET, $_POST);
 
 $is_pay_by_cash = isset($allGetParams['cash'])
@@ -284,13 +292,29 @@ if ($result->num_rows > 0) {
                 $num_spot = $row['p_selections'];
 
                 $position_display = str_replace( array('[', '"', ']', ' '), '', $row['p_selections'] );
+
+                $items = explode(',', $position_display);
+
+                foreach ($items as &$v) {
+                    if (ctype_digit($v)) {              // ensure numeric
+                        $num = (int)$v;
+                        if ($num >= 100 && $num <= 199) {
+                            $v = $num - 99;            // subtract 100
+                            $v = "".$v;
+                        }
+                    }
+                }
+
+                $position_display = implode(',', $items);
+
+
                 // 顯示資料
                 echo "姓名 Name：$name<br>";
                 echo "電子郵件 Email Address：$email<br>";
                 echo "預定日期 Booking Date：$booking_date<br>";
                 echo "開始時間 Begin time：".pointToHalfHour($begin_hour)."<br>";
                 echo "結束時間 End time：".pointToHalfHour($end_hour)."<br>";
-                echo "球道號碼 Bay No.：$position_display<br>";
+                echo ($reserve_type == 'pickleball'?'球場號碼 Court No.':'球道號碼 Bay No.')."：$position_display<br>";
                 
     }
 }

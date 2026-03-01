@@ -1,0 +1,449 @@
+<?php
+/**
+ * QUICK START GUIDE - How to Integrate AJAX Price API
+ * 
+ * This file shows practical examples of integrating the new price API
+ * Copy and adapt these examples for your use case
+ */
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Price API - Integration Examples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .code-block {
+            background: #f0f0f0;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            overflow-x: auto;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 20px;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+        .info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🚀 AJAX Price API - Integration Quick Start</h1>
+
+<div class="success">
+    <strong>✓ New Files Created:</strong>
+    <ul>
+        <li><code>price_api.php</code> - AJAX API Backend</li>
+        <li><code>price_manager.js</code> - JavaScript Manager</li>
+        <li><code>price_display_ajax.php</code> - Example Implementation</li>
+        <li><code>AJAX_PRICE_API_README.md</code> - Full Documentation</li>
+    </ul>
+</div>
+
+<!-- SECTION 1: Basic Setup -->
+<div class="section">
+    <h2>1️⃣ Basic Setup - 3 Simple Steps</h2>
+    
+    <h3>Step 1: Include JavaScript Manager</h3>
+    <p>Add this to your HTML file before the closing <code>&lt;/body&gt;</code> tag:</p>
+    <div class="code-block">
+&lt;script src="./price_manager.js"&gt;&lt;/script&gt;
+    </div>
+
+    <h3>Step 2: Create Price Display Cells</h3>
+    <p>Replace your price display cells with:</p>
+    <div class="code-block">
+&lt;!-- Before: &lt;td&gt;&lt;?php getSinglePrice(...) ?&gt;&lt;/td&gt; --&gt;
+&lt;!-- After: --&gt;
+&lt;td id="workday-hourly-price" class="price-cell"&gt;&lt;/td&gt;
+    </div>
+
+    <h3>Step 3: Load Prices via JavaScript</h3>
+    <div class="code-block">
+&lt;script&gt;
+document.addEventListener('DOMContentLoaded', function() {
+    // Load a price into the cell
+    priceManager.loadPriceIntoCell(
+        document.getElementById('workday-hourly-price'),
+        'golf_price',      // table name
+        'workday',         // period
+        'general_bay',     // price category
+        'hourly'           // identity/user type
+    );
+});
+&lt;/script&gt;
+    </div>
+</div>
+
+<!-- SECTION 2: Authentication Check -->
+<div class="section">
+    <h2>2️⃣ Authentication & Security</h2>
+    
+    <div class="warning">
+        <strong>⚠️ Important:</strong> Users must be logged in via <code>configuration-administraion.php</code>
+        before they can access the AJAX API.
+    </div>
+
+    <h3>Session Variables Checked:</h3>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Purpose</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td><code>$_SESSION["management"]</code></td>
+            <td>Authentication check (must exist)</td>
+            <td>md5 hash</td>
+        </tr>
+        <tr>
+            <td><code>$_SESSION["identity"]</code></td>
+            <td>User role</td>
+            <td>admin, manager, full-time, part-time</td>
+        </tr>
+        <tr>
+            <td><code>$_SESSION['name2']</code></td>
+            <td>Display name</td>
+            <td>User Full Name</td>
+        </tr>
+    </table>
+
+    <h3>What Happens if User is Not Logged In?</h3>
+    <p>The API returns HTTP 401 with error message:</p>
+    <div class="code-block">
+{
+    "success": false,
+    "error": "User not authenticated. Please login first."
+}
+    </div>
+</div>
+
+<!-- SECTION 3: API Endpoints -->
+<div class="section">
+    <h2>3️⃣ Available API Endpoints</h2>
+
+    <h3>Get a Single Price</h3>
+    <div class="code-block">
+GET /price_api.php?action=get&table=golf_price&period=workday&price_category=general_bay&identity=hourly
+    </div>
+
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Required</th>
+            <th>Valid Values</th>
+        </tr>
+        <tr>
+            <td>action</td>
+            <td>Yes</td>
+            <td>get</td>
+        </tr>
+        <tr>
+            <td>table</td>
+            <td>Yes</td>
+            <td>golf_price, golf_price_2</td>
+        </tr>
+        <tr>
+            <td>period</td>
+            <td>Yes</td>
+            <td>workday, holiday, holiday_19To22</td>
+        </tr>
+        <tr>
+            <td>price_category</td>
+            <td>Yes</td>
+            <td>general_bay, sand_bay, pickle_ball, vip</td>
+        </tr>
+        <tr>
+            <td>identity</td>
+            <td>No*</td>
+            <td>hourly, student, disabled</td>
+        </tr>
+    </table>
+    <p><em>*Not needed for sand_bay and vip categories</em></p>
+
+    <h3>Update a Price</h3>
+    <div class="code-block">
+POST /price_api.php
+Content-Type: application/x-www-form-urlencoded
+
+action=update&table=golf_price&period=workday&price_category=general_bay&identity=hourly&new_price=150
+    </div>
+
+    <h3>Get All Prices List</h3>
+    <div class="code-block">
+GET /price_api.php?action=get_prices_list&table=golf_price&period=workday
+    </div>
+</div>
+
+<!-- SECTION 4: Usage Examples -->
+<div class="section">
+    <h2>4️⃣ Practical Code Examples</h2>
+
+    <h3>Example 1: Load Single Price</h3>
+    <div class="code-block">
+// Load workday regular price for general bay
+const cell = document.getElementById('workday-hourly');
+priceManager.loadPriceIntoCell(
+    cell,
+    'golf_price',
+    'workday',
+    'general_bay',
+    'hourly'
+);
+    </div>
+
+    <h3>Example 2: Load Multiple Prices</h3>
+    <div class="code-block">
+const prices = [
+    { id: 'workday-hourly', table: 'golf_price', period: 'workday', category: 'general_bay', identity: 'hourly' },
+    { id: 'workday-student', table: 'golf_price', period: 'workday', category: 'general_bay', identity: 'student' },
+    { id: 'workday-disabled', table: 'golf_price', period: 'workday', category: 'general_bay', identity: 'disabled' },
+];
+
+prices.forEach(price => {
+    const element = document.getElementById(price.id);
+    if (element) {
+        priceManager.loadPriceIntoCell(
+            element,
+            price.table,
+            price.period,
+            price.category,
+            price.identity
+        );
+    }
+});
+    </div>
+
+    <h3>Example 3: Fetch Price Directly</h3>
+    <div class="code-block">
+// Fetch price without auto-loading into cell
+priceManager.fetchPrice('golf_price', 'workday', 'general_bay', 'hourly')
+    .then(data => {
+        if (data) {
+            console.log('Current price: $' + data.price);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    </div>
+
+    <h3>Example 4: Update Price Manually</h3>
+    <div class="code-block">
+const cell = document.getElementById('price-cell');
+const newPrice = 150;
+
+priceManager.savePrice(cell, newPrice);
+// User will see input box and save/cancel buttons
+    </div>
+
+    <h3>Example 5: Custom AJAX Call</h3>
+    <div class="code-block">
+// If you prefer to use fetch directly
+fetch('./price_api.php?action=get&table=golf_price&period=workday&price_category=general_bay&identity=hourly')
+    .then(response => {
+        if (!response.ok) throw new Error('API error');
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            console.log('Price: $' + data.data.price);
+        } else {
+            console.error('Error: ' + data.error);
+        }
+    });
+    </div>
+</div>
+
+<!-- SECTION 5: HTML Table Example -->
+<div class="section">
+    <h2>5️⃣ Complete HTML Table Example</h2>
+
+    <p>Here's a complete working example of a price table using AJAX:</p>
+
+    <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Price Table&lt;/title&gt;
+    &lt;style&gt;
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background: #4CAF50; color: white; }
+        .price-cell:hover { background: #ffffcc; cursor: pointer; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Price Table&lt;/h1&gt;
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Period&lt;/th&gt;
+        &lt;th&gt;Regular&lt;/th&gt;
+        &lt;th&gt;Student&lt;/th&gt;
+        &lt;th&gt;Disabled&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Monday-Friday&lt;/td&gt;
+        &lt;td id="wd-hourly" class="price-cell"&gt;&lt;/td&gt;
+        &lt;td id="wd-student" class="price-cell"&gt;&lt;/td&gt;
+        &lt;td id="wd-disabled" class="price-cell"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Weekend&lt;/td&gt;
+        &lt;td id="we-hourly" class="price-cell"&gt;&lt;/td&gt;
+        &lt;td id="we-student" class="price-cell"&gt;&lt;/td&gt;
+        &lt;td id="we-disabled" class="price-cell"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;script src="./price_manager.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+window.addEventListener('DOMContentLoaded', function() {
+    // Load weekday prices
+    priceManager.loadPriceIntoCell(document.getElementById('wd-hourly'), 'golf_price', 'workday', 'general_bay', 'hourly');
+    priceManager.loadPriceIntoCell(document.getElementById('wd-student'), 'golf_price', 'workday', 'general_bay', 'student');
+    priceManager.loadPriceIntoCell(document.getElementById('wd-disabled'), 'golf_price', 'workday', 'general_bay', 'disabled');
+
+    // Load weekend prices
+    priceManager.loadPriceIntoCell(document.getElementById('we-hourly'), 'golf_price', 'holiday', 'general_bay', 'hourly');
+    priceManager.loadPriceIntoCell(document.getElementById('we-student'), 'golf_price', 'holiday', 'general_bay', 'student');
+    priceManager.loadPriceIntoCell(document.getElementById('we-disabled'), 'golf_price', 'holiday', 'general_bay', 'disabled');
+});
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+    </div>
+</div>
+
+<!-- SECTION 6: Troubleshooting -->
+<div class="section">
+    <h2>6️⃣ Troubleshooting</h2>
+
+    <h3>❌ Problem: "User not authenticated" error</h3>
+    <div class="info">
+        <strong>Solution:</strong>
+        <p>The API checks if user is logged in. Make sure user completed login at <code>configuration-administraion.php</code> first.</p>
+        <p>To debug: Open browser DevTools (F12) → Console and check the error response.</p>
+    </div>
+
+    <h3>❌ Problem: Prices showing "-"</h3>
+    <div class="info">
+        <strong>Solution:</strong>
+        <p>This means no price exists for that combination. Double-check:</p>
+        <ul>
+            <li>Table name is correct (golf_price or golf_price_2)</li>
+            <li>Period exists (workday, holiday, holiday_19To22)</li>
+            <li>price_category is valid</li>
+            <li>Price record exists in database</li>
+        </ul>
+    </div>
+
+    <h3>❌ Problem: JavaScript errors in console</h3>
+    <div class="info">
+        <strong>Solution:</strong>
+        <ul>
+            <li>Check that <code>price_manager.js</code> file exists and is in root directory</li>
+            <li>Use F12 DevTools → Console to see detailed error messages</li>
+            <li>Check Network tab to see if AJAX requests are being made</li>
+        </ul>
+    </div>
+
+    <h3>❌ Problem: Edit button not showing</h3>
+    <div class="info">
+        <strong>Solution:</strong>
+        <p>User must be logged in. Make sure <code>$_SESSION["management"]</code> is set. Check in browser's Application tab → Cookies to verify session cookie exists.</p>
+    </div>
+</div>
+
+<!-- SECTION 7: Features -->
+<div class="section">
+    <h2>7️⃣ Key Features</h2>
+
+    <div class="success">
+        ✓ <strong>Automatic Authentication</strong> - API checks login on every request<br>
+        ✓ <strong>AJAX Loading</strong> - No page refresh needed<br>
+        ✓ <strong>Inline Editing</strong> - Click prices to edit them<br>
+        ✓ <strong>Real-time Validation</strong> - Only valid prices accepted<br>
+        ✓ <strong>Visual Feedback</strong> - Loading, saving, and updated states shown<br>
+        ✓ <strong>Keyboard Support</strong> - Enter to save, Escape to cancel<br>
+        ✓ <strong>RESTful API</strong> - Easy to integrate with other systems<br>
+        ✓ <strong>Error Handling</strong> - Clear error messages for debugging<br>
+    </div>
+</div>
+
+<!-- SECTION 8: Next Steps -->
+<div class="section">
+    <h2>8️⃣ Next Steps</h2>
+
+    <h3>Option A: Use the Ready-Made Example</h3>
+    <p>Visit <code>price_display_ajax.php</code> - it's a complete working implementation you can use immediately.</p>
+
+    <h3>Option B: Integrate into Your Pages</h3>
+    <p>Follow the 3-step setup above to add AJAX price loading to your existing pages.</p>
+
+    <h3>Option C: Create Custom Implementation</h3>
+    <p>Use the API directly with your own JavaScript code. See examples above.</p>
+
+    <h3>Read Full Documentation</h3>
+    <p>Check <code>AJAX_PRICE_API_README.md</code> for complete API reference and advanced usage.</p>
+</div>
+
+</body>
+</html>
