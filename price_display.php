@@ -192,6 +192,7 @@ foreach ($price_tables as $price_table_name) {
                 &darr;
             </h2>
 
+            <?php if (!isset($_GET['type']) || $_GET['type'] === 'golf') { ?>
             <!-- GOLF COURSE PRICING TABLE -->
             <table>
                 <tr>
@@ -280,10 +281,11 @@ foreach ($price_tables as $price_table_name) {
                     <td colspan="3" class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday19-vip"></td>
                 </tr>
             </table>
+            <?php } // End golf price table ?>
 
 
 
-
+            <?php if (!isset($_GET['type']) || $_GET['type'] === 'pickleball') { ?>
             <table>
                 <tr>
                     <td colspan="4"><h1>匹克球 練習場 - 價格表 
@@ -336,6 +338,7 @@ foreach ($price_tables as $price_table_name) {
                 </tr>
 
             </table>
+            <?php } // End pickleball price table ?>
 
         </td>
     </tr>

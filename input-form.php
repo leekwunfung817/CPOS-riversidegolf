@@ -1788,6 +1788,55 @@ function hide_class(class_name) {
 }
 
 // hide_class('selection_area');
+function hidePastHalfHourBlocksForEach(dateStr, elements, hourStr, minuteStr, now) {
+    elements.forEach(el => {
+        if (!dateStr) return;
+
+        const elementTime = new Date(`${dateStr}T${hourStr}:${minuteStr}:00`);
+
+        if (elementTime < now) {
+            el.style.display = "none";
+            el.disabled = true;
+            el.hidden = true;
+            console.log('Hiding past time block: ', el);
+        }
+    });
+}
+// hide_class('selection_area');
+function showHourBlocksForEach(elements) {
+    elements.forEach(el => {
+        el.style.display = "";
+        el.disabled = false;
+        el.hidden = false;
+    });
+}
+
+function hidePastHalfHourBlocks(dateStr) {
+    console.log('BEGIN hidePastHalfHourBlocks: ',dateStr);
+    var now = new Date("<?= date('Y-m-d H:i:s') ?>");
+
+    console.log('NOW: ', now);
+
+    // Loop 48 half-hour slots
+    for (let i = 0; i < 48; i++) {
+        const h = Math.floor(i / 2);
+        const m = (i % 2 === 0) ? "00" : "30";
+
+        const hourStr = String(h).padStart(2, "0");
+        const minuteStr = m;
+
+        // Map to your existing class names
+        const className = (minuteStr === "00")
+            ? `e_hour_${hourStr}`
+            : `e_half_hour_${hourStr}`;
+        console.log('Checking class: ', className);
+        const elements = document.querySelectorAll(`.${className}`);
+        showHourBlocksForEach(elements);
+        hidePastHalfHourBlocksForEach(dateStr, elements, hourStr, minuteStr, now);
+    }
+    console.log('END hidePastHalfHourBlocks: ',dateStr);
+}
+
 
 function show_and_hide_hours_2() {
     var sand_bay_option_checked = document.getElementById('sand_bay_option').checked;
@@ -1852,6 +1901,7 @@ $conn->close();
         echo json_encode($recent_holiday_list);
      ?>;
     console.log('booking_date.value:',booking_date.value);
+    hidePastHalfHourBlocks(booking_date.value);
     if (recent_holiday_list.indexOf(booking_date.value) !== -1) {
         console.log('You\'re choosing holiday');
         weekdayName = 'Holiday';
@@ -1885,6 +1935,19 @@ $conn->close();
     document.getElementById(end_hour_name).innerHTML;
     end_hour.value = '';
 
+}
+
+
+function setDisplayById(ele_id ,display) {
+    var element = document.getElementById(ele_id);
+    if (!element) {
+        return;
+    }
+    if (display) {
+        element.style.display = '';
+    } else {
+        element.style.display = 'none';
+    }
 }
 
 
@@ -1961,12 +2024,12 @@ function show_and_hide_hours() {
         document.getElementById('sand_bay_option_span').style.backgroundColor = '#2196F3';
 
 
-        document.getElementById('selection_VIP').style.display = 'none';
-        document.getElementById('selection_sand').style.display = '';
-        document.getElementById('selection_iron').style.display = 'none';
+        setDisplayById('selection_VIP', false);
+        setDisplayById('selection_sand', true);
+        setDisplayById('selection_iron', false);
 
-        document.getElementById('selection_short_wood').style.display = 'none';
-        document.getElementById('selection_wood').style.display = 'none';
+        setDisplayById('selection_short_wood', false);
+        setDisplayById('selection_wood', false);
         
     } else {
         document.getElementById('sand_bay_option_span').innerHTML = '<div>沙地球道 <br> 半小時預訂<br> Sand Bay (Half Hour)'
@@ -1975,12 +2038,11 @@ function show_and_hide_hours() {
         +'</div>';
         document.getElementById('sand_bay_option_span').style.backgroundColor = 'white';
 
-        document.getElementById('selection_VIP').style.display = '';
-        document.getElementById('selection_sand').style.display = 'none';
-        document.getElementById('selection_iron').style.display = '';
-
-        document.getElementById('selection_short_wood').style.display = '';
-        document.getElementById('selection_wood').style.display = '';
+        setDisplayById('selection_VIP', true);
+        setDisplayById('selection_sand', false);
+        setDisplayById('selection_iron', true);
+        setDisplayById('selection_short_wood', true);
+        setDisplayById('selection_wood', true);
     }
 
     selection_area();

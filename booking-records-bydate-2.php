@@ -711,6 +711,24 @@ function discount_digit_convert(data) {
   }
 }
 
+
+
+function allBetween100and199(csv) {
+    // clean spaces
+    const arr = csv.split(',').map(v => v.trim());
+
+    // convert to integers and validate
+    return arr.every(v => {
+        if (!/^\d+$/.test(v)) return false;   // must be integer
+        const n = Number(v);
+        return n >= 100 && n <= 199;
+    });
+}
+
+// Example:
+// console.log(allBetween100and199("101,150,199")); // true
+// console.log(allBetween100and199("101, 200, 150")); // false
+
 function comfirm_and_print(
   auth,
   id,
@@ -729,10 +747,11 @@ function comfirm_and_print(
   cash
 ) {
 
+  var isPickleball = allBetween100and199(p_selections);
   var msg = '';
-  var printing = '<h1>白石高球練習場</h1>';
+  var printing = '<h1>'+(isPickleball ? '白石匹克球練習場 <br> Whitehead Pickleball Club' : '白石高球練習場 <br> Whitehead Golf Club')+'</h1>';
   printing += '<div style="text-align: right;">Tel: 27771813</div>';
-  printing += '<div style="text-align: right;">RIVERSIDE Whitehead Golf Club</div>';
+  // printing += '<div style="text-align: right;">RIVERSIDE Whitehead Golf Club</div>';
   printing += '<i style="text-align: center;"><hr></i>';
 
   sourceTxt = p_selections.replace(/,/g, ", ");
@@ -798,9 +817,12 @@ function comfirm_and_print(
     msg += 'Discount:'+sourceTxt+'\n';
     printing += '<i style="text-align: left;">Discount: '+sourceTxt+'</i><br>';
   }
-  
+
+  var hasPayment = false;
+
   sourceTxt = amount;
   if (sourceTxt.length>1) {
+    hasPayment = true;
     msg += 'Credit Card Payment:'+sourceTxt+'\n';
     printing += '<i style="text-align: left;">Paid by: Credit Card</i><br>';
     printing += '<b style="text-align: left;font-size: 1.8em;">Amount: '+sourceTxt+'</b><br>';
@@ -808,17 +830,24 @@ function comfirm_and_print(
   
   sourceTxt = cash;
   if (sourceTxt.length>1) {
+    hasPayment = true;
     msg += 'Cash Payment:'+sourceTxt+'\n';
     printing += '<i style="text-align: left;">Paid by: Cash</i><br>';
     printing += '<b style="text-align: left;font-size: 1.8em;">Amount: '+sourceTxt+'</b><br>';
   }
 
+
   if (confirm(msg)) {
-    const oIframe = document.getElementById('receipt_printing_buffer');
-    oIframe.contentWindow.document.open();
-    oIframe.contentWindow.document.write(printing);
-    oIframe.contentWindow.document.close();
-    oIframe.contentWindow.print();
+    if (hasPayment) {
+      window.open('./payment-page/payment-confirm.php?auth='+auth+'&decision=ACCEPT&download=true');
+      // window.open('./payment-page/payment-confirm.php?auth='+auth_code+'&decision=ACCEPT&download=true');
+    } else {
+      const oIframe = document.getElementById('receipt_printing_buffer');
+      oIframe.contentWindow.document.open();
+      oIframe.contentWindow.document.write(printing);
+      oIframe.contentWindow.document.close();
+      oIframe.contentWindow.print();
+    }
   }
 }
 </script>

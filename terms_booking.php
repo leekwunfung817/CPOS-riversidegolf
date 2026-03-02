@@ -45,8 +45,7 @@ require_once 'setting-admin.php';
 <h2>預約</h2>
 1. 預約球場必須至少提前一小時透過線上系統辦理。閣下可預約未來7天內、1小時後的時段。<br>
 2. 預約時需繳付全額費用。我們接受Visa或Master Card付款，所有交易以港元（HK$）結算。<br>
-3. 預約一經確認及扣款，恕不接受取消、更改或退款。<br>
-4. 如遇惡劣天氣（例如：黃色、紅色或黑色暴雨警告，三號或以上熱帶氣旋警告信號），閣下可於球場服務處辦理取消預約，每次取消將收取每片場地港幣30元的行政手續費。<br>
+3. 如欲取消預約，必須於預約開始時間至少兩小時前辦理。取消預約可獲退款，我們將退還扣除銀行手續費後的餘額。<br>
 <br>
 
 <h2>泊車優惠</h2>
@@ -67,6 +66,11 @@ require_once 'setting-admin.php';
 10. 球場管理方有權隨時更新本使用守則，恕不另行通知。<br>
 
 <br>
+
+<h2>免責聲明</h2>
+
+使用本球場期間，如發生任何財物損失、人身傷害或意外，球場管理方概不負責。<br>
+
 
     </p>
   </section>
@@ -91,27 +95,30 @@ cursor: pointer;
 
 <h2>Reservation</h2>
 1. Reservations for pickleball courts must be made online at least one hour in advance; you can book a court from 1 hour up to 7 days ahead. <br>
-2. Full payment is required at the time of reservation. We accept Visa or MasterCard, and all transactions are settled in Hong Kong dollars (HK$). <br>
-3. Once a reservation is confirmed and payment is processed, it cannot be canceled, changed, or refunded. <br>
-4. In the event of severe weather (yellow rain, red rain, black rain, typhoon signal No. 3, etc.), you may cancel your reservation at the court's payment office. An administrative fee of HK$30 per court will be charged for each cancellation. <br>
+2. Full payment is required at the time of reservation. We accept Visa or MasterCard, and all transactions are settled in Hong Kong dollars (HK$).  <br>
+3. If you wish to cancel a reservation, it must be done at least two hours before the scheduled start time. Cancellations are eligible for a refund, and we will return the balance after deducting applicable bank charges. <br>
 <br>
 
 <h2>Parking Discount</h2>
-All customers are eligible for free parking during their booking period. For example, if you reserve a one-hour court session, you receive two hours of free parking; if you book a two-hour session, you get three hours of free parking. <br>
+All customers are eligible for free parking during their booking period. For example, if you reserve a one-hour court session, you receive two hours of free parking; if you book a two-hour session, you get three hours of free parking.  <br>
 <br>
 
 <h2>Pickleball Court Terms of Use</h2>
 Anyone entering the pickleball courts must comply with all relevant rules:<br>
-1. Agree to use the venue in accordance with the instructions of the court staff. <br>
-2. Smoking, gambling, excessive noise, and any harassing behavior are strictly prohibited. <br>
-3. Non-players are not allowed to remain inside the court area. <br>
-4. Only reserved courts and times may be used. After your reservation ends, you must pack up your equipment and leave immediately, regardless of whether another player is waiting. <br>
-5. Children under 12 years old must be accompanied by an adult member before they can enter and use the courts. <br>
-6. Without prior permission from the court management, paid pickleball instruction is not allowed. <br>
-7. The court reserves the right to cancel the membership of any person for any reason. <br>
-8. All users must wear appropriate sports clothing and non-marking court shoes, and comply with all safety rules and conditions of use. <br>
-9. No pets are allowed on the courts. <br>
-10. The court reserves the right to update the venue usage rules from time to time. <br>
+1. Agree to use the venue in accordance with the instructions of the court staff.<br>
+2. Smoking, gambling, excessive noise, and any harassing behavior are strictly prohibited.<br>
+3. Non-players are not allowed to remain inside the court area.<br>
+4. Only reserved courts and times may be used. After your reservation ends, you must pack up your equipment and leave immediately, regardless of whether another player is waiting.<br>
+5. Children under 12 years old must be accompanied by an adult member before they can enter and use the courts.<br>
+6. Without prior permission from the court management, paid pickleball instruction is not allowed.<br>
+7. The court reserves the right to cancel the membership of any person for any reason.<br>
+8. All users must wear appropriate sports clothing and non-marking court shoes, and comply with all safety rules and conditions of use.<br>
+9. No pets are allowed on the courts.<br>
+10. The court reserves the right to update the venue usage rules from time to time.<br>
+<br>
+
+<h2>Disclaimer of Liability</h2>
+The management of this sports ground shall not be held liable for any loss of property, personal injury, or accidents occurring during the use of the premises. All users acknowledge and accept that entry and participation are undertaken at their own risk. 
 <br>
 
  </p>
@@ -121,6 +128,14 @@ Anyone entering the pickleball courts must comply with all relevant rules:<br>
     </td>
   </tr>
 </table>
+
+<a href="./input-form.php">
+<header style="
+cursor: pointer;
+">
+  <h1>Agree and continue</h1>
+</header>
+</a>
 
 <?php } else { ?>
 

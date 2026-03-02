@@ -88,7 +88,7 @@ function price_calculation($price_config, $booking_arr)
 
     $p_selections = json_decode($booking_arr['p_selections']);
 
-
+    $is_pickleball = false;
 
     $total_price = 0;
     for ($cursor_hour=$begin_hour; $cursor_hour < $end_hour; $cursor_hour=$cursor_hour+$iternation) {
@@ -105,6 +105,9 @@ function price_calculation($price_config, $booking_arr)
         }
 
         foreach ($p_selections as $key => $p_selection) {
+            if (((int)$p_selection)>100 && ((int)$p_selection)<199) {
+                $is_pickleball = true;
+            }
             
             if ($price_config['print']=='Y') {
                 echo ', <br>['.(
@@ -126,15 +129,12 @@ function price_calculation($price_config, $booking_arr)
 
             $this_period = $period;
             $price = 0;
-            if ($cursor_hour >= 19 && $period == 'holiday') {
-                $this_period = 'holiday_19To22';
+            $effective_date = null;
 
 
-                // Special Period (Especially for VIP rest time)
-                $sql = "
+            $sql = "
 SELECT 
-    max(period) period,
-    max(price) price 
+    max(`effective-date`) `effective-date-max`
 FROM (
     select * from golf_price
     union 
@@ -147,32 +147,53 @@ and `effective-date`<='$date'
 order by `effective-date` desc
 limit 1
 ; ";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $effective_date = $row['effective-date-max'];
+                    break;
+                }
+            }
+
+
+            if ($cursor_hour >= 19 && $period == 'holiday') {
+                $this_period = 'holiday_19To22';
+
+
+                // Special Period (Especially for VIP rest time)
+                $sql = "
+SELECT 
+    max(period) period,
+    max(price) price,
+    max(`effective-date`) `effective-date-max`,
+    min(`effective-date`) `effective-date-min`
+FROM (
+    select * from golf_price
+    union 
+    select * from golf_price_2
+) AS combined_tables
+where `price-name`='".$p_selection."' 
+and `identity`='".$identity."' 
+and `period` like '$this_period' 
+and `effective-date`='$effective_date'
+order by `effective-date` desc
+limit 1
+; ";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         $price = (double) $row['price'];
-
-                        // $delimiter = "To";
-
-                        // // Explode the string using the delimiter
-                        // $parts = explode($delimiter, $row['period']);
-
-                        // // Get the individual parts
-                        // $part1 = (double) $parts[0];
-                        // $part2 = (double) $parts[1];
-                        // if ($part1 < $cursor_hour && $cursor_hour < $part2) {
-                        //     if ($price_config['print']=='Y') {
-                        //         echo ' +$'.$price;
-                        //     }
-                        //     continue;
-                        // }
+                        $effective_date_max = $row['effective-date-max'];
+                        $effective_date_min = $row['effective-date-min'];
                         break;
                     }
                 }
             } else {
                 $sql = "
 SELECT 
-    max(price) price 
+    max(price) price ,
+    max(`effective-date`) `effective-date-max`,
+    min(`effective-date`) `effective-date-min`
 FROM (
     select * from golf_price
     union 
@@ -181,19 +202,26 @@ FROM (
 where `price-name`='".$p_selection."' 
 and `identity`='".$identity."' 
 and `period`='$this_period'
-and `effective-date`<='$date'
+and `effective-date`='$effective_date'
 order by `effective-date` desc
 limit 1
-; ";
+; ";            
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         $price = (double) $row['price'];
+                        $effective_date_max = $row['effective-date-max'];
+                        $effective_date_min = $row['effective-date-min'];
+
                         break;
                     }
                 }
             }
             if ($price_config['print']=='Y') {
+                
+                // if (true) {
+                //     echo " ($effective_date_max to $effective_date_min) ";
+                // }
                 if ($this_period == 'holiday_19To22') {
                     echo ' (週末或假日晚上 Weekend or holiday evenings)';
                 } else if ($this_period == 'holiday') {
@@ -247,7 +275,7 @@ limit 1
     if ($price_config['print']=='Y') {
 
          ?></ol>
-        <small><a target="_blank" href="../price_display.php"><?php 
+        <small><a target="_blank" href="../price_display.php<?php echo $is_pickleball ? '?type=pickleball' : '?type=golf'; ?>"><?php 
 
         echo 
         
