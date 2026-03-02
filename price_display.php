@@ -47,7 +47,7 @@ function getEffectiveDates($conn, $price_table_name) {
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Price Display - AJAX Version</title>
+    <title>Price Table</title>
     <style type="text/css">
         html {
             padding: 30px;
@@ -55,13 +55,13 @@ function getEffectiveDates($conn, $price_table_name) {
         }
         
         body {
-            background-color: white;
-            border-style: outset;
         }
         
         table {
             font-size: 2em;
             width: 100%;
+            background-color: white;
+            border-style: outset;
         }
         
         th, td {
@@ -176,163 +176,171 @@ foreach ($price_tables as $price_table_name) {
     $dates = getEffectiveDates($conn, $price_table_name);
 ?>
 
-<h2>
-    &darr; 生效日期 Effective Date: 
-    <?php 
-    foreach ($dates as $dateIndex => $date) {
-        $dateId = $tablePrefix . "effective-date-" . $dateIndex;
-        $editableClass = $isLoggedIn ? 'effective-date-editable' : '';
-        $editableTitle = $isLoggedIn ? 'Click to edit this date' : 'Login to edit dates';
-        echo "<span id='{$dateId}' class='effective-date {$editableClass}' title='{$editableTitle}' data-table='{$price_table_name}' data-date='" . htmlspecialchars($date) . "'>" . htmlspecialchars($date) . "</span> ";
-    }
-    ?>
-    &darr;
-</h2>
-
-<!-- GOLF COURSE PRICING TABLE -->
-<table>
+<table style="font-size: 0.9em;">
     <tr>
-        <td colspan="4"><h1>白石高球練習場 - 價格表 
-            <!-- <hr> WhiteHead Golf Club - Price table -->
-        </h1></td>
-    </tr>
-    <tr>
-        <td></td>
-        <th>正價
-            <!-- <br>Regular Price -->
-        </th>
-        <th>學生優惠
-            <!-- <br>Student Price -->
-        </th>
-        <th>傷健人士優惠
-            <!-- <br>Disabled Price -->
-        </th>
-    </tr>
-    <tr>
-        <th>星期一 
-            <!-- Monday -->
-            <br>(13:00-22:00)<hr>星期二至星期五
-            <!-- <br>Tuesday to Friday -->
-            <br>(08:00-22:00)</th>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-workday-hourly"></td>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-workday-student"></td>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-workday-disabled"></td>
-    </tr>
+        <td>
+            <h2>
+                &darr; 生效日期 Effective Date: 
+                <?php 
+                foreach ($dates as $dateIndex => $date) {
+                    $dateId = $tablePrefix . "effective-date-" . $dateIndex;
+                    $editableClass = $isLoggedIn ? 'effective-date-editable' : '';
+                    $editableTitle = $isLoggedIn ? 'Click to edit this date' : 'Login to edit dates';
+                    echo "<span id='{$dateId}' class='effective-date {$editableClass}' title='{$editableTitle}' data-table='{$price_table_name}' data-date='" . htmlspecialchars($date) . "'>" . htmlspecialchars($date) . "</span> ";
+                }
+                ?>
+                &darr;
+            </h2>
 
-    <tr>
-        <th>星期六日及公眾假期
-            <!-- <br>Saturday, Sunday, and public holiday  -->
-            <br>(08:00-18:59)</th>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday-hourly"></td>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday-student"></td>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday-disabled"></td>
-    </tr>
+            <!-- GOLF COURSE PRICING TABLE -->
+            <table>
+                <tr>
+                    <td colspan="4"><h1>白石高球練習場 - 價格表 
+                        <!-- <hr> WhiteHead Golf Club - Price table -->
+                    </h1></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <th>正價
+                        <!-- <br>Regular Price -->
+                    </th>
+                    <th>學生優惠
+                        <!-- <br>Student Price -->
+                    </th>
+                    <th>傷健人士優惠
+                        <!-- <br>Disabled Price -->
+                    </th>
+                </tr>
+                <tr>
+                    <th>星期一 
+                        <!-- Monday -->
+                        <br>(13:00-22:00)<hr>星期二至星期五
+                        <!-- <br>Tuesday to Friday -->
+                        <br>(08:00-22:00)</th>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-workday-hourly"></td>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-workday-student"></td>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-workday-disabled"></td>
+                </tr>
 
-    <tr>
-        <th>星期六日及公眾假期
-            <!-- <br>Saturday, Sunday, and public holiday  -->
+                <tr>
+                    <th>星期六日及公眾假期
+                        <!-- <br>Saturday, Sunday, and public holiday  -->
+                        <br>(08:00-18:59)</th>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday-hourly"></td>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday-student"></td>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday-disabled"></td>
+                </tr>
 
-            <br>(19:00-22:00)</th>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday19-hourly"></td>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday19-student"></td>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday19-disabled"></td>
-    </tr>
+                <tr>
+                    <th>星期六日及公眾假期
+                        <!-- <br>Saturday, Sunday, and public holiday  -->
 
-    <tr>
-        <th>沙地球道<br>星期一至星期五
-            <!-- <br>Sand Bay<br>Monday to Friday -->
-        </th>
-        <td colspan="3" class="price-cell" id="<?php echo $tablePrefix; ?>golf-workday-sandbay"></td>
-    </tr>
+                        <br>(19:00-22:00)</th>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday19-hourly"></td>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday19-student"></td>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday19-disabled"></td>
+                </tr>
 
-
-    <tr>
-        <th>沙地球道<br>星期六日及公眾假期
-            <!-- <br>Sand Bay<br>Saturday, Sunday, and public holiday -->
-        </th>
-        <td colspan="3" class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday-sandbay"></td>
-    </tr>
-
-
-    <tr>
-        <th>VIP房<br>星期一至星期五
-            <!-- <br>VIP room<br>Monday to Friday -->
-        </th>
-        <td colspan="3" class="price-cell" id="<?php echo $tablePrefix; ?>golf-workday-vip"></td>
-    </tr>
-
-
-    <tr>
-        <th>VIP房<br>星期六日及公眾假期<br>(08:00-19:00)
-            <!-- <br>VIP room<br>Saturday, Sunday, and public holiday -->
-        </th>
-        <td colspan="3" class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday-vip"></td>
-    </tr>
+                <tr>
+                    <th>沙地球道<br>星期一至星期五
+                        <!-- <br>Sand Bay<br>Monday to Friday -->
+                    </th>
+                    <td colspan="3" class="price-cell" id="<?php echo $tablePrefix; ?>golf-workday-sandbay"></td>
+                </tr>
 
 
-    <tr>
-        <th>VIP房<br>星期六日及公眾假期<br>(19:00-22:00)
-            <!-- <br>VIP room<br>Saturday, Sunday, and public holiday -->
-        </th>
-        <td colspan="3" class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday19-vip"></td>
+                <tr>
+                    <th>沙地球道<br>星期六日及公眾假期
+                        <!-- <br>Sand Bay<br>Saturday, Sunday, and public holiday -->
+                    </th>
+                    <td colspan="3" class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday-sandbay"></td>
+                </tr>
+
+
+                <tr>
+                    <th>VIP房<br>星期一至星期五
+                        <!-- <br>VIP room<br>Monday to Friday -->
+                    </th>
+                    <td colspan="3" class="price-cell" id="<?php echo $tablePrefix; ?>golf-workday-vip"></td>
+                </tr>
+
+
+                <tr>
+                    <th>VIP房<br>星期六日及公眾假期<br>(08:00-19:00)
+                        <!-- <br>VIP room<br>Saturday, Sunday, and public holiday -->
+                    </th>
+                    <td colspan="3" class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday-vip"></td>
+                </tr>
+
+
+                <tr>
+                    <th>VIP房<br>星期六日及公眾假期<br>(19:00-22:00)
+                        <!-- <br>VIP room<br>Saturday, Sunday, and public holiday -->
+                    </th>
+                    <td colspan="3" class="price-cell" id="<?php echo $tablePrefix; ?>golf-holiday19-vip"></td>
+                </tr>
+            </table>
+
+
+
+
+            <table>
+                <tr>
+                    <td colspan="4"><h1>匹克球 練習場 - 價格表 
+                        <!-- <hr> WhiteHead Golf Club - Price table -->
+                    </h1></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <th>正價
+                        <!-- <br>Regular Price -->
+                    </th>
+                    <th>學生優惠
+                        <!-- <br>Student Price -->
+                    </th>
+                    <th>傷健人士優惠
+                        <!-- <br>Disabled Price -->
+                    </th>
+                </tr>
+
+
+                <tr>
+                    <th>星期一 
+                        <!-- Monday -->
+                        <br>(13:00-22:00)<hr>星期二至星期五
+                        <!-- <br>Tuesday to Friday -->
+                        <br>(08:00-22:00)</th>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-workday-hourly"></td>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-workday-student"></td>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-workday-disabled"></td>
+                </tr>
+
+                <tr>
+                    <th>星期六日及公眾假期
+                        <!-- <br>Saturday, Sunday, and public holiday  -->
+                        <br>(08:00-18:59)</th>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-holiday-hourly"></td>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-holiday-student"></td>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-holiday-disabled"></td>
+                </tr>
+
+                <tr>
+                    <th>星期六日及公眾假期
+                        <!-- <br>Saturday, Sunday, and public holiday  -->
+
+                        <br>(19:00-22:00)</th>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-holiday19-hourly"></td>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-holiday19-student"></td>
+                    <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-holiday19-disabled"></td>
+                </tr>
+
+            </table>
+
+        </td>
     </tr>
 </table>
-
-
-
-
-<table>
-    <tr>
-        <td colspan="4"><h1>匹克球 練習場 - 價格表 
-            <!-- <hr> WhiteHead Golf Club - Price table -->
-        </h1></td>
-    </tr>
-
-    <tr>
-        <td></td>
-        <th>正價
-            <!-- <br>Regular Price -->
-        </th>
-        <th>學生優惠
-            <!-- <br>Student Price -->
-        </th>
-        <th>傷健人士優惠
-            <!-- <br>Disabled Price -->
-        </th>
-    </tr>
-
-
-    <tr>
-        <th>星期一 
-            <!-- Monday -->
-            <br>(13:00-22:00)<hr>星期二至星期五
-            <!-- <br>Tuesday to Friday -->
-            <br>(08:00-22:00)</th>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-workday-hourly"></td>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-workday-student"></td>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-workday-disabled"></td>
-    </tr>
-
-    <tr>
-        <th>星期六日及公眾假期
-            <!-- <br>Saturday, Sunday, and public holiday  -->
-            <br>(08:00-18:59)</th>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-holiday-hourly"></td>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-holiday-student"></td>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-holiday-disabled"></td>
-    </tr>
-
-    <tr>
-        <th>星期六日及公眾假期
-            <!-- <br>Saturday, Sunday, and public holiday  -->
-
-            <br>(19:00-22:00)</th>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-holiday19-hourly"></td>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-holiday19-student"></td>
-        <td class="price-cell" id="<?php echo $tablePrefix; ?>pickle-holiday19-disabled"></td>
-    </tr>
-
-</table>
+<br>
 
 <?php 
 } // End foreach price_tables
