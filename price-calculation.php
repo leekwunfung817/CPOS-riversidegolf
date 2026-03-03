@@ -112,11 +112,29 @@ function price_calculation($price_config, $booking_arr)
             if ($price_config['print']=='Y') {
                 echo ', <br>['.(
                     $price_config['lan']=='en' ?
-                    "Position" : (
-                        $price_config['lan']=='zn' ?
-                        "打球位置" : "打球位置 Position"
+                    (
+                        $is_pickleball ? (
+                            "Court No."
+                        ) : (
+                            "Position No."
+                        )
+                    ) : 
+                    (
+                        (
+                            $is_pickleball ? (
+                                $price_config['lan']=='zn' ?
+                                "匹克球場號碼" : "匹克球場號碼 Court No."
+                            ) : (
+                                $price_config['lan']=='zn' ?
+                                "打球位置" : "打球位置 Position No."
+                            )
+                        )
                     ) 
-                ).' '.$p_selection.': ';
+                ).' '.(
+                    $is_pickleball ? (
+                        (int) $p_selection - 99
+                    ) : $p_selection
+                ).': ';
             }
 
 

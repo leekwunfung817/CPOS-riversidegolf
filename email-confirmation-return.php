@@ -497,6 +497,10 @@ if ($reserve_type == 'pickleball') {
 }
  ?></li>
          <li><?php echo ($reserve_type == 'pickleball'?'球場':'球道'); ?>號碼：<?php echo $position_display; ?> </li>
+
+
+
+<?php if ($reserve_type != 'pickleball') { ?>
          <li>優惠 : <?php 
 if ($booking_arr['discount'] == 'S') {
     echo "學生";
@@ -506,6 +510,9 @@ if ($booking_arr['discount'] == 'S') {
     echo "沒有優惠";
 }
           ?> </li>
+<?php } ?>
+
+
 <?php 
 if ($booking_arr['octopus_no'] == null || $booking_arr['octopus_no'] == '') {
     // echo "不需要 (不會開車駛入)";
@@ -602,6 +609,9 @@ if ($is_management) {
              <li>Time：<?php echo $time_display; ?></li>
              <li>Location：Riverside Whitehead <?php echo ($reserve_type == 'pickleball'?'Pickleball':'Golf'); ?> Club</li>
              <li><?php echo ($reserve_type == 'pickleball'?'Court No.':'Bay No.'); ?>：<?php echo $position_display; ?> </li>
+
+
+<?php if ($reserve_type != 'pickleball') { ?>
              <li>Discount : <?php 
 if ($booking_arr['discount'] == 'S') {
     echo "Student";
@@ -611,6 +621,9 @@ if ($booking_arr['discount'] == 'S') {
     echo "None";
 }
           ?> </li>
+<?php } ?>
+
+<?php if ($reserve_type != 'pickleball') { ?>
           <li>Octopus Card : <?php 
 if ($booking_arr['octopus_no'] == null || $booking_arr['octopus_no'] == '') {
     echo "No needed (Will not drive in)";
@@ -618,6 +631,8 @@ if ($booking_arr['octopus_no'] == null || $booking_arr['octopus_no'] == '') {
     echo $booking_arr['octopus_no'].'('.$booking_arr['check_digit'].')';
 }
           ?> </li>
+<?php } ?>
+
          </ul>
 
 

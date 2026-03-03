@@ -347,12 +347,17 @@ setTimeout(function(){
 
                         75,76,77,78,79,80,81,82,83,84,85
                     ),
+                    // Pickleball
+                    array(
+                      100,101,102,103
+                    ),
                 );
 
                 spotHiddenList($position_list[0]);
                 spotHiddenList($position_list[1]);
                 spotHiddenList($position_list[2]);
                 spotHiddenList($position_list[3]);
+                spotHiddenList($position_list[4]);
 
 
     		 ?>
@@ -682,7 +687,7 @@ function showSelectedCells() {
 		var is_checked = false;
 		for (let i = 0; i < inputElements.length; ++i) {
 			if (inputElements[i].value == 'position_'+key) {
-                document.getElementById('selected_display').value += ` (Bay `+key+`) `;
+        document.getElementById('selected_display').value += ` (Bay `+key+`) `;
 				console.log('Check ',key);
 				inputElements[i].checked = true;
 				is_checked = true;

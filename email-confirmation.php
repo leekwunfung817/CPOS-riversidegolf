@@ -192,8 +192,9 @@ if (isset($allGetParams['email']) && isset($allGetParams['confirmation_code']) &
     die();
 }
 
+    var_dump($allGetParams);
+var_dump($data['p_selections']);
 $data['p_selections'] = str_replace('position_','',json_encode($data['p_selections']));
-
  ?>
 <script type="text/javascript">
     console.log('<?php 
