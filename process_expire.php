@@ -3,13 +3,27 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-  if ( !isset($_GET['id']) || !isset($_GET['auth']) ) {
-    echo "Invalid Request";
-    die();
-  }
 
-  $id = $_GET['id'];
-  $auth = $_GET['auth'];
+$close_window = function() {
+  ?>
+  <script type="text/javascript">
+    setTimeout(function() {
+      window.location.href = "./";
+    }, 3000);
+  </script>
+  <?php
+};
+
+
+
+
+if ( !isset($_GET['id']) || !isset($_GET['auth']) ) {
+  echo "Invalid Request";
+  die();
+}
+
+$id = $_GET['id'];
+$auth = $_GET['auth'];
 
 
 
@@ -99,12 +113,15 @@ if (isset($_GET['force'])) {
 } else {
   if ( $booking_expired == null || $payment_confirmed == null ) {
     echo "Unknown expired state";
+    $close_window();
     die();
   } else if ( $payment_confirmed == 'Y' || $payment_confirmed == 'T' ) {
     echo "Cannot cancel paid booking";
+    $close_window();
     exit();
   } else if ( $booking_expired == 'Y' || $booking_expired == 'T' ) {
     echo "Expired booking is not allowed to be cancelled";
+    $close_window();
     exit();
   } else if ( $booking_expired == 'N' ) {
     echo "Not expired yet";
@@ -231,13 +248,16 @@ echo "<hr>";
   try {
       if ($conn->query($sql) === TRUE) {
           echo "Delete $id buffer succeed";
+          $close_window();
       } else {
         echo "Failed "." to delete to booking buffer";
+        $close_window();
         die();
       }
   } catch (Exception $e) {
     echo "Exception when "." delete to booking buffer";
     echo "$e";
+    $close_window();
     die();
   }
 
@@ -245,8 +265,15 @@ echo "<hr>";
 echo "<hr>";
 
 $conn->close();
+
+
+
  ?>
 <script type="text/javascript">
   alert('預訂成功取消 Reservation canceled successfully');
   window.close();
 </script>
+<?php 
+
+
+?>

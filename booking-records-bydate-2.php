@@ -734,6 +734,26 @@ function allBetween100and199(csv) {
 // console.log(allBetween100and199("101,150,199")); // true
 // console.log(allBetween100and199("101, 200, 150")); // false
 
+function transformCsvIfInPickleballRange(csv) {
+	const normalizedCsv = String(csv).replace(/\s+/g, "");
+	const parts = normalizedCsv.split(",");
+
+  // Convert to numbers and ensure all are valid integers
+  const nums = parts.map(v => Number(v));
+  if (nums.some(n => !Number.isInteger(n))) {
+    return null; // invalid input
+  }
+
+  // Check all are between 100 and 199 (inclusive)
+  const allInRange = nums.every(n => n >= 100 && n <= 199);
+  if (!allInRange) {
+    return null; // condition not met
+  }
+
+  // Subtract 99 and return as new CSV
+  return nums.map(n => n - 99).join(",");
+}
+
 function comfirm_and_print(
   auth,
   id,
@@ -761,8 +781,17 @@ function comfirm_and_print(
 
   sourceTxt = p_selections.replace(/,/g, ", ");
   if (sourceTxt.length>1) {
-    msg += 'Booking:'+sourceTxt+'\n';
-    printing += '<b style="text-align: left;font-size: 1.5em;">Bay: '+sourceTxt+'</b><br>';
+
+    var pickelball_csv = transformCsvIfInPickleballRange(sourceTxt);
+    if (pickelball_csv) {
+      msg += 'Booking:'+pickelball_csv+'\n';
+      printing += '<b style="text-align: left;font-size: 1.5em;">Court: '+pickelball_csv+'</b><br>';
+    } else {
+      msg += 'Booking:'+sourceTxt+'\n';
+      printing += '<b style="text-align: left;font-size: 1.5em;">Bay: '+sourceTxt+'</b><br>';
+    }
+
+
   }
   
   sourceTxt = booking_date;

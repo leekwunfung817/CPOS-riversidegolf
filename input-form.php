@@ -592,7 +592,7 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
                         <input 
                             type="text" 
                             class="form-control" 
-                            onclick="send_confirm_code()" 
+                            onclick="send_confirm_code(false)" 
                             id="confirmation_button" 
                             placeholder="按此發送6位數字驗證碼 \n Click here to send 6-digit confirmation code" 
                             readonly>
@@ -640,9 +640,15 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
             id="confirmation_code" 
             style="color: blue;" 
             placeholder="驗證碼 Verification code" 
-            onkeydown="setTimeout(checkConfirmCode, 1)" 
-            onblur="setTimeout(checkConfirmCode, 1)" 
-            onclick="setTimeout(checkConfirmCode, 1)" 
+            onkeydown="setTimeout(function() {
+                checkConfirmCode(false);
+            }, 1);" 
+            onblur="setTimeout(function() {
+                checkConfirmCode(false);
+            }, 1);" 
+            onclick="setTimeout(function() {
+                checkConfirmCode(false);
+            }, 1);" 
 
             autocomplete="off" 
             required><br>
@@ -683,7 +689,7 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
 
         confirmed = false;
         confirming = false;
-        function checkCodeConfirmed(already_checked) {
+        function checkCodeConfirmed(already_checked, bypass_alert) {
             // console.log('Correct', html);
 
 
@@ -692,8 +698,10 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
 
             confirmed = true;
             if (already_checked) {
-                alert('不需要確認碼 該電子郵件地址之前已驗證過 ! Confirmation code is not needed, this email address was validated before!');
-            document.getElementById('confirmation_code').value = '不需要 Not needed';
+                if (!bypass_alert) {
+                    alert('不需要確認碼 該電子郵件地址之前已驗證過 ! Confirmation code is not needed, this email address was validated before!');
+                }
+                document.getElementById('confirmation_code').value = '不需要 Not needed';
             } else {
                 alert('驗證碼正確! Confirmation code correct!');
             }
@@ -705,8 +713,9 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
             document.getElementById('confirmation_code').readOnly = true;
             document.getElementById('confirmation_button').disabled = true;
         }
-        function checkConfirmCode() {
+        function checkConfirmCode(bypass_alert) {
             if (confirmed || confirming) {
+                console.log('Already confirmed or confirming');
                 return;
             }
             email = document.getElementById('confirm_email').value;
@@ -714,6 +723,7 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
             
             // console.log(confirmation_code.value, confirmation_code.value.length)
             if (confirmation_code.value.length == 6) {
+                console.log('Checking confirmation code');
                 confirming = true;
                 confirmation_code = document.getElementById('confirmation_code');
                 
@@ -721,7 +731,7 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
 
                 // console.log('confirmation_code',confirmation_code,'.');
                 fetchHtml('./email-confirmation.php?confirmation_code='+confirmation_code.value+'&email='+email+'&open_datetime='+open_datetime,function (html) {
-                    
+                    console.log('Received response for confirmation code check');
                     correct = (html_result=='Y'?true:false);
 
                     // console.log(confirmation_code.value, code_buffer);
@@ -730,7 +740,8 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
                         // || true // Test Temporary
                         // confirmation_code.value==code_buffer
                         ) {
-                        checkCodeConfirmed(false);
+                        console.log('Correct');
+                        checkCodeConfirmed(false, bypass_alert);
                     } else {
                         console.log('Incorrect', html);
                         confirmation_code.style.backgroundColor = '#FE8569';
@@ -789,7 +800,7 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
             }
         }
 
-        function send_confirm_code() {
+        function send_confirm_code(bypass_alert) {
             confirm_email_element = document.getElementById('confirm_email');
             email = confirm_email_element.value;
 
@@ -800,11 +811,17 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
                 $cookie_name = "email"."_rivergolf";
                 if(isset($_COOKIE[$cookie_name])) {
                      ?>
-            if (email == '<?php echo $_COOKIE[$cookie_name]; ?>') {
-                checkCodeConfirmed(true);
-
-                return;
-            }
+                    if (email == '<?php echo $_COOKIE[$cookie_name]; ?>') {
+                        checkCodeConfirmed(true, bypass_alert);
+                        return;
+                    }
+                    <?php
+                } else {
+                     ?>
+                    if (bypass_alert) {
+                        checkCodeConfirmed(true, bypass_alert);
+                        return;
+                    }
                     <?php
                 }
              ?>
@@ -1829,7 +1846,7 @@ function hidePastHalfHourBlocks(dateStr) {
         const className = (minuteStr === "00")
             ? `e_hour_${hourStr}`
             : `e_half_hour_${hourStr}`;
-        console.log('Checking class: ', className);
+        // console.log('Checking class: ', className);
         const elements = document.querySelectorAll(`.${className}`);
         showHourBlocksForEach(elements);
         hidePastHalfHourBlocksForEach(dateStr, elements, hourStr, minuteStr, now);
@@ -3018,24 +3035,28 @@ show_and_hide_hours();
 </div>
 <script type="text/javascript">
     function notice_submitbutton() {
-        
-        confirmationCodeValid = validateConfirmationCode();
-        checkboxesValids = validateCheckboxes();
-        dateTimeIsValid = isValidDateTime();
-        octopusConfirm = confirm_octopus();
-        
-        if (checkNameEmpty()) {
-            alert("請輸入您的姓名。 \n Please enter your name.");
-        } else if (!checkboxesValids) {
-            alert('請在提交前選擇球道 \n Please select a fairway before submitting ');
-        } else if (!dateTimeIsValid) {
-            alert('請輸入目前時間之前的有效日期 \n Please enter a valid date before the current time ');
-        } else if (!octopusConfirm) {
-            alert('請在輸入欄和確認輸入欄輸入有效的八達通卡號碼 \n Please enter a valid Octopus card number in the input field and confirmation input field ');
-        } else if (!confirmationCodeValid) {
-            alert('請輸入正確的電子郵件確認碼 \n Please enter correct email confirmation code ');
-        }
-        console.log('checkboxesValids,dateTimeIsValid,octopusConfirm: ',checkboxesValids,dateTimeIsValid,octopusConfirm);
+        setTimeout(function() {
+            send_confirm_code(true);
+            setTimeout(function() {
+                confirmationCodeValid = validateConfirmationCode();
+                checkboxesValids = validateCheckboxes();
+                dateTimeIsValid = isValidDateTime();
+                octopusConfirm = confirm_octopus();
+                
+                if (checkNameEmpty()) {
+                    alert("請輸入您的姓名。 \n Please enter your name.");
+                } else if (!checkboxesValids) {
+                    alert('請在提交前選擇球道 \n Please select a fairway before submitting ');
+                } else if (!dateTimeIsValid) {
+                    alert('請輸入目前時間之前的有效日期 \n Please enter a valid date before the current time ');
+                } else if (!octopusConfirm) {
+                    alert('請在輸入欄和確認輸入欄輸入有效的八達通卡號碼 \n Please enter a valid Octopus card number in the input field and confirmation input field ');
+                } else if (!confirmationCodeValid) {
+                    alert('請輸入正確的電子郵件確認碼 \n Please enter correct email confirmation code ');
+                }
+                console.log('checkboxesValids,dateTimeIsValid,octopusConfirm: ',checkboxesValids,dateTimeIsValid,octopusConfirm);
+            }, 1);
+        }, 1);
     }
 </script>
 <br>
@@ -3134,7 +3155,9 @@ Before submission, please make sure your (1) email confirmed with correct confir
 
     function checkBookingRecord() {
                 // console.log('update_booking_record ');
-        setTimeout(checkConfirmCode, 1);
+        setTimeout(function() {
+            checkConfirmCode(false);
+        }, 1);
 
 
         // Get the password inputs
@@ -3150,8 +3173,8 @@ Before submission, please make sure your (1) email confirmed with correct confir
         const begin_hour = parseInt(document.getElementById("begin_hour").value);
         const end_hour = parseInt(document.getElementById("end_hour").value);
         // console.log("check for - "+booking_date+' '+begin_hour+' '+end_hour);
-
-        for (var ii = 1; ii <= 100; ii++) {
+        max_num = 200
+        for (var ii = 1; ii <= max_num; ii++) {
             const element_id = "position_"+ii;
             if (!document.getElementById(element_id)) {
                 continue;
@@ -3171,7 +3194,7 @@ Before submission, please make sure your (1) email confirmed with correct confir
                     // }
         for (var i = begin_hour; i < end_hour; i++) {
             // console.log('level 1 '+i);
-            for (var ii = 1; ii <= 100; ii++) {
+            for (var ii = 1; ii <= max_num; ii++) {
                 check_red(booking_date, i, ii);
             }
             check_red(booking_date, i, 'VIP');
