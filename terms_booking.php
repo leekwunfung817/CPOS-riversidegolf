@@ -45,7 +45,7 @@ require_once 'setting-admin.php';
 <h2>預約</h2>
 1. 預約球場必須至少提前一小時透過線上系統辦理。閣下可預約未來7天內、1小時後的時段。<br>
 2. 預約時需繳付全額費用。我們接受Visa或Master Card付款，所有交易以港元（HK$）結算。<br>
-3. 如欲取消預約，必須於預約開始時間至少兩小時前辦理。取消預約可獲退款，我們將退還扣除銀行手續費後的餘額。<br>
+<!-- 3. 如欲取消預約，必須於預約開始時間至少兩小時前辦理。取消預約可獲退款，我們將退還扣除銀行手續費後的餘額。<br> -->
 <br>
 
 <h2>泊車優惠</h2>
@@ -96,7 +96,7 @@ cursor: pointer;
 <h2>Reservation</h2>
 1. Reservations for pickleball courts must be made online at least one hour in advance; you can book a court from 1 hour up to 7 days ahead. <br>
 2. Full payment is required at the time of reservation. We accept Visa or MasterCard, and all transactions are settled in Hong Kong dollars (HK$).  <br>
-3. If you wish to cancel a reservation, it must be done at least two hours before the scheduled start time. Cancellations are eligible for a refund, and we will return the balance after deducting applicable bank charges. <br>
+<!-- 3. If you wish to cancel a reservation, it must be done at least two hours before the scheduled start time. Cancellations are eligible for a refund, and we will return the balance after deducting applicable bank charges. <br> -->
 <br>
 
 <h2>Parking Discount</h2>

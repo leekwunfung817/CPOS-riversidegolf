@@ -27,106 +27,6 @@ $response = file_get_contents($url);
 // } else {
 //     echo "Skip download report";
 }
-
-// require_once '../tesing_stage_verification.php';
-
-
-// Create connection
-// $conn = new mysqli($servername, $username, $password, $dbname);
-
-// // echo "2-";
-// // Check connection
-// if ($conn->connect_error) {
-// echo "con err";
-//     die("Connection failed: " . $conn->connect_error);
-// }
-
-// function check_buffer_count($conn,$data)
-// {
-
-//     $id = $data['id'];
-//     $key1 = $data['booking_date'];
-//     $begin_hour = (int) $data['begin_hour'];
-//     $end_hour = (int) $data['end_hour'];
-//     $p_selections = $data['p_selections'];
-
-//     $buffer_count = 0;
-
-//     for ($cursor_hour=$begin_hour; $cursor_hour < $end_hour; $cursor_hour=$cursor_hour+0.5) {
-//         $hour_int = ((int) $cursor_hour);
-//         $is_half_hour = $cursor_hour != $hour_int;
-//         $half_hour_mark = ($is_half_hour ? ':30' : ':00');
-//         $key2=$hour_int . $half_hour_mark;
-//         foreach (json_decode($p_selections) as $key => $position) {
-//             // echo $position.'<br>';
-//           $buffer_count += 1;
-
-//                  $key4=str_replace("position_", "", $position);
-//                  $sql_1 = "
-//                  INSERT INTO `golf_booking_buffer`(`date`, `hour`, `position`, `src`) 
-//                  VALUES 
-//                  ('$key1','$key2','$key4','$id');
-//                  ";
-//                    try {
-//                        // Execute the query
-//                        if ($conn->query($sql_1) === TRUE) {
-//                            // echo "Data inserted successfully!";
-//                        } else {
-//                        //     echo "Error: " . $sql_1 . "<br>" . $conn->error;
-//                        // echo "SQL error 222 $sql";
-//                        }
-//                    } catch (Exception $e) {
-//                        // echo $e;
-//                        // echo "Exception 222 $sql_1";
-//                    }
-
-
-//                  $sql_1 = "
-//                  UPDATE `golf_booking_buffer` SET `src`='$id'
-//                  WHERE `date`='$key1' and `hour`='$key2' and `position`='$key4';
-//                  ";
-//                    try {
-//                        // Execute the query
-//                        if ($conn->query($sql_1) === TRUE) {
-//                            // echo "Data inserted successfully!";
-//                        } else {
-//                        //     echo "Error: " . $sql_1 . "<br>" . $conn->error;
-//                        // echo "SQL error 222 $sql";
-//                        }
-//                    } catch (Exception $e) {
-//                        // echo $e;
-//                        // echo "Exception 222 $sql_1";
-//                    }
-
-
-
-
-
-//         }
-//     }
-//     return $buffer_count;
-
-// }
-
-// $sql = "
-// SELECT * FROM `golf_fairway_booking`;
-// ";
-
-// $result = $conn->query($sql);
-// if ($result->num_rows > 0) {
-//   while ($row = $result->fetch_assoc()) {
-//     $count = check_buffer_count($conn,$row);
-//     // echo $count;
-//     // echo "<br>";
-//     var_dump($row);
-//     // echo "<br>";
-//   }
-// }
-
-// $conn->close();
-
-
-
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -199,6 +99,87 @@ $response = file_get_contents($url);
 </table>
 
     <style>
+body {
+    background: linear-gradient(180deg, #eaf7ff 0%, #f7fcff 50%, #ffffff 100%);
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: #134166;
+}
+
+h1, h2, h3 {
+    color: #0f4d7a;
+}
+
+a {
+    color: #0b6fb3;
+}
+
+table, th, td {
+    border: 1px solid #7ec5ee;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(70, 150, 210, 0.15);
+}
+
+td {
+    white-space: nowrap;
+    font-size: 0.9em;
+    background-color: #f3fbff;
+    /* padding: 5px 7px; */
+}
+
+th {
+    white-space: nowrap;
+    font-size: 0.7em;
+    background-color: #caecff;
+    color: #0f4d7a;
+    /* padding: 6px 8px; */
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    border: 1px solid #7ec5ee;
+    border-radius: 6px;
+    background: #f5fcff;
+    color: #0f4d7a;
+    /* padding: 4px 6px; */
+}
+
+input[type="submit"],
+button {
+    border: 1px solid #4da9df;
+    border-radius: 6px;
+    background: linear-gradient(180deg, #7fd0ff 0%, #53b8ef 100%);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background: linear-gradient(180deg, #66c6fb 0%, #40aee7 100%);
+}
+.unpaid_button:hover {
+    background-color: #cfefff;
+    cursor: pointer;
+}
+
+.unpaid_button {
+    color: #0b6fb3;
+}
+
+#message_bar {
+    color: #0f4d7a;
+    font-weight: 600;
+}
+
+
+    </style>
+<!-- 
+    <style>
 table, th, td {
     border: 1px solid black;
 /*    padding: 3px;*/
@@ -223,6 +204,7 @@ th {
 
 
     </style>
+     -->
     <p id="message_bar"></p>
 
 數據將每 30 秒重新加載一次
@@ -327,9 +309,9 @@ Data will be reloaded every 30 seconds
         <td>
             
 <button style="width: 100px;height: 50px;" onclick="
-    const input = document.getElementById('page_number');
-    if ( parseInt(input.value) > 1 ) {
-        input.value = parseInt(input.value) - 1;
+    var pageInput = document.getElementById('page_number');
+    if ( parseInt(pageInput.value) > 1 ) {
+        pageInput.value = parseInt(pageInput.value) - 1;
     }
     reflesh();
 ">上一頁 <br> Previous Page</button>
@@ -340,8 +322,8 @@ Data will be reloaded every 30 seconds
         </td>
         <td>
 <button style="width: 100px;height: 50px;" onclick="
-    const input = document.getElementById('page_number');
-    input.value = parseInt(input.value) + 1;
+    var pageInput = document.getElementById('page_number');
+    pageInput.value = parseInt(pageInput.value) + 1;
     reflesh();
 ">下一頁 <br> Next Page</button>
         </td>
@@ -473,6 +455,43 @@ Data will be reloaded every 30 seconds
 
 jsonData = null;
 
+const SEARCH_FIELD_CONFIG = [
+    { inputId: 'id_s', dataKey: 'id', serverKey: 'id', includeInServerSearch: true },
+    { inputId: 'auth_code', dataKey: 'auth_code', serverKey: 'auth_code', includeInServerSearch: false },
+    { inputId: 'credit_card', dataKey: 'req_card_number', serverKey: 'req_card_number', includeInServerSearch: false },
+    { inputId: 'name', dataKey: 'name', serverKey: 'name', includeInServerSearch: true },
+    { inputId: 'email', dataKey: 'email', serverKey: 'email', includeInServerSearch: true },
+    { inputId: 'telephone', dataKey: 'telephone', serverKey: 'telephone', includeInServerSearch: true },
+    { inputId: 'octopus_no', dataKey: 'octopus_no', serverKey: 'octopus_no', includeInServerSearch: true },
+    { inputId: 'booking_date', dataKey: 'booking_date', serverKey: 'booking_date', includeInServerSearch: true },
+    { inputId: 'transaction_amount', dataKey: 'amount', serverKey: 'amount', includeInServerSearch: false },
+    { inputId: 'cash', dataKey: 'cash', serverKey: 'cash', includeInServerSearch: false }
+];
+
+function getSearchFieldValue(inputId) {
+    const element = document.getElementById(inputId);
+    return element ? element.value : '';
+}
+
+function appendSearchParams(apiUrlBuf) {
+    let nextUrl = apiUrlBuf;
+    SEARCH_FIELD_CONFIG.forEach(function (field) {
+        if (field.includeInServerSearch) {
+            nextUrl += '&search_' + field.serverKey + '=' + getSearchFieldValue(field.inputId);
+        }
+    });
+    return nextUrl;
+}
+
+function bindSearchFieldListeners() {
+    SEARCH_FIELD_CONFIG.forEach(function (field) {
+        const element = document.getElementById(field.inputId);
+        if (element) {
+            element.addEventListener('input', filterTable);
+        }
+    });
+}
+
 // Function to populate the table
 function populateTable(filteredData) {
 
@@ -580,55 +599,7 @@ function reflesh() {
         +GetOnlyShowParams()
     ;
 
-    var col_name;
-
-    {
-        var ele_ = document.getElementById('id_s');
-        apiUrl_buf += '&search_'+'id'+'='+ele_.value;
-    }
-
-    // {
-    //     var ele_ = document.getElementById('credit_card');
-    //     apiUrl_buf += '&search_'+'req_card_number'+'='+ele_.value;
-    // }
-
-
-
-    // col_name = 'auth_code';
-    // {
-    //     var ele_ = document.getElementById(col_name);
-    //     apiUrl_buf += '&search_'+col_name+'='+ele_.value;
-    // }
-
-    col_name = 'name';
-    {
-        var ele_ = document.getElementById(col_name);
-        apiUrl_buf += '&search_'+col_name+'='+ele_.value;
-    }
-
-    col_name = 'email';
-    {
-        var ele_ = document.getElementById(col_name);
-        apiUrl_buf += '&search_'+col_name+'='+ele_.value;
-    }
-
-    col_name = 'telephone';
-    {
-        var ele_ = document.getElementById(col_name);
-        apiUrl_buf += '&search_'+col_name+'='+ele_.value;
-    }
-
-    col_name = 'octopus_no';
-    {
-        var ele_ = document.getElementById(col_name);
-        apiUrl_buf += '&search_'+col_name+'='+ele_.value;
-    }
-
-    col_name = 'booking_date';
-    {
-        var ele_ = document.getElementById(col_name);
-        apiUrl_buf += '&search_'+col_name+'='+ele_.value;
-    }
+    apiUrl_buf = appendSearchParams(apiUrl_buf);
     
 
 
@@ -670,41 +641,23 @@ reflesh();
 
 
 
-document.getElementById("id_s").addEventListener("input", filterTable);
-document.getElementById("credit_card").addEventListener("input", filterTable);
+bindSearchFieldListeners();
 
-document.getElementById("transaction_amount").addEventListener("input", filterTable);
-document.getElementById("cash").addEventListener("input", filterTable);
-
-document.getElementById("auth_code").addEventListener("input", filterTable);
-
-document.getElementById("name").addEventListener("input", filterTable);
-document.getElementById("email").addEventListener("input", filterTable);
-document.getElementById("telephone").addEventListener("input", filterTable);
-document.getElementById("octopus_no").addEventListener("input", filterTable);
-document.getElementById("booking_date").addEventListener("input", filterTable);
-
-function filterHelper(row,data_key,html_id) {
-    
-    if (row[data_key] == null) {
-        return '-'.toLowerCase().includes(document.getElementById(html_id).value.toLowerCase());
-    }
-    return row[data_key].toLowerCase().includes(document.getElementById(html_id).value.toLowerCase());
+function filterHelper(row, dataKey, inputId) {
+    const filterText = getSearchFieldValue(inputId).toLowerCase();
+    const rowValue = (row[dataKey] == null ? '-' : String(row[dataKey])).toLowerCase();
+    return rowValue.includes(filterText);
 }
 
 function filterTable() {
+    if (!Array.isArray(jsonData)) {
+        return;
+    }
+
     const filteredData = jsonData.filter((row) =>
-        filterHelper(row,'id','id_s')
-        && filterHelper(row,'auth_code','auth_code')
-        && filterHelper(row,'req_card_number','credit_card')
-        && filterHelper(row,'amount','transaction_amount')
-        && filterHelper(row,'cash','cash')
-        && filterHelper(row,'auth_code','auth_code')
-        && filterHelper(row,'name','name')
-        && filterHelper(row,'email','email')
-        && filterHelper(row,'telephone','telephone')
-        && filterHelper(row,'octopus_no','octopus_no')
-        && filterHelper(row,'booking_date','booking_date')
+        SEARCH_FIELD_CONFIG.every(function (field) {
+            return filterHelper(row, field.dataKey, field.inputId);
+        })
     );
 
     // Repopulate the table with filtered data
