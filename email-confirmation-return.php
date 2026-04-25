@@ -490,7 +490,6 @@ if ($reserve_type == 'pickleball') {
 白石匹克球練習場<br>
 <?php 
 } else {
-    echo $reserve_type;
 ?>
 白石高爾夫球練習場<br> 
 <?php 

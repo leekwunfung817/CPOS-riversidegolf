@@ -526,6 +526,85 @@ function reflesh_display() {
 	},10);
 }
 
+function initFairWayGroupToggle() {
+  var table = document.getElementById('fair_way_table');
+  console.log('[group-toggle-main-2] init start, table=', table);
+  if (!table) {
+    console.log('[group-toggle-main-2] no table found, abort');
+    return;
+  }
+
+  var groupRows = table.querySelectorAll('.group_row');
+  console.log('[group-toggle-main-2] group rows found=', groupRows.length, groupRows);
+
+  function hasClass(element, className) {
+    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
+  }
+
+  function addClass(element, className) {
+    if (!hasClass(element, className)) {
+      element.className = element.className ? element.className + ' ' + className : className;
+    }
+  }
+
+  function removeClass(element, className) {
+    var classString = ' ' + element.className + ' ';
+    while (classString.indexOf(' ' + className + ' ') > -1) {
+      classString = classString.replace(' ' + className + ' ', ' ');
+    }
+    element.className = classString.replace(/^\s+|\s+$/g, '');
+  }
+
+  function toggleGroup(groupRow) {
+    var groupId = groupRow.getAttribute('data-group');
+    var headerCell = groupRow.getElementsByTagName('th')[0];
+    var icon = groupRow.querySelector('.group_toggle_icon');
+    var memberRows = table.querySelectorAll('.time_row[data-group="' + groupId + '"]');
+    var isExpanded = headerCell && headerCell.getAttribute('aria-expanded') !== 'false';
+    var index;
+
+    console.log('[group-toggle-main-2] click groupId=', groupId, 'memberRows=', memberRows.length, memberRows, 'expanded=', isExpanded);
+
+    for (index = 0; index < memberRows.length; index++) {
+      if (isExpanded) {
+        addClass(memberRows[index], 'is-hidden');
+      } else {
+        removeClass(memberRows[index], 'is-hidden');
+      }
+      console.log('[group-toggle-main-2] row updated index=', index, 'className=', memberRows[index].className);
+    }
+
+    if (headerCell) {
+      headerCell.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+      console.log('[group-toggle-main-2] new aria-expanded=', headerCell.getAttribute('aria-expanded'));
+    }
+
+    if (icon) {
+      icon.innerHTML = isExpanded ? '&#9654;' : '&#9660;';
+      console.log('[group-toggle-main-2] icon updated=', icon.innerHTML);
+    }
+  }
+
+  window.toggleFairWayGroupRow = function (groupRow) {
+    console.log('[group-toggle-main-2] window.toggleFairWayGroupRow called with', groupRow);
+    if (!groupRow) {
+      console.log('[group-toggle-main-2] window.toggleFairWayGroupRow missing groupRow');
+      return;
+    }
+    toggleGroup(groupRow);
+  };
+
+  for (var rowIndex = 0; rowIndex < groupRows.length; rowIndex++) {
+    console.log('[group-toggle-main-2] binding rowIndex=', rowIndex, 'group=', groupRows[rowIndex].getAttribute('data-group'));
+    groupRows[rowIndex].onclick = function () {
+      console.log('[group-toggle-main-2] click event fired for', this);
+      toggleGroup(this);
+    };
+  }
+
+  console.log('[group-toggle-main-2] init complete');
+}
+
 function submit_selection() {
 	
 }
@@ -583,6 +662,7 @@ function reflesh(skip_selection) {
 	// document.getElementById('record_table_area').innerHTML = '<h1> Loading ...... </h1>';
 	fetchHtml('./booking-records-bydate-api.php?<?php echo (isset($_GET['half_hour'])?'half_hour':''); ?>&exact_date='+select_date, function(html) {
 		document.getElementById('record_table_area').innerHTML = html;
+    initFairWayGroupToggle();
 		reflesh_display();
 
 

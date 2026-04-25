@@ -1,5 +1,14 @@
 <?php 
 
+$position_list_group = array(
+    "Sand",
+    "VIP",
+    "Iron",
+    "Iron & Short Wood",
+    "Wood",
+    "Picle Ball"
+);
+
 
 $position_list_ = array(
     //Sand [0]
