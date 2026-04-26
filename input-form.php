@@ -62,7 +62,16 @@ if ($browser === 'Chrome' || $browser === 'Edge' || $browser === 'Firefox' || $b
 session_start();
 $is_management = isset($_SESSION["management"]);
 
-$reserve_type = $_SESSION['type'];
+// Prefer explicit GET `type` over session when deciding which reservation UI to show.
+// Normalize value to lowercase and trim whitespace.
+$reserve_type = '';
+if (isset($_GET['type']) && strlen(trim((string)$_GET['type'])) > 0) {
+    $reserve_type = strtolower(trim((string)$_GET['type']));
+} elseif (isset($_SESSION['type']) && strlen(trim((string)$_SESSION['type'])) > 0) {
+    $reserve_type = strtolower(trim((string)$_SESSION['type']));
+} else {
+    $reserve_type = 'golf';
+}
 
  ?><?php 
 require_once 'tesing_stage_verification.php';
@@ -454,6 +463,7 @@ require_once 'booking-status-json-variable.php';
 
 
 <form method="get" action="./email-confirmation.php">
+    <input type="hidden" name="type" value="<?php echo htmlspecialchars($reserve_type, ENT_QUOTES, 'UTF-8'); ?>">
 
 <!-- 
     <h1 style="color: red;">

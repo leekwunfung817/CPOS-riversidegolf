@@ -26,7 +26,9 @@ register_shutdown_function(function() {
 
 session_start();
 if (isset($_GET['type'])) {
-  $_SESSION['type'] = $_GET['type'];
+  // Normalize incoming type: trim and lowercase so variants like "Pickleball" or " pickleball " match
+  $incoming_type = trim((string)$_GET['type']);
+  $_SESSION['type'] = strtolower($incoming_type);
 }
 
 $is_logged_in = isset($_SESSION['management']) && !empty($_SESSION['management']);
@@ -80,7 +82,7 @@ function ui_label($key)
 }
 
 $terms_dictionary = [];
-$current_type = $_SESSION['type'] ?? '';
+$current_type = isset($_SESSION['type']) ? trim(strtolower((string)$_SESSION['type'])) : '';
 // dictionary defaults were moved to terms_defaults.php; loaded later only when DB has no records
 
 if (!isset($_SESSION['terms_dictionary_override']) || !is_array($_SESSION['terms_dictionary_override'])) {
@@ -557,12 +559,14 @@ function is_element_visible($visibility_map, $language, $section_id, $element_ty
 $dbConn = get_db_connection();
 if ($dbConn) {
   ensure_terms_table($dbConn);
-  // Try to load terms for the current type (from GET/session). If none found,
-  // fall back to the most-recently-updated stored type so public users see saved changes.
+  // Try to load terms for the current type (from GET/session).
+  // Only fall back to the most-recently-updated stored type when no type
+  // was requested; if a type was explicitly requested, prefer defaults
+  // when DB has no record for that type.
   $db_terms = load_terms_from_db($dbConn, $current_type);
   if (is_array($db_terms) && !empty($db_terms)) {
     $terms_dictionary = $db_terms;
-  } else {
+  } elseif (empty($current_type)) {
     $fallback_type = get_any_terms_type($dbConn);
     if ($fallback_type) {
       $current_type = $fallback_type;
@@ -879,6 +883,33 @@ function render_agree_cta($label, $href)
   /* helper for screen-reader only labels (keeps markup light) */
   .sr-only { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 </style>
+</style>
+<?php
+// Debug helper: print rich console.log output when a type is provided or debug_console is requested
+if (isset($_GET['type']) || isset($_GET['debug_console'])) {
+  $js_get = json_encode($_GET, JSON_UNESCAPED_UNICODE);
+  $js_session = json_encode(isset($_SESSION) ? $_SESSION : [], JSON_UNESCAPED_UNICODE);
+  $js_current = json_encode(isset($current_type) ? $current_type : null, JSON_UNESCAPED_UNICODE);
+  $js_is_logged_in = json_encode(!empty($is_logged_in));
+  $js_is_edit_mode = json_encode(!empty($is_edit_mode));
+  $js_terms_keys = json_encode(is_array($terms_dictionary) ? array_keys($terms_dictionary) : [], JSON_UNESCAPED_UNICODE);
+  $js_terms = json_encode($terms_dictionary ?? [], JSON_UNESCAPED_UNICODE);
+  $js_visibility = json_encode($visibility_map ?? [], JSON_UNESCAPED_UNICODE);
+
+  echo "<script>\n";
+  echo "console.group('terms_booking debug');\n";
+  echo "console.log('GET', $js_get);\n";
+  echo "console.log('SESSION', $js_session);\n";
+  echo "console.log('current_type', $js_current);\n";
+  echo "console.log('is_logged_in', $js_is_logged_in);\n";
+  echo "console.log('is_edit_mode', $js_is_edit_mode);\n";
+  echo "console.log('terms_dictionary keys', $js_terms_keys);\n";
+  echo "console.log('terms_dictionary', $js_terms);\n";
+  echo "console.log('visibility_map', $js_visibility);\n";
+  echo "console.groupEnd();\n";
+  echo "</script>\n";
+}
+?>
 </head>
 <body>
 <header>
@@ -907,7 +938,12 @@ if ($is_edit_mode && $is_logged_in) {
   foreach ($terms_dictionary as $language => $dictionary_sections) {
     render_terms_dictionary($dictionary_sections, $language, $visibility_map, $current_type);
     $agree_label = ($language === 'zh') ? $page_text['agree_zh'] : $page_text['agree_en'];
-    render_agree_cta($agree_label, $page_text['booking_href']);
+    // Build booking href and preserve existing query params if any
+    $booking_href = $page_text['booking_href'];
+    if (!empty($current_type)) {
+      $booking_href .= (strpos($booking_href, '?') === false ? '?' : '&') . 'type=' . urlencode($current_type);
+    }
+    render_agree_cta($agree_label, $booking_href);
   }
 }
 ?>
