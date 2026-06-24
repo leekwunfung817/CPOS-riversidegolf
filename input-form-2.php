@@ -1,4 +1,11 @@
 <?php
+
+require_once 'logger.php';
+
+require_once 'setting-admin.php';
+
+t_log('begin[input-form.php]');
+
 // Function to detect browser
 function getBrowser() {
     $userAgent = $_SERVER['HTTP_USER_AGENT'];
@@ -14,6 +21,29 @@ function getBrowser() {
     } else {
         return 'Other';
     }
+}
+
+
+function is_mobile_browser() {
+    if (!isset($_SERVER['HTTP_USER_AGENT'])) {
+        return false;
+    }
+
+    $ua = strtolower($_SERVER['HTTP_USER_AGENT']);
+
+    $keywords = [
+        'android', 'iphone', 'ipad', 'ipod',
+        'blackberry', 'windows phone', 'opera mini',
+        'mobile', 'silk', 'kindle'
+    ];
+
+    foreach ($keywords as $k) {
+        if (strpos($ua, $k) !== false) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 // Get the browser
@@ -32,6 +62,16 @@ if ($browser === 'Chrome' || $browser === 'Edge' || $browser === 'Firefox' || $b
 session_start();
 $is_management = isset($_SESSION["management"]);
 
+// Prefer explicit GET `type` over session when deciding which reservation UI to show.
+// Normalize value to lowercase and trim whitespace.
+$reserve_type = '';
+if (isset($_GET['type']) && strlen(trim((string)$_GET['type'])) > 0) {
+    $reserve_type = strtolower(trim((string)$_GET['type']));
+} elseif (isset($_SESSION['type']) && strlen(trim((string)$_SESSION['type'])) > 0) {
+    $reserve_type = strtolower(trim((string)$_SESSION['type']));
+} else {
+    $reserve_type = 'golf';
+}
 
  ?><?php 
 require_once 'tesing_stage_verification.php';
@@ -42,6 +82,7 @@ require_once 'tesing_stage_verification.php';
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
     白石高爾夫球練習場 打球位置 預訂表格
     
@@ -49,289 +90,449 @@ require_once 'tesing_stage_verification.php';
 </title>
 
     <style>
-
-
-    .show_for_desktop {
-        display: inline-block;
-    }
-    .hide_for_desktop {
-        display: none;
-    }
-input {
-
-  box-shadow: inset blue 0px 0px 3px -1px; 
+/* ============================================================
+   MODERN GOLF BOOKING FORM — CLEAN REDESIGN
+   ============================================================ */
+:root{--green-dark:#1a5632;--green-mid:#2d7a4a;--green-light:#e8f5e9;--gold:#c9a94e;--gold-light:#fdf6e3;--white:#ffffff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827;--red:#dc2626;--red-light:#fef2f2;--blue:#2563eb;--blue-light:#eff6ff;--radius-sm:6px;--radius:8px;--radius-lg:12px;--shadow-sm:0 1px 2px rgba(0,0,0,0.04);--shadow:0 1px 3px rgba(0,0,0,0.08),0 1px 2px rgba(0,0,0,0.04);--shadow-md:0 3px 6px rgba(0,0,0,0.06),0 2px 4px rgba(0,0,0,0.04);--shadow-lg:0 6px 12px rgba(0,0,0,0.08),0 3px 6px rgba(0,0,0,0.04);--transition:0.15s ease}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:linear-gradient(135deg,#e8f5e9 0%,#f1f8e9 30%,#f9fafb 100%);background-attachment:fixed;min-height:100%}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--gray-800);line-height:1.6;-webkit-font-smoothing:antialiased;display:flex;justify-content:center;padding:16px}
+.input-container{width:100%;max-width:900px;display:flex;justify-content:center}
+#frame{width:100%;background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:24px 28px;overflow:hidden}
+h1,h2,h3,h4{color:var(--green-dark);font-weight:700;line-height:1.3}
+h1{font-size:1.5rem;letter-spacing:-0.02em}
+h3{font-size:1.1rem;margin:0}
+h4{font-size:1rem}
+small{font-size:0.75rem;color:var(--gray-500)}
+.form-label{font-size:0.82rem;font-weight:600;color:var(--gray-600);display:inline;margin-bottom:2px}
+.section-header{background:linear-gradient(135deg,var(--green-dark),var(--green-mid));color:white;padding:10px 16px;border-radius:var(--radius);margin:16px 0 10px 0;font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px;letter-spacing:0.01em}
+.section-header hr{display:none}
+input[type="text"],input[type="email"],input[type="tel"],input[type="number"],select,textarea{width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:var(--radius);font-size:0.9rem;font-family:inherit;color:var(--gray-800);background:var(--gray-50);transition:all var(--transition);outline:none;-webkit-appearance:none;appearance:none}
+input[type="text"]:focus,input[type="email"]:focus,input[type="tel"]:focus,select:focus,textarea:focus{border-color:var(--green-mid);box-shadow:0 0 0 2px rgba(45,122,74,0.15);background:var(--white)}
+input[type="text"]:hover,select:hover,textarea:hover{border-color:var(--gray-300)}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;cursor:pointer;min-height:auto}
+.submit-button,input[type="submit"]{width:100%!important;padding:12px 24px!important;background:linear-gradient(135deg,var(--green-dark),var(--green-mid))!important;color:white!important;border:none!important;border-radius:var(--radius)!important;font-size:1rem!important;font-weight:700!important;cursor:pointer!important;transition:all var(--transition)!important;letter-spacing:0.03em;text-transform:uppercase;box-shadow:var(--shadow-sm)}
+.submit-button:hover:not(:disabled),input[type="submit"]:hover:not(:disabled){transform:translateY(-1px);box-shadow:var(--shadow-lg);filter:brightness(1.1)}
+.submit-button:disabled,input[type="submit"]:disabled{background:var(--gray-300)!important;color:var(--gray-400)!important;cursor:not-allowed!important;box-shadow:none!important}
+.discount_radio{color:var(--gray-800);border:1.5px solid var(--gray-200)!important;border-radius:var(--radius)!important;text-align:center;height:auto!important;min-height:3.5em;width:100%!important;padding:8px 6px!important;font-size:0.85rem!important;font-weight:600;transition:all var(--transition);background:var(--white)!important;cursor:pointer}
+.discount_radio:hover{border-color:var(--green-mid)!important;background:var(--green-light)!important}
+.container{display:block;position:relative;cursor:pointer;user-select:none;width:100%}
+.container input[type="checkbox"],.container input[type="radio"]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}
+.checkmark{display:flex;align-items:center;justify-content:center;background-color:var(--gray-100);border:1.5px solid var(--gray-200);border-radius:var(--radius);padding:6px 10px;min-height:2.2em;font-size:0.85rem;font-weight:600;color:var(--gray-700);transition:all var(--transition);text-align:center;width:100%}
+.container:hover input~.checkmark{border-color:var(--green-mid);background:var(--green-light)}
+.container input:checked~.checkmark{background:var(--green-dark);color:white;border-color:var(--green-dark);box-shadow:var(--shadow-md)}
+.checkmark:after{display:none}
+.container input:checked~.checkmark:after{display:block}
+.position{font-size:1rem!important;font-weight:700;border:none!important;width:auto!important}
+.position_checkbox{margin:0!important;padding:0!important}
+.expend{cursor:pointer;padding:10px 14px;background:var(--gray-50)!important;border:1px solid var(--gray-200);border-radius:var(--radius);margin:6px 0;transition:all var(--transition);font-weight:600;color:var(--gray-700);font-size:0.9rem}
+.expend:hover{background:var(--green-light)!important;border-color:var(--green-mid)}
+.expend hr{display:none}
+.expend_area{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius);margin-bottom:12px;overflow:hidden}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:6px 10px;vertical-align:middle}
+.bracket{font-size:1.1rem;font-weight:700;color:var(--gray-500);vertical-align:middle}
+.back-link{display:inline-flex;align-items:center;gap:4px;color:var(--green-dark);text-decoration:none;font-weight:600;font-size:0.85rem;padding:6px 12px;border-radius:var(--radius-sm);transition:all var(--transition);background:var(--green-light);margin-bottom:6px}
+.back-link:hover{background:var(--green-dark);color:white}
+.price-link{display:inline-block;margin-top:8px;color:var(--green-mid);font-weight:600;text-decoration:underline}
+.help-text{font-size:0.82rem;color:var(--gray-500);margin-top:4px;line-height:1.5}
+.help-text-warn{color:var(--red);font-size:0.82rem;margin-top:4px;line-height:1.5}
+.submit-notice{font-size:0.75rem;color:var(--gray-400);margin-top:12px;text-align:center;font-style:italic}
+hr{border:none;border-top:1px solid var(--gray-200);margin:12px 0}
+#confirmation_code{color:var(--blue);font-weight:600}
+#confirmation_code:hover{border-color:var(--gold);background:var(--gold-light)}
+#confirmation_button{padding:9px 12px!important;cursor:pointer;background:var(--blue-light)!important;border:1.5px solid var(--blue)!important;color:var(--blue)!important;font-weight:600;font-size:0.85rem!important}
+#confirmation_button:hover{background:var(--blue)!important;color:white!important}
+.container .checkmark2:after{font-size:1rem;content:"✓ 已選取 Checked"}
+.navbar{background-color:var(--green-dark);position:fixed;top:0;width:100%;z-index:100;box-shadow:var(--shadow)}
+.navbar a{float:left;display:block;color:white;text-align:center;padding:14px 18px;text-decoration:none;font-weight:500;transition:background var(--transition)}
+.navbar a:hover{background:var(--green-mid)}
+input[type="checkbox"]{margin:0;padding:0;width:auto;height:auto}
+td,th{vertical-align:top}
+.span_checkbox{font-size:0.85rem;min-height:2.5em}
+.show_for_desktop{display:inline-block}
+.hide_for_desktop{display:none}
+.hide_for_mobile{display:block}
+.widen_checkbox{width:100%}
+@media only screen and (max-width:768px){
+#frame{padding:16px 12px;border-radius:var(--radius)}
+h1{font-size:1.15rem}
+h3{font-size:0.95rem}
+input[type="text"],input[type="email"],select,textarea{font-size:0.85rem;padding:8px 10px}
+.section-header{padding:8px 12px;font-size:0.85rem;margin:14px 0 8px 0}
+.discount_radio{font-size:0.8rem!important;min-height:3.2em}
+.checkmark{font-size:0.8rem;min-height:2em}
+.bracket{font-size:1rem}
+.expend{font-size:0.85rem;padding:8px 12px}
+.form-label{font-size:0.78rem}
+input[type="submit"],.submit-button{font-size:0.9rem!important;padding:10px 18px!important}
+.show_for_desktop{display:none}
+.hide_for_desktop{display:inline-block}
+.span_checkbox{font-size:0.8rem;min-height:2.2em}
 }
-    #frame {
-        background: rgba(255,255,255
-/*            ,0.8*/
-        );
-        width: 100%;
-        height: 100%;
-        padding: 30px;
-    }
 
+/* ═══════════════════════════════════════════════════════════
+   EXTENDED STYLING — ANIMATIONS, CARDS, STATUS & POLISH
+   ═══════════════════════════════════════════════════════════ */
 
+/* ── Keyframes Animations ── */
+@keyframes fadeInUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+@keyframes slideDown { from{opacity:0;max-height:0} to{opacity:1;max-height:600px} }
+@keyframes shimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+@keyframes checkPop { 0%{transform:scale(0.8);opacity:0} 60%{transform:scale(1.08)} 100%{transform:scale(1);opacity:1} }
 
+/* ── Fade-in for selection area ── */
+.selection_area { animation: fadeInUp 0.35s ease-out; }
 
-    .position {
-        border: 5px solid grey;
-        font-size: 2em;
-    }
+/* ── Expand/Collapse animation ── */
+.expend_area:not([style*="display: none"]) { animation: slideDown 0.4s ease-out; }
 
-    .span_checkbox {
-        font-size: 1.2em;
-        height: 3em;
-    }
+/* ── Badge ── */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+.badge-required { background: var(--red); color: white; }
+.badge-optional { background: var(--gray-200); color: var(--gray-600); }
 
-html {
-/*        background-image: url('4c2dd3a4-9b6f-4a23-bb55-f2d0ab71397a.jpg');*/
-        background-color: white;
-        padding: 20px;
+/* ── Title / Hero Banner ── */ .page-hero { text-align:center; padding:10px 0 6px 0; margin-bottom:4px; } .page-hero h1 { font-size:1.5rem; font-weight:800; background:linear-gradient(135deg,var(--green-dark),var(--green-mid)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:2px; } .page-hero .subtitle { font-size:0.78rem; color:var(--gray-500); letter-spacing:0.02em; } .page-hero hr { margin:10px auto; max-width:160px; }
+
+/* ── Input Group (label + input) ── */ .input-group { margin-bottom:10px; } .input-group .mandatory-star { color:var(--red); font-weight:700; margin-right:2px; }
+
+/* ── Confirmation Row (email + button side-by-side) ── */ .confirm-row { display:flex; gap:8px; align-items:flex-start; } .confirm-row .confirm-email-col { flex:1; min-width:0; } .confirm-row .confirm-btn-col { flex-shrink:0; min-width:140px; }
+
+/* ── Styled Textarea ── */ textarea { resize:vertical; min-height:100px; line-height:1.5; font-family:inherit; } textarea:focus { border-color:var(--green-mid); box-shadow:0 0 0 2px rgba(45,122,74,0.15); }
+
+/* ── Availability Legend ── */ .legend-table { width:auto !important; margin:8px 0; border:1px solid var(--gray-200); border-radius:var(--radius); overflow:hidden; } .legend-table td { padding:6px 12px; font-size:0.82rem; font-weight:500; }
+.legend-available { background: #91FE69; color: var(--green-dark); }
+.legend-booked { background: #FE8569; color: #7f1d1d; }
+
+/* ── Pricing Option Cards Section ── */ .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:8px 0 10px 0; } .pricing-option-label { text-align:center; cursor:pointer; } .pricing-option-label .discount_radio { min-height:4em; display:flex; align-items:center; justify-content:center; flex-direction:column; }
+
+/* ── Octopus Number Input Row ── */ .octopus-row { display:flex; align-items:center; gap:4px; flex-wrap:wrap; } .octopus-row input[type="text"] { width:auto; flex:1; min-width:80px; } .octopus-row input.octopus-main { flex:2; min-width:120px; } .octopus-row input.octopus-q { flex:1; min-width:60px; }
+
+/* ── Submit Section ── */ .submit-section { margin-top:16px; padding-top:12px; border-top:1.5px solid var(--gray-200); }
+
+/* ── Remarks Label ── */ .remarks-label { font-size:0.95rem; font-weight:700; color:var(--green-dark); margin-bottom:4px; }
+
+/* ── Availability Dot Indicator ── */
+.availability-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+.availability-dot.avail { background: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,0.2); }
+.availability-dot.booked { background: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.2); }
+
+/* ── Court Selection Table ── */
+.court-table { width: 100%; }
+.court-table tr { transition: background var(--transition); }
+.court-table tr:hover { background: var(--green-light); }
+.court-table .court-number {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--green-dark);
+    min-width: 80px;
+    padding: 8px 14px;
 }
 
-    body {
-        background-color: white;
-        margin: 0;
-        width: 100%;
-            background-size: cover;
-        font-family: Arial, sans-serif;
-    }
+/* ── "Back" link positioned nicely ── */
+.top-nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
 
-    .input-container {
-        position: relative;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-    }
+/* ── Tooltip-style hint ── */
+.hint-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--gray-300);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    cursor: help;
+    margin-left: 4px;
+    vertical-align: middle;
+}
 
-    input {
-        border: none;
-        padding: 15px 32px;
-        text-decoration: none;
-        display: inline-block;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 12px;
-        transition-duration: 1s;
-    }
-    input:hover {
-/*        background-color: yellow;*/
-background-image: linear-gradient(to right top, #D8E6F0, #D1F1DB);
-/*        border: 1px solid #87cefa; */
-    }
+/* ── Loading/Shimmer placeholders ── */
+.shimmer {
+    background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-200) 50%, var(--gray-100) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
 
-    input, optgroup , select {
-        padding: 10px;
-        border: 2px solid #ccc;
-        border-radius: 5px;
-        background-color: rgba(255, 255, 255
-/*            , 0.8*/
-        );
-        /* Add any other styling you need */
-        width:  90%;
-        height: 100%;
-    }
+/* ── Mandatory asterisk ── */
+.mandatory { color: var(--red); font-weight: 700; }
 
-    .position {
-        width: 200px;
-    }
+/* ── Smooth scroll ── */
+html { scroll-behavior: smooth; }
 
+/* ── Print styles ── */
+@media print {
+    html { background: white; }
+    #frame { box-shadow: none; border: 1px solid #ccc; }
+    .submit-button, .expend, .back-link { display: none; }
+}
 
+/* ── Additional responsive tweaks ── */
+@media only screen and (max-width: 768px) {
+    .pricing-grid { grid-template-columns: 1fr; gap: 6px; }
+    .confirm-row { flex-direction: column; }
+    .confirm-row .confirm-btn-col { min-width: 100%; }
+    .octopus-row { gap: 4px; }
+    .page-hero h1 { font-size: 1.2rem; }
+}
 
+/* ── Confirmation Code Button & Input ── */
+#confirmation_code:hover,
+#confirmation_button:hover { background-color: #fef9c3 !important; }
+#confirmation_button { padding: 8px; margin: 6px; }
 
+/* ── Half Hour Option Text ── */
+.half_hour_option { text-align: left; }
 
-    h1 {
-        font-size: 2em;
-    }
-    input, optgroup , select {
-        font-size: 2em;
-    }
-    /* Create a custom checkbox */
-    .checkmark {
-        height: 1.5em;
-        width: 3em;
-        font-size: 1.5em;
-    }
+/* ── Discount Notice Span sizing ── */
+#discount_notice_span_hourly,
+#discount_notice_span_student,
+#discount_notice_span_disabled {
+    height: 3.2em; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ── Sand Bay & Vehicle option spans ── */
+#sand_bay_option_span,
+#with_vehicle_span {
+    height: 2.4em; font-size: 0.85rem;
+    display: flex; align-items: center; justify-content: center;
+}
 @media only screen and (max-width: 1300px) {
-    .show_for_desktop {
-        display: none;
-    }
-    .hide_for_desktop {
-        display: inline-block;
-    }
+    #sand_bay_option_span,
+    #with_vehicle_span { height: 2.8em; font-size: 1rem; }
+}
 
-    .input-container {
-        position: relative;
-        width: 100%;
-        justify-content: left;
-        align-items: left;
-    }
-    input, optgroup , select {
-/*            background-color: rgba(255, 255, 255, 1);*/
-        width:  90%;
-        height: 100%;
-    }
-    th, td {
-/*        background-color: rgba(255, 255, 255, 0.7);*/
-    }
+/* ── Widen Checkbox ── */
+.widen_checkbox { width: 100%; accent-color: var(--green-mid); }
 
-     {
-        padding: 10px;
-        margin: 10px;
-        border: 5px solid white;
-    }
+/* ── Remark Textarea ── */ .remark-textarea { width:100%; min-height:100px; padding:10px 12px; border:1.5px solid var(--gray-200); border-radius:var(--radius); background:var(--gray-50); font-size:0.85rem; line-height:1.5; transition:all var(--transition); resize:vertical; font-family:inherit; } .remark-textarea:focus { border-color:var(--green-mid); background:white; box-shadow:0 0 0 2px rgba(45,122,74,0.12); outline:none; }
 
-    .hide_for_mobile {
-        display: none;
-    }
+/* ── Submit Notice Text ── */ .submit-notice { display:block; margin-top:8px; padding:8px 12px; background:#fffbeb; border-left:3px solid #f59e0b; border-radius:0 var(--radius-sm) var(--radius-sm) 0; color:#92400e; font-size:0.72rem; line-height:1.5; } .submit-notice strong { color:#92400e; }
 
+/* ── Court selection area tweaks ── */ .selection_area table td { padding:2px 6px; }
 
+/* ═══════════════════════════════════════════════════════════
+   FRAMEWORK OVERRIDE — BREAK TABLE CONSTRAINTS & UNIFORM SIZING
+   ═══════════════════════════════════════════════════════════ */
 
-    h1 {
-        font-size: 4em;
-    }
-    h3 {
-        font-size: 3em;
-    }
-    h4 {
-        font-size: 2em;
-    }
-    input, optgroup , select {
-        font-size: 3.5em;
-    }
-    .position {
-        font-size: 2em;
-    }
+/* ── Force main form table to behave as a block container ── */
+form > table[style*="background-color: white"],
+form > table {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
 
-    th {
-        font-size: 2.5em;
+/* Make each direct tr a block-level row */
+form > table[style*="background-color: white"] > tbody,
+form > table > tbody {
+    display: block !important;
+    width: 100% !important;
+}
+
+form > table[style*="background-color: white"] > tbody > tr,
+form > table > tbody > tr {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 4px;
+}
+
+/* Make td blocks with full width */
+form > table[style*="background-color: white"] > tbody > tr > td,
+form > table > tbody > tr > td {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    padding: 8px 0 !important;
+}
+
+/* ── UNIFORM INPUT SIZING — override ALL inline widths ── */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+}
+
+/* ── Override inline styles on octopus inputs ── */
+input.octopus-main,
+input.octopus-q,
+input[name="octopus_no"],
+input[name="octopus_no_q"],
+input[name="octopus_no_cf"],
+input[name="octopus_no_q_cf"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 1 auto !important;
+}
+
+/* ── Override nested table inline widths ── */
+table[style*="width: 90%"],
+table[style*="width: 100%"] {
+    width: 100% !important;
+    display: block !important;
+}
+
+table[style*="width: 90%"] tbody,
+table[style*="width: 100%"] tbody,
+table[style*="width: 90%"] tr,
+table[style*="width: 100%"] tr {
+    display: block !important;
+    width: 100% !important;
+}
+
+table[style*="width: 90%"] td,
+table[style*="width: 100%"] td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+/* Override inline td widths: 60%, 40%, 50%, 20% */
+td[style*="width:"] {
+    width: 100% !important;
+    display: block !important;
+    box-sizing: border-box;
+}
+
+/* ── Email confirmation row: kept as inline-flex side-by-side ── */
+form > table td table td[style*="width: 60%"],
+form > table td table td[style*="width: 40%"] {
+    display: inline-block !important;
+    width: auto !important;
+    vertical-align: top;
+}
+
+/* The email confirmation table should stay as a flex row */
+form > table td table:has(#confirm_email) {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-start;
+}
+form > table td table:has(#confirm_email) tbody,
+form > table td table:has(#confirm_email) tr {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+form > table td table:has(#confirm_email) td[style*="width: 60%"] {
+    flex: 2 1 240px !important;
+    min-width: 200px;
+    display: block !important;
+}
+form > table td table:has(#confirm_email) td[style*="width: 40%"] {
+    flex: 1 1 180px !important;
+    min-width: 160px;
+    display: block !important;
+}
+
+/* ── Pricing options: keep 3-column grid ── */
+table:has(.discount_radio) {
+    display: block !important;
+    width: 100% !important;
+}
+table:has(.discount_radio) tbody {
+    display: block !important;
+    width: 100% !important;
+}
+table:has(.discount_radio) tr {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100% !important;
+}
+table:has(.discount_radio) td {
+    flex: 1 1 180px !important;
+    min-width: 140px;
+    display: block !important;
+    padding: 4px !important;
+}
+
+/* ── Vehicle & sand bay row: keep 2-column on desktop ── */
+table:has(#with_vehicle) {
+    display: block !important;
+    width: 100% !important;
+}
+table:has(#with_vehicle) tbody,
+table:has(#with_vehicle) tr {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100% !important;
+}
+table:has(#with_vehicle) td {
+    flex: 1 1 200px !important;
+    min-width: 160px;
+    display: block !important;
+}
+
+/* ── Octopus number row: keep input + bracket inline ── */
+.octopus_block td {
+    display: block !important;
+    width: 100% !important;
+}
+
+/* ── SELECT elements: consistent sizing ── */ select { width:100% !important; max-width:100% !important; min-height:38px; }
+
+/* ── Input group spacing ── */ .form-group { margin-bottom:12px; }
+
+/* ── Responsive adjustments for small screens ── */
+@media only screen and (max-width: 768px) {
+    table:has(.discount_radio) td {
+        flex: 1 1 100% !important;
     }
-
-    /* Create a custom checkbox */
-    .checkmark {
-        height: 0.6em;
-        width: 3em;
+    table:has(#with_vehicle) td {
+        flex: 1 1 100% !important;
     }
-
-
-    .span_checkbox {
-        font-size: 2.5sem;
-        height: 4em;
+    form > table td table:has(#confirm_email) {
+        flex-direction: column;
+    }
+    form > table td table:has(#confirm_email) td[style*="width: 60%"],
+    form > table td table:has(#confirm_email) td[style*="width: 40%"] {
+        flex: 1 1 auto !important;
+        min-width: auto !important;
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media only screen and (max-width: 600px) {
-    .input-container {
-        position: relative;
-        width: 100%;
-        justify-content: left;
-        align-items: left;
-    }
-    input, optgroup , select {
-/*            background-color: rgba(255, 255, 255, 1);*/
-        width:  95%;
-        height: 100%;
-    }
-    th, td {
-        background-color: rgba(255, 255, 255
-/*            , 0.7*/
-        );
-    }
-
-     {
-        padding: 10px;
-        margin: 10px;
-        border: 5px solid white;
-    }
-
-    .hide_for_mobile {
-        display: none;
-    }
-
-    .show_for_desktop {
-        display: none;
-    }
-    .hide_for_desktop {
-        display: inline-block;
-    }
-
-
-
-    h1 {
-        font-size: 3em;
-    }
-    h3 {
-        font-size: 2.5em;
-    }
-    input, optgroup , select, .position {
-        font-size: 2em;
-    }
-
-    th {
-        font-size: 2em;
-    }
-
+/* ── Forcibly remove transparent dummy inputs ── */
+input[style*="background-color: transparent"][disabled] {
+    display: none !important;
+}
+div[style*="color: transparent"] {
+    display: none !important;
 }
 
-
-input, optgroup , select {
-    border-radius:  20px;
-}
-.expend {
-    cursor: pointer;
-    font-size: 1.3em;
-/*    border: 5px solid yellow;*/
-transition: opacity 2s;
-/*    transition: all 2s;*/
-}
-.expend:hover {
-/*    background-image: linear-gradient(to right top, #E7FDDF, #DFF1FD);*/
-/*    border: 5px solid blue;*/
-/*transition: all 2s;*/
-}
-
-.form-label {
-    font-size: 1.3em;
-}
-
+/* ── Uniform margin for section blocks ── */ .section-header + br { display:none; } form > table[style*="background-color: white"] > tbody > tr { margin-bottom:2px; } form > table[style*="background-color: white"] > tbody > tr > td { padding:4px 0 !important; }
     </style>
 </head>
 
@@ -391,36 +592,16 @@ require_once 'booking-status-json-variable.php';
 </script>
 
     <div class="input-container">
-<div id="frame" style="padding: 10 px;margin: 10 px;">
+<div id="frame">
 
 
 
 
 
-
-
-
-<style type="text/css">
-
-    table {
-        text-align: left;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    th, td {
-        text-align: left;
-        white-space: nowrap;
-    }
-
-    label {
-        display: block;
-    }
-
-</style>
 
 
 <form method="get" action="./email-confirmation.php">
+    <input type="hidden" name="type" value="<?php echo htmlspecialchars($reserve_type, ENT_QUOTES, 'UTF-8'); ?>">
 
 <!-- 
     <h1 style="color: red;">
@@ -430,18 +611,31 @@ require_once 'booking-status-json-variable.php';
 The website is under construction. Non-developers should not attempt to perform any operations through this website. If you would like to book immediately, please make your own reservation at the golf course.
 
     </h1> -->
-<table>
-	<tr>
-		<td colspan="2">
-			<a href="../"> < Back</a>
-			<h1 style="background-color: white;width: 100%;">
-			<hr>
-			    白石高爾夫球練習場<br>打球位置 預訂表格<br> 
-			    White Head Club<br>Reservation Form
-			<hr>
-			</h1>
-		</td>
-	</tr>
+<table style="background-color: white;">
+    <tr>
+        <td colspan="2">
+            <a href="." class="back-link">← Back 返回</a>
+            <div class="page-hero">
+            <h1>
+            <?php 
+if ($reserve_type == 'pickleball') {
+?>
+🏓 匹克球<br>預訂表格<br> 
+Pickleball<br>Reservation Form
+<?php 
+} else {
+?>
+⛳ 白石高爾夫球<br>預訂表格<br> 
+White Head Club<br>Reservation Form
+<?php 
+}
+            ?>
+            </h1>
+            <p class="subtitle">請填妥以下資料以完成預訂 &bull; Please fill in the details below</p>
+            <hr>
+            </div>
+        </td>
+    </tr>
     <tr>
         <td colspan="2">
 <?php 
@@ -461,17 +655,18 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
 
  ?>
 (*) 必填項 Mandatory field
-<h3 style="background-color: white;">
-<hr>
-個人資訊 Personal Information 
-<hr>
-</h3>
+<div class="section-header">👤 個人資訊 Personal Information</div>
 
         </td>
     </tr>
-    <tr>
-        <th class="hide_for_mobile"><span class="form-label">姓名<br>Full Name</span></th>
-        <td>*<input 
+    <tr><!-- 
+        <th class="hide_for_mobile"></th> -->
+        <td>
+            <small>
+                <span class="form-label">姓名 Full Name</span>
+            </small>
+            <br>
+            *<input 
             class="form-control" 
             type="text" 
             name="name" 
@@ -486,10 +681,24 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
                 }
              ?>" 
             ><br></td>
+            <script>
+                function checkNameEmpty() {
+                    const nameValue = document.getElementById("name").value.trim();
+                    return (nameValue === "");
+                }
+            </script>
     </tr>
-    <tr>
-        <th class="hide_for_mobile"><span class="form-label">電子郵件地址<br>Email Address</span></th>
+    <tr><!-- 
+        <th class="hide_for_mobile"></th> -->
         <td>
+            <small>
+                <span class="form-label">電子郵件地址 Email Address</span>
+            </small>
+            <br>
+            <table style="width: 90%;">
+                <tr>
+                    <td style="width: 60%;">
+                        
             *<input 
             class="form-control" 
             type="text" 
@@ -505,9 +714,25 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
                 }
              ?>" 
             >
+                    </td>
+                    <td style="width: 40%;">
+
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            onclick="send_confirm_code(false)" 
+                            id="confirmation_button" 
+                            placeholder="按此發送6位數字驗證碼 \n Click here to send 6-digit confirmation code" 
+                            readonly>
+
+                        <input type="hidden" name="open_datetime" id="open_datetime" value="<?php
+                            echo $current_timestamp;
+                         ?>" readonly>
+
+                    </td>
+                </tr>
+            </table>
             
-
-
 
 
 
@@ -517,32 +742,44 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
 
         </td>
     </tr>
-    <tr style="color: blue;">
-        <th class="hide_for_mobile"><span class="form-label">郵件地址 - 驗證碼<br>Confirmation Code</span></th>
+    <tr>
+                    <td>
+
+
+
+                    </td>
+    </tr>
+    <tr style="color: blue;"><!-- 
+        <th class="hide_for_mobile"></th> -->
         <td>
 
 
-<table style="width: 90%;">
+<table style="width: 100%;">
                 <tr>
-                    <td style="width: 60%;" >
+                    <td style="width: 100%;" >
+                        <small>
+                            <span class="form-label">郵件地址 - 驗證碼 Confirmation Code</span>
+                        </small>
+                        <br>
+                        *<input 
+            class="form-control" 
+            type="text" 
+            name="confirmation_code" 
+            id="confirmation_code" 
+            style="color: blue;" 
+            placeholder="驗證碼 Verification code" 
+            onkeydown="setTimeout(function() {
+                checkConfirmCode(false);
+            }, 1);" 
+            onblur="setTimeout(function() {
+                checkConfirmCode(false);
+            }, 1);" 
+            onclick="setTimeout(function() {
+                checkConfirmCode(false);
+            }, 1);" 
 
-                        *<input class="form-control" type="text" name="confirmation_code" id="confirmation_code" style="color: blue;" 
-            placeholder="驗證碼 confirm code" 
-             onkeydown="setTimeout(checkConfirmCode, 1)" onblur="setTimeout(checkConfirmCode, 1)" onclick="setTimeout(checkConfirmCode, 1)" 
-
-             autocomplete="off" 
+            autocomplete="off" 
             required><br>
-                    </td>
-                    <td style="width: 40%;" >
-                        <input type="text" class="form-control" onclick="send_confirm_code()" id="confirmation_button" 
-                            placeholder="按此發送6位數字驗證碼 \n Click here to send 6-digit confirmation code" 
-                            
-                            readonly>
-
-                        <input type="hidden" name="open_datetime" id="open_datetime" value="<?php
-                            echo $current_timestamp;
-                         ?>" readonly>
-
                     </td>
                 </tr>
 
@@ -559,26 +796,54 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
             </table>
 
     <script type="text/javascript">
+
+        function setCookie(name, value, days) {
+            console.log('setCookie:',name, value);
+            // Remove the cookie by setting an expired date
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+
+            // Set the new cookie
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+        }
+
+
+
+
         confirmed = false;
         confirming = false;
-        function checkCodeConfirmed(already_checked) {
+        function checkCodeConfirmed(already_checked, bypass_alert) {
             // console.log('Correct', html);
+
+
+            setCookie("name_rivergolf", document.getElementById('name').value, 90);
+
+
             confirmed = true;
             if (already_checked) {
-                alert('不需要確認碼 該電子郵件地址之前已驗證過 ! Confirmation code is not needed, this email address was validated before!');
+                if (!bypass_alert) {
+                    alert('不需要確認碼 該電子郵件地址之前已驗證過 ! Confirmation code is not needed, this email address was validated before!');
+                }
+                document.getElementById('confirmation_code').value = '不需要 Not needed';
             } else {
                 alert('驗證碼正確! Confirmation code correct!');
             }
             
             confirmation_code.style.backgroundColor = '#91FE69';
 
-            // document.getElementById('name').readOnly = true;
+            document.getElementById('name').readOnly = true;
             document.getElementById('confirm_email').readOnly = true;
             document.getElementById('confirmation_code').readOnly = true;
             document.getElementById('confirmation_button').disabled = true;
         }
-        function checkConfirmCode() {
+        function checkConfirmCode(bypass_alert) {
             if (confirmed || confirming) {
+                console.log('Already confirmed or confirming');
                 return;
             }
             email = document.getElementById('confirm_email').value;
@@ -586,6 +851,7 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
             
             // console.log(confirmation_code.value, confirmation_code.value.length)
             if (confirmation_code.value.length == 6) {
+                console.log('Checking confirmation code');
                 confirming = true;
                 confirmation_code = document.getElementById('confirmation_code');
                 
@@ -593,7 +859,7 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
 
                 // console.log('confirmation_code',confirmation_code,'.');
                 fetchHtml('./email-confirmation.php?confirmation_code='+confirmation_code.value+'&email='+email+'&open_datetime='+open_datetime,function (html) {
-                    
+                    console.log('Received response for confirmation code check');
                     correct = (html_result=='Y'?true:false);
 
                     // console.log(confirmation_code.value, code_buffer);
@@ -602,7 +868,8 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
                         // || true // Test Temporary
                         // confirmation_code.value==code_buffer
                         ) {
-                        checkCodeConfirmed(false);
+                        console.log('Correct');
+                        checkCodeConfirmed(false, bypass_alert);
                     } else {
                         console.log('Incorrect', html);
                         confirmation_code.style.backgroundColor = '#FE8569';
@@ -622,19 +889,7 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
 
 
 
-    <style type="text/css">
-        #confirmation_code:hover {
-            background-color: yellow;
-        }
-        #confirmation_button {
-            padding: 10px;
-            margin: 10px;
-        }
-        #confirmation_button:hover {
-            background-color: yellow;
-        }
-    </style>
-        <script type="text/javascript">
+    <script type="text/javascript">
             function checkEmailValidity(input) {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 return emailRegex.test(input.value);
@@ -661,19 +916,28 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
             }
         }
 
-        function send_confirm_code() {
+        function send_confirm_code(bypass_alert) {
             confirm_email_element = document.getElementById('confirm_email');
             email = confirm_email_element.value;
 
-
+            // fetchHtml('',function (html) {
+                
+            // });
             <?php
                 $cookie_name = "email"."_rivergolf";
                 if(isset($_COOKIE[$cookie_name])) {
                      ?>
-            if (email == '<?php echo $_COOKIE[$cookie_name]; ?>') {
-                checkCodeConfirmed(true);
-                return;
-            }
+                    if (email == '<?php echo $_COOKIE[$cookie_name]; ?>') {
+                        checkCodeConfirmed(true, bypass_alert);
+                        return;
+                    }
+                    <?php
+                } else {
+                     ?>
+                    if (bypass_alert) {
+                        checkCodeConfirmed(true, bypass_alert);
+                        return;
+                    }
                     <?php
                 }
              ?>
@@ -702,8 +966,8 @@ $futureOneHour_timestamp = $futureOneHourDate->format('Y-m-d').'T'.$futureOneHou
 
         </td>
     </tr>
-    <tr>
-        <th class="hide_for_mobile"><span class="form-label">電話號碼<br>Telephone No.</span></th>
+    <tr><!-- 
+        <th class="hide_for_mobile"><span class="form-label">電話號碼<br>Telephone No.</span></th> -->
         <td>
 
 <script type="text/javascript">
@@ -721,7 +985,6 @@ function isNumberKey(evt){
             name="telephone" 
             id="telephone" 
             placeholder="電話號碼 Phone number" 
-            onkeypress="return isNumberKey(event)" 
             autocomplete="on"
 
             value="<?php
@@ -730,6 +993,18 @@ function isNumberKey(evt){
                     echo $_COOKIE[$cookie_name];
                 }
              ?>" 
+            onkeypress="
+                return isNumberKey(event);
+            " 
+            onchange="
+                setTimeout(function () {
+                    setCookie(
+                        '<?php echo $cookie_name; ?>', 
+                        document.getElementById('telephone').value, 
+                        90
+                    );
+                },10);
+            "
              required
             ><br></td>
     </tr>
@@ -739,46 +1014,43 @@ function isNumberKey(evt){
 
 
 
-
-
+<?php 
+if ($reserve_type != 'pickleball') {
+?>
     <tr>
         <td colspan="2">
-            
-<h3 style="background-color: white;">
-<hr>
-價錢及優惠 Pricing & Discount<br>
 
-<br>
+<div class="section-header">💰 價錢及優惠 Pricing &amp; Discount</div>
+<div style="margin: -8px 0 12px 0;">
 <small>
-<a target="_blank" href="./price_display.php">請按此處參考價錢表 Please click here for price table</a>
+<a class="price-link" target="_blank" href="./price_display.php">📋 請按此處參考價錢表 Please click here for price table</a>
 </small>
-<hr>
-</h3>
+</div>
 
 
 
 
         </td>
     </tr>
-    <tr>
+<?php 
+}
+ ?>
+
+    <tr
+    
+<?php 
+if ($reserve_type == 'pickleball') {
+?>
+hidden
+<?php 
+}
+?>
+    >
         <td colspan="2" style="text-align: center;">
             <hr>
             <h4>價錢選項 Pricing option</h4> 
             <hr>
             <br>
-            <style type="text/css">
-                .discount_radio {
-
-                    color: black;
-                    border-style: solid;
-                    border-radius:  20px;
-                    text-align: center;
-                    height: 5em;
-                    width: 90%;
-
-
-                }
-            </style>
             <table>
                 <tr>
                     
@@ -848,6 +1120,7 @@ function isNumberKey(evt){
                     <td style="color: red;text-align: center;">
                         <input 
                         type="text" 
+                        id="school_name" 
                         name="school_name" 
                         placeholder="學校名稱 School Name"
 
@@ -857,6 +1130,17 @@ function isNumberKey(evt){
                                 echo $_COOKIE[$cookie_name];
                             }
                          ?>" 
+
+            onchange="
+                setTimeout(function () {
+                    setCookie(
+                        '<?php echo $cookie_name; ?>', 
+                        document.getElementById('school_name').value, 
+                        90
+                    );
+                },10);
+            "
+
                         ><br>
                         <small>
                         如果您是學生，請輸入學校名稱。<br>
@@ -868,6 +1152,7 @@ function isNumberKey(evt){
                     <td style="color: purple;text-align: center;">
                         <input 
                         type="text" 
+                        id="disabled_id" 
                         name="disabled_id" 
                         placeholder="傷健人士號碼 Disabilities Identification"
 
@@ -877,6 +1162,19 @@ function isNumberKey(evt){
                                 echo $_COOKIE[$cookie_name];
                             }
                          ?>" 
+
+
+            onchange="
+                setTimeout(function () {
+                    setCookie(
+                        '<?php echo $cookie_name; ?>', 
+                        document.getElementById('disabled_id').value, 
+                        90
+                    );
+                },10);
+            "
+
+
                         ><br>
                         <small>
                         如果您是傷健人士，請輸入傷健人士號碼。<br>
@@ -929,13 +1227,11 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
 
         </td>
     </tr>
-</table>
-
-<table style="width: 100%;">
-    <tr><td style="text-align: center;" colspan="3">
-            <hr>
+    <tr>
+        <td  id="with_vehicle_span_space" style="text-align: center;" colspan="2">
+<!--             <hr>
             <h4>其他選項 Other option</h4>
-            <hr>
+            <hr> -->
             <br>
 
             <table style="width: 100%;">
@@ -954,35 +1250,21 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
     </span>
 </label>
 
-                        <br class="hide_for_mobile">
-                        <br class="hide_for_mobile">
+    <br class="hide_for_mobile">
+    <br class="hide_for_mobile">
 
-                        <br class="hide_for_desktop">
-                        <br class="hide_for_desktop">
+    <br class="hide_for_desktop">
+    <br class="hide_for_desktop">
+
 
                     </td>
                     <td>
 
 
-<label class="container" style="text-align: center;">
-    <input type="checkbox" name="sand_bay_option" id="sand_bay_option">
-    <span id="sand_bay_option_span" class="span_checkbox checkmark widen_checkbox higher" 
-    style="
-        color: black;
-        border-style: solid;
-        border-radius:  20px;
-        text-align: center;
-    " onclick="setTimeout(function () {
-        check_sand_bay();show_and_hide_hours();show_and_hide_hours_2();
-    },1);">
-    </span>
-
-    
-</label>
-
 <script type="text/javascript">
     
     function check_sand_bay() {
+        console.log('check_sand_bay');
         var checkboxes = document.getElementsByClassName("position_checkbox");
         for (var i = 0; i < checkboxes.length; i++) {
             checkboxes[i].checked = false; // Set to true if you want to check them all
@@ -1049,53 +1331,42 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
         <td style="text-align: center;" colspan="1">
         </td>
         <td></td>
-    </tr>   
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table>
+    </tr>
     <tr class="octopus_block">
         <td colspan="2">
             
-<h3 style="background-color: white;"><hr> 
-    <!-- 進場認證 Entry authentication  -->
-    停車場優惠 Parking Offers
-    <hr></h3>
+<div class="section-header">🅿️ 停車場優惠 Parking Offers</div>
 
 
         </td>
     </tr>
-    <tr class="octopus_block">
+    <tr class="octopus_block"><!-- 
         <th class="hide_for_mobile">
 
 <script type="text/javascript">
 </script>
+        </th> -->
 <!-- 號碼  number -->
-            <span class="form-label">八達通號碼<br>Octopus No.</span></th>
         <td style="vertical-align: text-top;">
+            <small>
+                <span class="form-label">八達通號碼 Octopus No.</span>
+                <?php
+                        $cookie_name = "octopus_no"."_rivergolf";
+                        if(isset($_COOKIE[$cookie_name])) {
+                            echo $_COOKIE[$cookie_name];
+                        }
+                     ?>
+            </small>
+            
+            <br>
                     *<input type="text" 
-                    name="octopus_no" id="octopus_no" 
+                    name="octopus_no" 
+                    id="octopus_no" 
                     placeholder="八達通 Octopus"
-                    onblur="console.log('confirm_octopus:',confirm_octopus())" 
-                    onchange="console.log('confirm_octopus:',confirm_octopus())" 
-                    style="width:50%;" 
+                    onblur="
+                    console.log('confirm_octopus:',confirm_octopus());
+                    " 
+                    class="octopus-main"
                     onkeypress="return isNumberKey(event)" 
                     required 
                     autocomplete="on"
@@ -1106,6 +1377,17 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
                             echo $_COOKIE[$cookie_name];
                         }
                      ?>" 
+                    onchange="
+
+                        setTimeout(function () {
+                            setCookie(
+                                '<?php echo $cookie_name; ?>', 
+                                document.getElementById('octopus_no').value, 
+                                90
+                            );
+                        },10);
+                            console.log('confirm_octopus:',confirm_octopus());
+                    " 
                     >
 
                     <b class="bracket">(*</b>
@@ -1114,8 +1396,7 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
                     name="octopus_no_q" 
                     id="octopus_no_q"
                     onblur="console.log('confirm_octopus:',confirm_octopus())" 
-                    onchange="console.log('confirm_octopus:',confirm_octopus())"  
-                    style="width:20%" 
+                    class="octopus-q"
                     placeholder="括號內數字 Bracket number" 
                     onkeypress="return isNumberKey(event)" 
                     required 
@@ -1127,13 +1408,32 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
                             echo $_COOKIE[$cookie_name];
                         }
                      ?>" 
+                    onchange="
+
+                setTimeout(function () {
+                    setCookie(
+                        '<?php echo $cookie_name; ?>', 
+                        document.getElementById('octopus_no_q').value, 
+                        90
+                    );
+                },10);
+
+                    console.log('confirm_octopus:',confirm_octopus());
+
+                    "  
+
                     ><b class="bracket">)</b>
 
         </td>
     </tr>
-    <tr class="octopus_block" id="octopus_block">
-        <th class="hide_for_mobile"><span class="form-label">八達通號碼 重複確認<br>Octopus No. repeat confirmation</span></th>
+    <tr class="octopus_block" id="octopus_block"><!-- 
+        <th class="hide_for_mobile">
+        </th> -->
         <td id="octopus_no_cf2">
+            <small>
+                <span class="form-label">八達通號碼 重複確認 Octopus No. repeat confirmation</span>
+            </small>
+            <br>
             <!-- 重複確認  number repeat confirmation -->
             <b style="vertical-align: text-top;">
                 *<input type="text" 
@@ -1152,9 +1452,20 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
                         echo $_COOKIE[$cookie_name];
                     }
                  ?>" 
+            onchange="
+                setTimeout(function () {
+                    setCookie(
+                        '<?php echo $cookie_name; ?>', 
+                        document.getElementById('octopus_no_cf').value, 
+                        90
+                    );
+                },10);
+            "
                 >
 
-                <b class="bracket">(*</b><input type="text" name="octopus_no_q_cf" id="octopus_no_q_cf" 
+                <b class="bracket">(*</b>
+
+                <input type="text" name="octopus_no_q_cf" id="octopus_no_q_cf" 
                 onblur="console.log('confirm_octopus:',confirm_octopus())" 
                 onchange="console.log('confirm_octopus:',confirm_octopus())" 
                 onkeypress="return isNumberKey(event)" 
@@ -1169,23 +1480,19 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
                         echo $_COOKIE[$cookie_name];
                     }
                  ?>" 
+            onchange="
+                setTimeout(function () {
+                    setCookie(
+                        '<?php echo $cookie_name; ?>', 
+                        document.getElementById('octopus_no_q_cf').value, 
+                        90
+                    );
+                },10);
+            "
                 ><b class="bracket">)</b>
 
             </b>
 
-
-<style type="text/css">
-
-.bracket {
-    font-size: 1.5em;
-}
-
-@media only screen and (max-width: 1300px) {
-.bracket {
-    font-size: 3em;
-}
-}
-</style>
 
         <script type="text/javascript">
             function confirm_octopus() {
@@ -1207,15 +1514,15 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
                 octopus_no_cf.style.backgroundColor = "white";
 
                 if (octopus_no.value.trim() != "" && octopus_no.value === octopus_no_cf.value) {
-                    octopus_no_cf.style.backgroundColor = "green";
+                    octopus_no_cf.style.backgroundColor = "rgb(200,255,200)";
                 } else {
-                    octopus_no_cf.style.backgroundColor = "red";
+                    octopus_no_cf.style.backgroundColor = "rgb(255,200,200)";
                 }
 
                 if (octopus_no_q.value.trim() != "" && octopus_no_q.value === octopus_no_cf_q.value) {
-                    octopus_no_cf_q.style.backgroundColor = "green";
+                    octopus_no_cf_q.style.backgroundColor = "rgb(200,255,200)";
                 } else {
-                    octopus_no_cf_q.style.backgroundColor = "red";
+                    octopus_no_cf_q.style.backgroundColor = "rgb(255,200,200)";
                 }
 
                 if (octopus_no.value.trim() === "") {
@@ -1254,7 +1561,6 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
 
 
     </script>
-
     <script type="text/javascript">
                 
     function with_vehecle() {
@@ -1270,7 +1576,10 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
 
 
         const checkbox = document.getElementById('with_vehicle');
-        if (checkbox.checked) {
+        var has_octopus_discount = checkbox.checked;
+        has_octopus_discount = <?php echo (!$has_octopus_discount?'false':'has_octopus_discount'); ?>;
+        
+        if (has_octopus_discount) {
             console.log('access with car');
             octopus_no.required = true;
             octopus_no_cf.required = true;
@@ -1297,12 +1606,23 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
     }
 
     function checked_with_vehicle() {
-        if (document.getElementById('with_vehicle').checked) {
+        var has_octopus_discount = document.getElementById('with_vehicle').checked;
+        has_octopus_discount = <?php echo (!$has_octopus_discount?'false':'has_octopus_discount'); ?>;
+        // todo
+        // has_octopus_discount = false;
+        if (has_octopus_discount) {
             document.getElementById('with_vehicle_span').innerHTML = '<div style="color: yellow;">已選 停車優惠<br>Parking offer selected</div>';
             document.getElementById('with_vehicle_span').style.backgroundColor = '#2196F3';
         } else {
-            document.getElementById('with_vehicle_span').innerHTML = '<div>停車優惠<br>Parking offer</div>';
-            document.getElementById('with_vehicle_span').style.backgroundColor = 'white';
+            <?php if ($has_octopus_discount) { ?>
+                document.getElementById('with_vehicle_span').innerHTML = '<div>停車優惠<br>Parking offer</div>';
+            <?php } else { ?>
+                // document.getElementById('with_vehicle_span').innerHTML = '<div>不提供停車優惠<br>No parking discount</div>';
+                document.getElementById('with_vehicle_span').innerHTML = '<div style="color: red;">網站暫不提供泊車優惠，請到接待處換領 <br> Web-order CANNOT provide parking discount. <br> Please redeem at reception.</div>';
+                document.getElementById('with_vehicle_span').style.display = 'none';
+                document.getElementById('with_vehicle_span_space').style.display = 'none';
+            <?php } ?>
+                document.getElementById('with_vehicle_span').style.backgroundColor = 'white';
         }
         with_vehecle();
     }
@@ -1316,34 +1636,30 @@ document.getElementById(span_id).innerHTML = '傷健人士優惠<br>Disabled Pri
 
         </td>
     </tr>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table>
-
     <tr>
         <td colspan="2">
             
 
-<h3 style="background-color: white;"><hr> 預訂日期和時間 Booking date and time <hr></h3>
+<div class="section-header">📅 預訂日期和時間 Booking Date &amp; Time</div>
 
 
         </td>
     </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php
 
@@ -1365,15 +1681,16 @@ function getNextWeekDates() {
 $dates = getNextWeekDates();
 
 ?>
-    <tr>
-        <th class="hide_for_mobile">預訂日期
+    <tr><!-- 
+        <th class="hide_for_mobile">
+        </th> -->
+        <td>
+            <small> 預訂日期 Reservation date</small>
             <br>
-Reservation date
-        </th>
-        <td>*
+*
 <select name="booking_date" id="booking_date" onchange="setTimeout(function () {
 check_datetime();show_and_hide_hours_2();show_and_hide_hours();
-},1);" required>
+},10);" required>
      <optgroup>
     <?php foreach ($dates as $date): ?>
         <option value="<?php echo $date; ?>"><?php 
@@ -1392,7 +1709,6 @@ check_datetime();show_and_hide_hours_2();show_and_hide_hours();
     </tr>
 
 <?php 
-require_once 'setting-admin.php';
 
 $iternation = 1;
 if ($half_hour_cluster) {
@@ -1400,17 +1716,20 @@ if ($half_hour_cluster) {
 }
     
  ?>
-
     <tr>
-        <th class="hide_for_mobile">
+<!--         <th class="hide_for_mobile">
+</th> -->
 <!-- 
 Use javascript to create listener of the select-option "begin_hour" and set the "end_hour" have more than one than "begin_hour" when "begin_hour" have any change 
  -->
-開始時間 (小時)
+
+        <td>
+<small>
+開始時間 (小時) Starting time (Hour)    
+</small>
+
 <br>
-Starting time (Hour)
-</th>
-        <td>*
+            *
 <style type="text/css">
     .half_hour_option {
         text-align: left;
@@ -1418,7 +1737,7 @@ Starting time (Hour)
 </style>
 
 <?php 
-function generate_hour_option($is_begin_hour,$half_hour, $is_monday)
+function generate_hour_option($is_begin_hour,$half_hour, $is_monday, $must_half_hour)
 {
     $last_hour_option = 21;
     if (!$is_begin_hour) {
@@ -1453,9 +1772,11 @@ function generate_hour_option($is_begin_hour,$half_hour, $is_monday)
         <?php } ?>
 
         <?php if (
-            $half_hour 
-            && (($is_monday && $monday)||($not_monday && !$is_monday)) 
-            && ($is_begin_hour||(!$is_begin_hour && $hour != 22))
+            ($must_half_hour && $hour != 22) || (
+                $half_hour 
+                && (($is_monday && $monday)||($not_monday && !$is_monday)) 
+                && ($is_begin_hour||(!$is_begin_hour && $hour != 22))
+            )
         ) { ?>
             <option 
                 class="<?php echo ($not_monday?'not_monday ':''); echo ($monday?'monday ':''); ?>hour_opt <?php echo $prefix; ?>_hour_<?php echo $hour; ?> <?php echo $prefix; ?>_half_hour_<?php echo $hour; ?> half_hour_option" 
@@ -1480,43 +1801,43 @@ $and_hour_placeholder = '<option value="" disabled selected>完結時間 End tim
 
 <div style="display: none;" id="BeginWholeHourMon">
     <?php echo $begin_hour_placeholder; ?>
-    <?php generate_hour_option(true, false, true); ?>
+    <?php generate_hour_option(true, false , true, $must_half_hour); ?>
 </div>
 
 <div style="display: none;" id="BeginHalfHourMon">
     <?php echo $begin_hour_placeholder; ?>
-    <?php generate_hour_option(true, true, true); ?>
+    <?php generate_hour_option(true, true, true, $must_half_hour); ?>
 </div>
 
 <div style="display: none;" id="EndWholeHourMon">
     <?php echo $and_hour_placeholder; ?>
-    <?php generate_hour_option(false, false, true); ?>
+    <?php generate_hour_option(false, false, true, $must_half_hour); ?>
 </div>
 
 <div style="display: none;" id="EndHalfHourMon">
     <?php echo $and_hour_placeholder; ?>
-    <?php generate_hour_option(false, true, true); ?>
+    <?php generate_hour_option(false, true, true, $must_half_hour); ?>
 </div>
 
 
 <div style="display: none;" id="BeginWholeHour">
     <?php echo $begin_hour_placeholder; ?>
-    <?php generate_hour_option(true, false, false); ?>
+    <?php generate_hour_option(true, false, false, $must_half_hour); ?>
 </div>
 
 <div style="display: none;" id="BeginHalfHour">
     <?php echo $begin_hour_placeholder; ?>
-    <?php generate_hour_option(true, true, false); ?>
+    <?php generate_hour_option(true, true, false, $must_half_hour); ?>
 </div>
 
 <div style="display: none;" id="EndWholeHour">
     <?php echo $and_hour_placeholder; ?>
-    <?php generate_hour_option(false, false, false); ?>
+    <?php generate_hour_option(false, false, false, $must_half_hour); ?>
 </div>
 
 <div style="display: none;" id="EndHalfHour">
     <?php echo $and_hour_placeholder; ?>
-    <?php generate_hour_option(false, true, false); ?>
+    <?php generate_hour_option(false, true, false, $must_half_hour); ?>
 </div>
 
 
@@ -1536,11 +1857,13 @@ $and_hour_placeholder = '<option value="" disabled selected>完結時間 End tim
 
 
 
-    <tr>
-        <th class="hide_for_mobile">結束時間 (小時)
+    <tr><!-- 
+        <th class="hide_for_mobile"></th> -->
+        <td>
+            <small>結束時間 (小時) End time (Hours)</small>
+
 <br>
-End time (Hours)</th>
-        <td>*
+            *
 <select name="end_hour" id="end_hour" onchange="check_datetime()" required> <optgroup id="end_hour_group">
     <?php // generate_hour_option(false, false); ?>
     </optgroup>
@@ -1565,6 +1888,55 @@ function hide_class(class_name) {
 }
 
 // hide_class('selection_area');
+function hidePastHalfHourBlocksForEach(dateStr, elements, hourStr, minuteStr, now) {
+    elements.forEach(el => {
+        if (!dateStr) return;
+
+        const elementTime = new Date(`${dateStr}T${hourStr}:${minuteStr}:00`);
+
+        if (elementTime < now) {
+            el.style.display = "none";
+            el.disabled = true;
+            el.hidden = true;
+            console.log('Hiding past time block: ', el);
+        }
+    });
+}
+// hide_class('selection_area');
+function showHourBlocksForEach(elements) {
+    elements.forEach(el => {
+        el.style.display = "";
+        el.disabled = false;
+        el.hidden = false;
+    });
+}
+
+function hidePastHalfHourBlocks(dateStr) {
+    console.log('BEGIN hidePastHalfHourBlocks: ',dateStr);
+    var now = new Date("<?= date('Y-m-d H:i:s') ?>");
+
+    console.log('NOW: ', now);
+
+    // Loop 48 half-hour slots
+    for (let i = 0; i < 48; i++) {
+        const h = Math.floor(i / 2);
+        const m = (i % 2 === 0) ? "00" : "30";
+
+        const hourStr = String(h).padStart(2, "0");
+        const minuteStr = m;
+
+        // Map to your existing class names
+        const className = (minuteStr === "00")
+            ? `e_hour_${hourStr}`
+            : `e_half_hour_${hourStr}`;
+        // console.log('Checking class: ', className);
+        const elements = document.querySelectorAll(`.${className}`);
+        showHourBlocksForEach(elements);
+        hidePastHalfHourBlocksForEach(dateStr, elements, hourStr, minuteStr, now);
+    }
+    console.log('END hidePastHalfHourBlocks: ',dateStr);
+}
+
 
 function show_and_hide_hours_2() {
     var sand_bay_option_checked = document.getElementById('sand_bay_option').checked;
@@ -1581,45 +1953,6 @@ function show_and_hide_hours_2() {
     const day = parseInt(dateParts[2]);
 
     const dateObject = new Date(year, month, day);
-    const formattedDate = dateObject.toISOString().split('T')[0];
-    console.log('formattedDate:',formattedDate);
-
-
-<?php 
-
-
-require_once './account_variable.php';
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-$sql = "
-    SELECT
-        `holiday-date`
-    FROM
-        `applied-solar-holiday`
-    WHERE 
-    `holiday-date` 
-        BETWEEN 
-            DATE_ADD(NOW(), INTERVAL -100 DAY) 
-        AND 
-            DATE_ADD(NOW(), INTERVAL 100 DAY)
-    GROUP BY `holiday-date`;
-";
-
-$recent_holiday_list = array();
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        array_push($recent_holiday_list, $row['holiday-date']);
-    }
-}
-$conn->close();
- ?>
     const dayOfWeek = dateObject.getDay(); // Returns a number (0 for Sunday, 1 for Monday, etc.)
     const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     var weekdayName = weekdays[dayOfWeek];
@@ -1628,7 +1961,7 @@ $conn->close();
     var recent_holiday_list = <?php 
         echo json_encode($recent_holiday_list);
      ?>;
-    if (recent_holiday_list.indexOf(formattedDate) !== -1) {
+    if (recent_holiday_list.indexOf(booking_date.value) !== -1) {
         console.log('You\'re choosing holiday');
         weekdayName = 'Holiday';
     }
@@ -1639,7 +1972,7 @@ $conn->close();
     begin_hour_group = document.getElementById('begin_hour_group');
     end_hour_group = document.getElementById('end_hour_group');
 
-    // console.log('sand_bay_option_checked',sand_bay_option_checked);
+    console.log('sand_bay_option_checked',sand_bay_option_checked);
     // console.log('is_monday',is_monday);
 
     var begin_hour_name = 'Begin'
@@ -1650,8 +1983,8 @@ $conn->close();
         +(sand_bay_option_checked?'Half':'Whole')
         +'Hour'
         +(is_monday?'Mon':'');
-    console.log('Show: Begin hour ',begin_hour_name);
-    console.log('Show: End hour ',end_hour_name);
+    // console.log('Show: Begin hour ',begin_hour_name);
+    // console.log('Show: End hour ',end_hour_name);
 
     begin_hour_group.innerHTML =
     document.getElementById(begin_hour_name).innerHTML;
@@ -1663,7 +1996,19 @@ $conn->close();
 
 }
 
-show_and_hide_hours_2();
+
+function setDisplayById(ele_id ,display) {
+    var element = document.getElementById(ele_id);
+    if (!element) {
+        return;
+    }
+    if (display) {
+        element.style.display = '';
+    } else {
+        element.style.display = 'none';
+    }
+}
+
 
 function show_and_hide_hours() {
     var sand_bay_option_checked = document.getElementById('sand_bay_option').checked;
@@ -1687,37 +2032,40 @@ function show_and_hide_hours() {
 
 
     const formattedDate = dateObject.toISOString().split('T')[0];
-    console.log('formattedDate:',formattedDate);
+    // console.log('formattedDate:',formattedDate);
+    // console.log('booking_date.value:',booking_date.value);
+    
 
     var recent_holiday_list = <?php 
         echo json_encode($recent_holiday_list);
      ?>;
-    if (recent_holiday_list.indexOf(formattedDate) !== -1) {
+    if (recent_holiday_list.indexOf(booking_date.value) !== -1) {
         console.log('You\'re choosing holiday');
         weekdayName = 'Holiday';
     }
 
     var is_monday = (weekdayName=='Monday');
     // console.log('is_monday:',is_monday,'sand_bay_option_checked:',sand_bay_option_checked);
+    var is_half_hour = ( sand_bay_option_checked || <?php echo ($must_half_hour?"true":"false"); ?> );
 
     if (is_monday) {
-        if (sand_bay_option_checked) {
+        if (is_half_hour) {
             show_class('half_hour_option');
         }
         hide_class('not_monday');
         show_class('monday');
         // console.log('Show Monday');
-        if (!sand_bay_option_checked) {
+        if (!is_half_hour) {
             hide_class('half_hour_option');
         }
     } else {
-        if (sand_bay_option_checked) {
+        if (is_half_hour) {
             show_class('half_hour_option');
         }
         hide_class('monday');
         show_class('not_monday');
         // console.log('Show other than monday');
-        if (!sand_bay_option_checked) {
+        if (!is_half_hour) {
             hide_class('half_hour_option');
         }
     }
@@ -1735,26 +2083,25 @@ function show_and_hide_hours() {
         document.getElementById('sand_bay_option_span').style.backgroundColor = '#2196F3';
 
 
-        document.getElementById('selection_VIP').style.display = 'none';
-        document.getElementById('selection_sand').style.display = '';
-        document.getElementById('selection_iron').style.display = 'none';
+        setDisplayById('selection_VIP', false);
+        setDisplayById('selection_sand', true);
+        setDisplayById('selection_iron', false);
 
-        document.getElementById('selection_short_wood').style.display = 'none';
-        document.getElementById('selection_wood').style.display = 'none';
+        setDisplayById('selection_short_wood', false);
+        setDisplayById('selection_wood', false);
         
     } else {
-        document.getElementById('sand_bay_option_span').innerHTML = '<div>沙地球道 <br> 半小時預訂<br> Sand Bay <br> Half Hour Booking'
+        document.getElementById('sand_bay_option_span').innerHTML = '<div>沙地球道 <br> 半小時預訂<br> Sand Bay (Half Hour)'
         +'<br>'
         // +'<small style="color: red;">請雙擊 Please double click</small>'
         +'</div>';
         document.getElementById('sand_bay_option_span').style.backgroundColor = 'white';
 
-        document.getElementById('selection_VIP').style.display = '';
-        document.getElementById('selection_sand').style.display = 'none';
-        document.getElementById('selection_iron').style.display = '';
-
-        document.getElementById('selection_short_wood').style.display = '';
-        document.getElementById('selection_wood').style.display = '';
+        setDisplayById('selection_VIP', true);
+        setDisplayById('selection_sand', false);
+        setDisplayById('selection_iron', true);
+        setDisplayById('selection_short_wood', true);
+        setDisplayById('selection_wood', true);
     }
 
     selection_area();
@@ -1822,16 +2169,57 @@ function checkFutureDateTime() {
 
 }
 
+function isLessThanOneHourApart(dateA, dateB) {
+  const diffMs = Math.abs(dateA - dateB); // Difference in milliseconds
+  const oneHourMs = 60 * 60 * 1000;       // One hour in milliseconds
+  return diffMs < oneHourMs;
+}
+
+function getHKDatetime() {
+    const hongKongTime = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Asia/Hong_Kong',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    }).format(new Date());
+    console.log('hongKongTime:',hongKongTime); // e.g., "28/08/2025, 17:11:00"
+    // Split date and time
+    const [datePart, timePart] = hongKongTime.split(', ');
+    const [day, month, year] = datePart.split('/');
+    const [hour, minute, second] = timePart.split(':');
+    // Create Date object in Hong Kong time (UTC+8)
+    const hongKongDate = new Date(Date.UTC(year, month - 1, day, hour - 8, minute, second));
+    console.log(hongKongDate); // Native Date object in your local time zone
+    return hongKongDate;
+}
+</script>
+
+<script>
+// Example usage:
+const now = new Date();
+const fortyFiveMinutesLater = new Date(now.getTime() + 45 * 60 * 1000);
+
+console.log(isLessThanOneHourApart(now, fortyFiveMinutesLater)); // true
+
 function checkFutureDateTime(justCheck) {
     var is_management = <?php echo ($is_management?'true':'false'); ?>;
     
-    var currentDate = new Date('<?php echo $current_timestamp; ?>');
-    var futureOneHourDate = new Date('<?php echo $futureOneHour_timestamp; ?>');
+    var current_timestamp = '<?php echo $current_timestamp; ?>';
+    var futureOneHour_timestamp = '<?php echo $futureOneHour_timestamp; ?>';
+    // console.log('current_timestamp:', current_timestamp);
+    // console.log('futureOneHour_timestamp:', futureOneHour_timestamp);
+    var currentDate = new Date(current_timestamp);
+    var futureOneHourDate = new Date(futureOneHour_timestamp);
 
     var now;
-    if (is_management) {
+    if (is_management || <?php echo ($must_half_hour?'true':'false')  ?> ) {
+        // console.log('currentDate:', currentDate);
         now = currentDate;
     } else {
+        // console.log('futureOneHourDate:', futureOneHourDate);
         now = futureOneHourDate;
     }
 
@@ -1845,8 +2233,17 @@ function checkFutureDateTime(justCheck) {
         }
         return;
     }
-
-    if ( beginTime >= now && endTime > now ) {
+    
+    var sand_bay_option_checked = document.getElementById('sand_bay_option').checked;
+    isLessThanOneHour = isLessThanOneHourApart(beginTime, endTime);
+    if ( 
+        beginTime >= now && endTime > now <?php 
+        if ($must_half_hour) {
+            // half hour system cannot play less than an hour 
+            echo "&& (!isLessThanOneHour || sand_bay_option_checked)"; 
+        }
+         ?>
+    ) {
         if (justCheck) {
             return true;
         }
@@ -1854,7 +2251,15 @@ function checkFutureDateTime(justCheck) {
         if (justCheck) {
             return false;
         } else {
-            alert('您選擇了不當的時間\nYou selected a inappropriate time');
+            if (isLessThanOneHour) {
+                console.log('is less than an hour:');
+                console.log('beginTime:'+beginTime);
+                console.log('endTime:'+endTime);
+                alert('請選擇一小時或更長。\n Please select one hour or more.');
+            } else {
+                alert('您選擇了不當的時間\nYou selected an inappropriate time.');
+            }
+            console.log('( = '+beginTime+' - '+endTime+' ) ');
             console.log('now:',now);
             console.log('beginTime:',beginTime);
             console.log('endTime:',endTime);
@@ -1961,6 +2366,75 @@ clearHours();
 
 
 
+<tr
+<?php 
+if ($reserve_type == 'pickleball') {
+?>
+hidden
+<?php 
+}
+ ?>
+>
+    <td>
+
+<label class="container" style="text-align: center;">
+    <input type="checkbox" name="sand_bay_option" id="sand_bay_option" onclick="
+    check_sand_bay();
+    show_and_hide_hours_2();
+    show_and_hide_hours();
+">
+    <span id="sand_bay_option_span" class="span_checkbox checkmark widen_checkbox higher" 
+    style="
+        color: black;
+        border-style: solid;
+        border-radius:  20px;
+        text-align: center;
+    " onchange="setTimeout(function () {
+        check_sand_bay();show_and_hide_hours();show_and_hide_hours_2();
+    },10);">
+    </span>
+
+    
+</label>
+
+                        <br class="hide_for_mobile">
+                        <br class="hide_for_mobile">
+                        <br class="hide_for_mobile">
+                        <br class="hide_for_mobile">
+                        <br class="hide_for_mobile">
+                        <br class="hide_for_mobile">
+
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+<br class="hide_for_desktop">
+
+    </td>
+</tr>
+<script>
+show_and_hide_hours_2();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1971,34 +2445,70 @@ clearHours();
         <td colspan="2">
 
 
-<h3 style="background-color: white;"><hr>
-        請選擇高爾夫打球 預訂位置
-        <br>
-        Please select a golf course to reserve your spot<hr>
-</h3>
+<?php 
+if ($reserve_type == 'pickleball') {
+?>
+<div class="section-header">🏓 請選擇匹克球 預訂位置<br><small style="color:rgba(255,255,255,0.85)">Please select the courts you would like to reserve</small></div>
+<?php 
+} else {
+    
+?>
+<div class="section-header">⛳ 請選擇高爾夫打球 預訂位置<br><small style="color:rgba(255,255,255,0.85)">Please select the courts you would like to reserve</small></div>
+<?php 
+}
+ ?>
 
         </td>
     </tr>
-</table>
+    <tr>
+        <td colspan="2">
+            
 
 
-<table style="width: 100px;" class="selection_area">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="legend-table" style="width: auto;">
     <tr><td colspan="2">
         
-請先選擇您的球道，然後按「提交」按鈕。<br>
-Please select your fairway first and then click the Submit button. <br>
-未選擇球道時，提交按鈕將無法使用。<br>
-When no lane is selected, the submit button will not be visible.<br>
+
+請先選擇您的<?php echo ($reserve_type == 'pickleball'?"球場":"球道"); ?>，然後按「提交」按鈕。<br>
+Please select your court(s) and then click the Submit button. <br>
+未選擇<?php echo ($reserve_type == 'pickleball'?"球場":"球道"); ?>時，提交按鈕將無法使用。<br>
+When no court is selected, the submit button will not be visible.<br>
 <hr>
     </td></tr>
-    <tr><td style="width: 50px;"> 綠色（可預約）<br> Green (Available for reservation) </td><td style="background-color: #91FE69;width: 100px;"></td></tr>
-    <tr><td style="width: 50px;"> 紅色（已預訂）<br> Red (Reserved) </td><td style="background-color: #FE8569;width: 100px;"></td></tr>
+    <tr><td class="legend-available">🟢 綠色 — 可預約<br>Green — Available</td></tr>
+    <tr><td class="legend-booked">🔴 紅色 — 已預訂<br>Red — Reserved</td></tr>
 </table>
 
+<hr>
+<!-- 
 <p style="color: red;">
-            請不要選擇超過40條球道，否則將無法預訂<br>
+            請不要選擇超過40<?php echo ($reserve_type == 'pickleball'?"個球場":"條球道"); ?>，否則將無法預訂<br>
             Please do not select more than 40 fairways or your reservation will not be available
-</p>
+</p> -->
 
 <script>
 
@@ -2081,8 +2591,6 @@ Use php to generate html, css to create a complex group of check box in a select
         }
     </style>
     <div class="booking-form">
-        <hr>
-
 
 
 <style type="text/css">
@@ -2125,6 +2633,41 @@ td, th {
 <?php 
 
 require_once './position_list.php';
+
+// $position_list_ = array(
+//     //Sand
+//     array(
+//         1,2
+//         // ,3
+//     ),
+//     // VIP
+//     array(
+//         "VIP"
+//     ),
+//     // Iron
+//     array(
+        
+//         5,6,7,8,9,10,11,12,13,
+//         15,16,
+//         17,18,19,20,21,22,23,
+//         25,26,
+//         27,28,29,30,31,32,33,
+//         35,
+//         36,37,38,39,
+//     ),
+//     // Wood
+//     array(
+//         50,51,52,53,
+
+//         55,56,57,
+//         59,60,61,62,63,
+//         65,66,67,68,69,70,71,72,73,
+
+//         75,76,77,78,79,80,81,82,83
+//         // ,84
+//         ,85
+//     ),
+// );
 
 ?>
 
@@ -2217,7 +2760,7 @@ require_once './position_list.php';
 </style>
 <?php
 
-function spotTableVertical($arr,$title="")
+$spotTableVertical = function ($arr,$title="") use ($reserve_type)
 {
 
     $ele_id = substr(md5($title), 0, 4);
@@ -2257,7 +2800,10 @@ function toggleDiv<?php echo $ele_id; ?>() {
 
 <div onclick="toggleDiv<?php echo $ele_id; ?>()" class="expend" style="background-color: white;">
 <hr>
-    <h3><b><?php echo $title; ?></b></h3><br>
+    <h3><b><?php 
+        echo $title; 
+    
+    ?></b></h3><br>
     <small>展開/隱藏 Expand/Hide</small><br>
 <hr>
 </div>
@@ -2279,7 +2825,22 @@ function toggleDiv<?php echo $ele_id; ?>() {
             }
          ?>
         <tr class="position position_<?php echo "$p"; ?>">
-            <td class="c higher position position_<?php echo "$p"; ?>" ><?php echo $p; ?></td>
+            <td class="c higher position position_<?php echo "$p"; ?>" ><?php 
+            // echo $p;
+    if ($reserve_type == 'pickleball') {
+        if (filter_var($p, FILTER_VALIDATE_INT) !== false) {
+            $num = (int)$p;
+            $result = $num - 100 + 1;
+            ?>
+            <small>
+                球場編號 Court No. <?php echo $result; ?>
+            </small>
+            <?php
+        }
+    } else {
+        echo $p; 
+    }
+            ?></td>
             <th>
 
 
@@ -2300,7 +2861,7 @@ function toggleDiv<?php echo $ele_id; ?>() {
     </tbody>
 </table>
 <?php
-}
+};
 
 
 function spotTableHorizon($arr)
@@ -2335,53 +2896,81 @@ function spotTableHorizon($arr)
 
 <table class="selection_area">
     <tbody>
-        <tr id="selection_VIP">
+        <?php
+$bays_tr = function($id, $position_submenu,  $title) use ($reserve_type, $spotTableVertical) {
+    ?>
+        <tr id="<?php echo $id; ?>">
             <td>
-                
 <?php 
-spotTableVertical($position_list_[1], '貴賓室球道 VIP Room Bays');
+$spotTableVertical($position_submenu, title: $title);
  ?>
             </td>
         </tr>
-        <tr id="selection_sand">
-            <td>
-                
+    <?php
+};
+        ?>
 <?php 
-spotTableVertical($position_list_[0], '沙地 球道 Sand court');
- ?>
-            </td>
-        </tr>
-        <tr id="selection_iron">
-            <td>
-                
-<?php 
-spotTableVertical($position_list_[2], '鐵桿球道 <br> Irons Only Bays');
-// spotTableVertical($position_list_[3]);
- ?>
-            </td>
-        </tr>
-        <tr id="selection_short_wood">
-            <td>
-                
-<?php 
-spotTableVertical($position_list_[3], '鐵桿及球道木桿球道 <br> Irons to Fairway Woods Bays');
-// spotTableVertical($position_list_[3]);
- ?>
-            </td>
-        </tr>
-        <tr id="selection_wood">
-            <td>
+if (!$position_list_) {
+    die();
+}
+$golf_bays_trs = function() use ($bays_tr, $position_list_) {
+$bays_tr("selection_VIP", $position_list_[1], '貴賓室球道 VIP Room Bays');
+$bays_tr("selection_sand", $position_list_[0], '沙地 球道 Sand court');
+$bays_tr("selection_iron", $position_list_[2], '鐵桿球道 <br> Irons Only Bays');
+$bays_tr("selection_short_wood", $position_list_[3], '鐵桿及球道木桿球道 <br> Irons to Fairway Woods Bays');
+$bays_tr("selection_wood", $position_list_[4], '所有球桿球道 <br> All Clubs Bays');
+};
+?>
 
-                
+
+
+
+
+
+
+
+
+
+
+
 <?php 
-spotTableVertical($position_list_[4], '所有球桿球道 <br> All Clubs Bays');
-// spotTableVertical($position_list_[5]);
-// spotTableVertical($position_list_[6]);
+if ($reserve_type == 'pickleball') {
+    $bays_tr("selection_pickle_ball", $position_list_[5], '匹克球 <br> Pickleball');
+} else {
+    $golf_bays_trs();
+}
  ?>
-            </td>
-        </tr>
+
+<script>
+const expanded = document.querySelectorAll('.expend');
+if (expanded.length === 1) {
+    expanded[0].click();
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </tbody>
 </table>
+
+
+
+
+
+
+
+
 <hr>
 <script type="text/javascript">
     
@@ -2392,12 +2981,39 @@ show_and_hide_hours();
 
 
 
-            <table style="border-style: double;font-size: 0.9em;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </td>
+    </tr>
                 <tr>
-                    <td></td>
-                    <td>
+                    <td colspan="2">
                         <br>
-                        <b style="font-size: 1.5em;">備註 Remark</b><br><br>
+                        <b style="font-size: 1.5em;">備註 Remark</b>
+                        <br>
+
 <!-- 
                         如果您選擇正價，不需要備註。<br>
                         If you choose regular price, remark may not needed.<br>
@@ -2420,58 +3036,65 @@ show_and_hide_hours();
                         <br>
                         <br>
  -->
-                    </td>
-                    <td colspan="2">
                         <br>
-                        <textarea name="remark" style="
-/*                        width: 400px;*/
-                        width: 100%;
-                        height: 300px;" placeholder="
-備註 Remark
-
-
-"></textarea>
+                        <div class="remarks-label">✏️ 備註 Remark</div>
+                        <textarea name="remark" class="remark-textarea" placeholder="如有特殊要求請註明&#10;Please note any special requests here..."></textarea>
                         <br>
                         <br>
                     </td>
                 </tr>
-            </table>
+                <tr>
+                    <td class="submit-section">
+                        
 
 <div
     onmouseover="notice_submitbutton()" 
     onclick="notice_submitbutton()" 
 >
     
-<input type="submit" class="submit-button" value="提交 Submit" 
+<input 
+    type="submit" 
+    class="submit-button" 
+    value="✅ 提交 Submit" 
     onmousedown="update_booking_record();checkBookingRecord();"
- disabled>
+    disabled
+    >
 
 </div>
 <script type="text/javascript">
     function notice_submitbutton() {
-        
-        confirmationCodeValid = validateConfirmationCode();
-        checkboxesValids = validateCheckboxes();
-        dateTimeIsValid = isValidDateTime();
-        octopusConfirm = confirm_octopus();
-
-        if (!checkboxesValids) {
-            alert('請在提交前選擇球道 \n Please select a fairway before submitting ');
-        } else if (!dateTimeIsValid) {
-            alert('請輸入目前時間之前的有效日期 \n Please enter a valid date before the current time ');
-        } else if (!octopusConfirm) {
-            alert('請在輸入欄和確認輸入欄輸入有效的八達通卡號碼 \n Please enter a valid Octopus card number in the input field and confirmation input field ');
-        } else if (!confirmationCodeValid) {
-            alert('請輸入正確的電子郵件確認碼 \n Please enter correct email confirmation code ');
-        }
-
-        console.log('checkboxesValids,dateTimeIsValid,octopusConfirm: ',checkboxesValids,dateTimeIsValid,octopusConfirm);
+        setTimeout(function() {
+            send_confirm_code(true);
+            setTimeout(function() {
+                confirmationCodeValid = validateConfirmationCode();
+                checkboxesValids = validateCheckboxes();
+                dateTimeIsValid = isValidDateTime();
+                octopusConfirm = confirm_octopus();
+                
+                if (checkNameEmpty()) {
+                    alert("請輸入您的姓名。 \n Please enter your name.");
+                } else if (!checkboxesValids) {
+                    alert('請在提交前選擇球道 \n Please select a fairway before submitting ');
+                } else if (!dateTimeIsValid) {
+                    alert('請輸入目前時間之前的有效日期 \n Please enter a valid date before the current time ');
+                } else if (!octopusConfirm) {
+                    alert('請在輸入欄和確認輸入欄輸入有效的八達通卡號碼 \n Please enter a valid Octopus card number in the input field and confirmation input field ');
+                } else if (!confirmationCodeValid) {
+                    alert('請輸入正確的電子郵件確認碼 \n Please enter correct email confirmation code ');
+                }
+                console.log('checkboxesValids,dateTimeIsValid,octopusConfirm: ',checkboxesValids,dateTimeIsValid,octopusConfirm);
+            }, 1);
+        }, 1);
     }
 </script>
 <br>
 
-<i><small style="color: grey;font-size: 0.6em;">提交前，請確保您的（1）電子郵件已確認並輸入正確的確認碼，（2）如果您想駕車進入高爾夫球場，請輸入八達通號碼並重複確認，以及（3）選擇球道。<br>
-Before submission, please make sure your (1) email confirmed with correct confirmation code, (2) enter octupus number with repeat confirmation if you want to access the golf court with car, and (3) select the fairway.</small></i>
+<div class="submit-notice">
+<strong>⚠️ 提交前請注意 / Before submitting:</strong><br>
+❶ 確認電子郵件並輸入正確的確認碼 &bull; Confirm email with correct confirmation code<br>
+❷ 如駕車入場請輸入八達通號碼並重複確認 &bull; Enter Octopus number with confirmation if driving<br>
+❸ 選擇球道 &bull; Select the fairway
+</div>
 
 <hr>
 
@@ -2546,7 +3169,7 @@ Before submission, please make sure your (1) email confirmed with correct confir
 
             collection = document.getElementsByClassName(element_id);
             for (let i = 0; i < collection.length; i++) {
-                collection[i].style.backgroundColor = "red";
+                collection[i].style.backgroundColor = "rgb(255,200,200)";
                 collection[i].checked = false;
             }
 
@@ -2564,7 +3187,9 @@ Before submission, please make sure your (1) email confirmed with correct confir
 
     function checkBookingRecord() {
                 // console.log('update_booking_record ');
-        setTimeout(checkConfirmCode, 1);
+        setTimeout(function() {
+            checkConfirmCode(false);
+        }, 1);
 
 
         // Get the password inputs
@@ -2580,8 +3205,8 @@ Before submission, please make sure your (1) email confirmed with correct confir
         const begin_hour = parseInt(document.getElementById("begin_hour").value);
         const end_hour = parseInt(document.getElementById("end_hour").value);
         // console.log("check for - "+booking_date+' '+begin_hour+' '+end_hour);
-
-        for (var ii = 1; ii <= 100; ii++) {
+        max_num = 200
+        for (var ii = 1; ii <= max_num; ii++) {
             const element_id = "position_"+ii;
             if (!document.getElementById(element_id)) {
                 continue;
@@ -2601,7 +3226,7 @@ Before submission, please make sure your (1) email confirmed with correct confir
                     // }
         for (var i = begin_hour; i < end_hour; i++) {
             // console.log('level 1 '+i);
-            for (var ii = 1; ii <= 100; ii++) {
+            for (var ii = 1; ii <= max_num; ii++) {
                 check_red(booking_date, i, ii);
             }
             check_red(booking_date, i, 'VIP');
@@ -2622,12 +3247,13 @@ Before submission, please make sure your (1) email confirmed with correct confir
         checkboxesValids = validateCheckboxes();
         dateTimeIsValid = isValidDateTime();
         octopusConfirm = confirm_octopus();
+        nameValid = !checkNameEmpty();
 
         // console.log('checkboxesValids,dateTimeIsValid,octopusConfirm: ',checkboxesValids,dateTimeIsValid,octopusConfirm);
 
         collection = document.getElementsByClassName('submit-button');
         for (let i = 0; i < collection.length; i++) {
-            if (checkboxesValids&&dateTimeIsValid&&octopusConfirm&&confirmationCodeValid) {
+            if (checkboxesValids&&dateTimeIsValid&&octopusConfirm&&confirmationCodeValid&&nameValid) {
                 collection[i].style.color = 'black';
                 collection[i].disabled = false;
             } else {
@@ -2680,7 +3306,7 @@ for (var i = 0; i < inputs.length; i++) {
 }
 document.getElementById('confirmation_code').value = '';
 
-document.getElementById('confirmation_button').value = ' 確認 Confirm ';
+document.getElementById('confirmation_button').value = ' 確認電郵 Verify Email ';
 
 
 
@@ -2707,5 +3333,13 @@ setTimeout(function () {
 </script>
 
 
+
+                    </td>
+                </tr>
+            </table>
+
 </body>
 </html>
+<?php
+t_log('end[input-form.php]');
+?>

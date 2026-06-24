@@ -276,6 +276,21 @@ echo "con err";
 }
 
 
+// ── Load system variables (configurable expire times) ──────────
+$_sysvar_adhoc_buffer = 5;      // default fallback (adhoc-reservation-payment-buffer)
+$_sysvar_general_buffer = 60;   // default fallback (general-reservation-payment-buffer)
+$sysvar_result = $conn->query("SELECT `variable_name`, `variable_value` FROM `golf-system-variable` WHERE `variable_name` IN ('adhoc-reservation-payment-buffer','general-reservation-payment-buffer')");
+if ($sysvar_result && $sysvar_result->num_rows > 0) {
+    while ($sv = $sysvar_result->fetch_assoc()) {
+        if ($sv['variable_name'] === 'adhoc-reservation-payment-buffer') {
+            $_sysvar_adhoc_buffer = (int)$sv['variable_value'];
+        } elseif ($sv['variable_name'] === 'general-reservation-payment-buffer') {
+            $_sysvar_general_buffer = (int)$sv['variable_value'];
+        }
+    }
+}
+
+
 $part_time_elapsed_secs = microtime(true) - $part_start;
 if (isset($_GET['debug'])) {
   echo '(Part Z.8 Takes): '.$part_time_elapsed_secs.' ';
@@ -868,8 +883,8 @@ SELECT
     ,(case when 
       `$booking_table_name`.`timestamp`<DATE_SUB(CURRENT_TIMESTAMP, INTERVAL (
         case when (`$booking_table_name`.`name`='' and `$booking_table_name`.`email`='')
-          then 5
-          else 60
+          then $_sysvar_adhoc_buffer
+          else $_sysvar_general_buffer
         end
         ) MINUTE)
       and (

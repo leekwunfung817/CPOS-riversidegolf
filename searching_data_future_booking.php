@@ -100,79 +100,79 @@ $response = file_get_contents($url);
 
     <style>
 body {
-    background: linear-gradient(180deg, #eaf7ff 0%, #f7fcff 50%, #ffffff 100%);
+    background: #ffffff;
     font-family: "Segoe UI", Tahoma, sans-serif;
-    color: #134166;
+    color: #333333;
 }
 
 h1, h2, h3 {
-    color: #0f4d7a;
+    color: #444444;
 }
 
 a {
-    color: #0b6fb3;
+    color: #555555;
 }
 
 table, th, td {
-    border: 1px solid #7ec5ee;
+    border: 1px solid #cccccc;
     text-align: center;
 }
 
 table {
     border-collapse: collapse;
     background-color: #ffffff;
-    box-shadow: 0 2px 8px rgba(70, 150, 210, 0.15);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 td {
     white-space: nowrap;
     font-size: 0.9em;
-    background-color: #f3fbff;
+    background-color: #ffffff;
     /* padding: 5px 7px; */
 }
 
 th {
     white-space: nowrap;
     font-size: 0.7em;
-    background-color: #caecff;
-    color: #0f4d7a;
+    background-color: #f5f5f5;
+    color: #444444;
     /* padding: 6px 8px; */
 }
 
 input[type="text"],
 input[type="number"],
 textarea {
-    border: 1px solid #7ec5ee;
+    border: 1px solid #cccccc;
     border-radius: 6px;
-    background: #f5fcff;
-    color: #0f4d7a;
+    background: #ffffff;
+    color: #333333;
     /* padding: 4px 6px; */
 }
 
 input[type="submit"],
 button {
-    border: 1px solid #4da9df;
+    border: 1px solid #cccccc;
     border-radius: 6px;
-    background: linear-gradient(180deg, #7fd0ff 0%, #53b8ef 100%);
-    color: #ffffff;
+    background: #f9f9f9;
+    color: #333333;
     cursor: pointer;
 }
 
 input[type="submit"]:hover,
 button:hover {
-    background: linear-gradient(180deg, #66c6fb 0%, #40aee7 100%);
+    background: #eaeaea;
 }
 .unpaid_button:hover {
-    background-color: #cfefff;
+    background-color: #f0f0f0;
     cursor: pointer;
 }
 
 .unpaid_button {
-    color: #0b6fb3;
+    color: #555555;
 }
 
 #message_bar {
-    color: #0f4d7a;
+    color: #333333;
     font-weight: 600;
 }
 

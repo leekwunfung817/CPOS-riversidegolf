@@ -27,7 +27,7 @@ function mail_payment_record($booking_arr_buf,$mail_data)
 	($pickleball_selections ? "White Head Pickleball" : "White Head Golf").
 	' - Payment Confirmed';
 
-    $emailadd = 'support@cpospay.com'; // Your email address (where the form information will be sent)
+    $emailadd = 'support@riversidegolf.com.hk'; // Your email address (where the form information will be sent)
     $req = '0'; // Set to '1' to make all fields required, '0' to allow empty fields
 
     // Initialize variables
@@ -81,8 +81,7 @@ Spot：".($pickleball_selections ? $pickleball_selections : $mail_data['p_select
 
 
 Please download this QR code as your keycard to enter the ".($pickleball_selections ? "pickleball" : "golf")." course
-https://cpospay.com/GolfBooking/payment-page/payment-confirm.php?auth=".$mail_data['auth']."&decision=".$mail_data['decision']."&download=true
-
+".$mail_data['full_url']."/GolfBooking/payment-page/payment-confirm.php?auth=".$mail_data['auth']."&decision=".$mail_data['decision']."&download=true
 
 
 Welcome to our ".($pickleball_selections ? "pickleball" : "golf")." driving range!
